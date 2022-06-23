@@ -1,0 +1,51 @@
+// MEDIA QUERIES
+@mixin media-tablet {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-mobile {
+    @media screen and (max-width: 569px) {
+        @content;
+    }
+}
+
+
+// ANIMATIONS
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    50% { opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+// VARIABLES
+$primary-color: rgb(12, 25, 54);
+
+
+// UTILITY CLASSES
+.wrapper {
+    @include media-mobile{
+        padding-inline: 1.5rem;
+    }
+
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
+
+.title {
+    @include media-mobile {
+        font-size: 1.4rem;
+        letter-spacing: .7px;
+        line-height: 1;
+    }
+    text-align: center;
+    padding-block-start: 1.5rem;
+    padding-inline: 2rem;
+    font-size: 2rem;
+    letter-spacing: 2px;  
+    line-height: 1.1;
+    color: #f5f6fa;       
+}

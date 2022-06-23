@@ -1,0 +1,125 @@
+@import '../config';
+
+.movie {
+    @include media-mobile{
+        height: 130px;
+        margin-bottom: 1.5rem;
+    }
+    animation: fadeIn 2s ease-in-out forwards;
+    display: flex;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    // width: clamp(65%, 1000px, 100%);
+    max-width: 1000px;
+    margin-inline: auto;
+    height: 200px;
+    background: #353b48;
+    border: 1px solid #718093;
+
+    &__image {
+        border-radius: 10px 0 0 10px;
+        max-width: 130px;
+        display: inline-block;
+        flex: 0 0 0;
+    }
+
+    &__details {
+        @include media-mobile{
+            padding: .6rem;
+            height: 100%;
+        }
+
+        padding: 1.7rem;
+        flex-grow: 1;
+        position: relative;
+        overflow: hidden;
+        max-height: 180px;
+
+        &__title {
+            @include media-mobile{
+                font-size: 1rem;
+                letter-spacing: .1px;
+                max-width: 95%;
+            }
+
+            font-size: 1.2rem;
+            margin-bottom: .2rem;
+            font-weight: 600;
+            max-width: 75%;
+            letter-spacing: .5px;
+            color: #f5f6fa;
+            line-height: 1.1;
+
+            span {
+                color: #dcdde1;
+            }
+        }
+
+        &__genre {
+            @include media-mobile {
+                letter-spacing: .1px;
+                max-width: 100%;
+            }
+
+            color: #95c7f7;
+            font-weight: 400;
+            font-size: .85rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: .5px;
+            max-width: 75%;
+            line-height: 1.1;
+        }
+
+        &__rating {
+            @include media-mobile{
+                top: auto;
+                bottom: .6rem;
+                right: .6rem;
+                font-size: .85rem;
+                width: 30px;
+                height: 30px;
+                letter-spacing: .3px;
+            }
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #718093;
+            width: 41px;
+            height: 41px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: #2f3640;
+            letter-spacing: .7px;
+            position: absolute;
+            top: 1.7rem;
+            right: 1.7rem;
+
+            &.green {
+                color: #4cd137;
+            }
+        
+            &.orange {
+                color: #fbc531;
+            }
+        
+            &.red {
+                color: #e84118;
+            }
+        }
+
+        &__overview {
+            @include media-mobile {
+                display: none;
+            }
+            line-height: 1.4;
+            width: 90%;
+            letter-spacing: .3px;
+            color: #dcdde1;
+            font-size: .95rem;
+            max-height: 3.8rem;
+            overflow: hidden;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+@import '../config';
+
+nav {
+    background-color: rgba($color: $primary-color, $alpha: 0.95);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 75px;
+
+        .header-logo {
+            @include media-mobile {
+                font-size: 1.4rem;
+            }
+            color: #f5f6fa;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            line-height: 1.5;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+            span {
+                color: #8c7ae6;
+            }
+        }
+
+        .header-form {
+            
+            #searchInput {
+                @include media-mobile {
+                    margin-right: 0;
+                    max-width: 180px;
+                    padding: 0.3rem 0.5rem;
+                }
+                padding: 0.5rem 0.7rem;
+                font-family: inherit;
+                font-size: .9rem;
+                background-color: $primary-color;
+                color: #dcdde1;
+                border: 2px solid #273c75;
+                border-radius: 5px;
+                margin-right: 1rem;
+                letter-spacing: .5px;
+                transition: all .2s ease-in-out;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 10px rgb(32, 63, 97);
+                    background-color: $primary-color;
+                }
+                
+                &::placeholder {
+                    color: #dcdde1;
+                    text-overflow: ellipsis;
+                    font-size: .9rem;
+                }
+            }
+
+            #searchButton {
+                @include media-mobile {
+                    display: none;
+                }
+                color: #f5f6fa;
+                padding: 0.5rem 0.9rem;
+                border-radius: 5px;
+                font-size: .9rem;
+                background-color: #273c75;
+                border: 2px solid #8c7ae6;
+                font-weight: 500;
+                letter-spacing: .5px;
+                cursor: pointer;
+            }
+        }
+    }
+}
