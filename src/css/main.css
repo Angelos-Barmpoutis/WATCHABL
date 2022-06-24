@@ -340,7 +340,6 @@ nav .nav .header-form #searchButton {
 }
 
 .movie {
-  animation: fadeIn 1s ease-in-out forwards;
   display: flex;
   border-radius: 10px;
   margin-bottom: 2rem;

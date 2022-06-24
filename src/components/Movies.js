@@ -2,6 +2,7 @@ import Movie from './Movie';
 
 const Movies = (props) => {
     const genres = props.genres;
+    let  movieAnimationDelay = 0.3
 
     // Convert genre IDs from numbers to words
     function getGenre(genreIds) {
@@ -25,6 +26,7 @@ const Movies = (props) => {
     }
 
     const movies = props.responseMovies.map((movie) => {
+        movieAnimationDelay += .15
         const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
         if (poster_path !== null && overview) {
             return (
@@ -40,6 +42,7 @@ const Movies = (props) => {
                     tvReleaseDate = {first_air_date}
                     getGenre = {getGenre}
                     getReleaseYear = {getReleaseYear}
+                    movieAnimationDelay = {movieAnimationDelay}
                  />
             );
         }
