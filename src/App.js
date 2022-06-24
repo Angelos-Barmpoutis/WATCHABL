@@ -18,6 +18,8 @@ const App = () => {
   );
   const [movieInput, setMovieInput] = useState('');
   const [allMovies, setAllMovies] = useState([]);
+  const [moviesOffSetTop, setMoviesOffSetTop] = useState();
+  const [navOffsetHeight, setNavOffsetHeight] = useState();
   
   // Send request to get genres' list
   useEffect(() => {
@@ -31,6 +33,7 @@ const App = () => {
         genres: data.genres
       }
     )))
+    .catch(error => console.log(error))
   }, [request.category])
 
   // Send request to get movies-tv shows
@@ -53,7 +56,10 @@ const App = () => {
           totalPages: data.total_pages
         }
       ))
+      setMoviesOffSetTop(document.querySelector('#movies').offsetTop);
+      setNavOffsetHeight(document.querySelector('.nav').offsetHeight);
     })
+    .catch(error => console.log(error))
   }, [request.page, request.searchInput, request.method, request.category])
 
   // Set movieInput to whatever is being typed in searchInput
@@ -61,16 +67,18 @@ const App = () => {
     setMovieInput(e.target.value);
   }
 
-  // Search for a query when searchButton gets clicked
+  // Search for a query when searchForm gets submitted
   function searchFormSubmit(e) {
     e.preventDefault();
     setRequest(prevRequest => (
       {
         ...prevRequest,
+        page: 1,
         method: 'search',
         searchInput: [true, movieInput]
       }
     ))
+    scrollToMovies()
   }
 
   // Set request's category to movie
@@ -81,7 +89,8 @@ const App = () => {
         page: 1,
         category: 'movie'
       }
-    ))
+    ));
+    scrollToMovies()
   }
 
   // Set request's category to tv
@@ -92,7 +101,8 @@ const App = () => {
         page: 1,
         category: 'tv'
       }
-    ))
+    ));
+    scrollToMovies()
   }
 
   // Go up 1 page
@@ -103,6 +113,7 @@ const App = () => {
         page: prevRequest.page + 1
       }
       ));
+      scrollToMovies()
     }
   }
 
@@ -113,6 +124,7 @@ const App = () => {
       page: prevRequest.page + 2
     }
     ));
+    scrollToMovies()
   }
 
   // Go back 1 page
@@ -123,6 +135,7 @@ const App = () => {
         page: prevRequest.page -1
       }
       ));
+      scrollToMovies()
     }
   }
 
@@ -133,6 +146,12 @@ const App = () => {
       page: prevRequest.page - 2
     }
     ));
+    scrollToMovies()
+  }
+
+  // Scroll to movies section
+  function scrollToMovies() {
+    window.scrollTo(0,  moviesOffSetTop - navOffsetHeight);
   }
 
   return (

@@ -102,7 +102,7 @@ nav .nav {
 
 nav .nav .header-logo {
   color: #f5f6fa;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   letter-spacing: 1.5px;
   line-height: 1.5;
   text-decoration: none;
@@ -220,7 +220,7 @@ nav .nav .header-form #searchButton {
   width: 100%;
   color: #f5f6fa;
   overflow-x: hidden;
-  margin-top: 75px;
+  margin-top: 95px;
 }
 
 .hero__images {
@@ -228,7 +228,7 @@ nav .nav .header-form #searchButton {
   align-items: center;
   justify-content: center;
   max-width: 1280px;
-  height: calc(100vh - 510px);
+  height: calc(100vh - 540px);
   padding: 1.5rem 2rem;
   gap: 1.2rem;
 }
@@ -340,7 +340,7 @@ nav .nav .header-form #searchButton {
 }
 
 .movie {
-  animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 1s ease-in-out forwards;
   display: flex;
   border-radius: 10px;
   margin-bottom: 2rem;
@@ -480,6 +480,7 @@ nav .nav .header-form #searchButton {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -492,9 +493,10 @@ body {
 
 body .container main #movies {
   border-top: 1px solid #718093;
+  padding-top: 20px;
 }
 
-body .container main #movies .categories {
+body .container main #movies .movies__categories {
   border-radius: 5px;
   display: flex;
   justify-content: space-evenly;
@@ -507,21 +509,23 @@ body .container main #movies .categories {
   gap: 4px;
 }
 
-body .container main #movies .categories .category {
+body .container main #movies .movies__categories__category {
   width: 100%;
   padding: .35rem;
   text-align: center;
   border-radius: 5px;
+  border: none;
   font-size: .85rem;
   color: #f5f6fa;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: .5px;
   background-color: #273c75;
+  cursor: pointer;
   transition: all .2s linear;
 }
 
-body .container main #movies .categories .category.active {
+body .container main #movies .movies__categories__category.active {
   color: #273c75;
   background-color: #f5f6fa;
 }
@@ -535,17 +539,20 @@ body .container main .pages {
   margin-block-end: 2rem;
 }
 
-body .container main .pages .page {
+body .container main .pages__page {
   font-size: 1rem;
   font-weight: 600;
   min-width: 30px;
   text-align: center;
   text-decoration: none;
   color: #dcdde1;
+  background-color: transparent;
+  border: none;
   transition: background-color .2s ease-in-out;
+  cursor: pointer;
 }
 
-body .container main .pages .page.active {
+body .container main .pages__page.active {
   color: #f5f6fa;
   border: 1px solid #dcdde1;
   padding: 5px;
@@ -558,6 +565,12 @@ body .container footer {
   text-align: center;
   background-color: #0c1936;
   padding-block: 1.8rem;
-  font-size: .9rem;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 569px) {
+  body .container footer {
+    font-size: .9rem;
+  }
 }
 /*# sourceMappingURL=main.css.map */

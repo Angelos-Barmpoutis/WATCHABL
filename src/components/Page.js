@@ -1,6 +1,6 @@
 const Page = (props) => {
     return (
-        <a href="#" className={`page ${props.pageClass}`} onClick={props.onClick}>{props.page}</a>
+        <button type="button" className={`pages__page ${props.pageClass}`} onClick={props.onClick}>{props.page}</button>
     )
 }
 

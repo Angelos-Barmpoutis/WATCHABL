@@ -8,6 +8,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -22,8 +23,9 @@ body {
 
             #movies {
                 border-top: 1px solid #718093;
+                padding-top: 20px;
 
-                .categories {
+                .movies__categories {
                     border-radius: 5px;
                     display: flex;
                     justify-content: space-evenly;
@@ -35,17 +37,19 @@ body {
                     padding: 4px;
                     gap: 4px;
 
-                    .category {
+                    &__category {
                         width: 100%;
                         padding: .35rem;
                         text-align: center;
                         border-radius: 5px;
+                        border: none;
                         font-size: .85rem;
                         color: #f5f6fa;
                         text-decoration: none;
                         font-weight: 600;
                         letter-spacing: .5px;
                         background-color: #273c75;
+                        cursor: pointer;
                         transition: all .2s linear;
 
                         &.active {
@@ -64,14 +68,17 @@ body {
                 padding-top: .5rem;
                 margin-block-end: 2rem;
     
-                .page {
+                &__page {
                     font-size: 1rem;
                     font-weight: 600;
                     min-width: 30px;
                     text-align: center;
                     text-decoration: none;
                     color: #dcdde1;
+                    background-color: transparent;
+                    border: none;
                     transition: background-color .2s ease-in-out;
+                    cursor: pointer;
     
                     &.active {
                         color: #f5f6fa;
@@ -85,11 +92,15 @@ body {
         }
         
         footer {
+            @include media-mobile {
+                font-size: .9rem;
+            }
+
             color: #f5f6fa;
             text-align: center;
             background-color: $primary-color;
             padding-block: 1.8rem;
-            font-size: .9rem;
+            font-size: 1rem;
         }
     }   
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Hero_image from "./Hero_image";
+import HeroImage from "./HeroImage";
 
 const Hero = () => {
     const [trendingTitles, setTrendingTitles] = useState([]);
@@ -49,27 +49,27 @@ const Hero = () => {
                 <h2 className="title">Trending this week</h2>
             </div>
             <div className="hero__images wrapper">
-                <Hero_image
+                <HeroImage
                     active = {carousel === 0 && 'active'}
                     title = {trendingTitles[0]}
                     posterPath = {trendingPosters[0]}
                 />
-                <Hero_image
+                <HeroImage
                     active = {carousel === 1 && 'active'}
                     posterPath = {trendingPosters[1]}
                     title = {trendingTitles[1]}
                 />
-                <Hero_image
+                <HeroImage
                     active = {carousel === 2 && 'active'}
                     posterPath = {trendingPosters[2]}
                     title = {trendingTitles[2]}
                 />
-                <Hero_image
+                <HeroImage
                     active = {carousel === 3 && 'active'}
                     posterPath = {trendingPosters[3]}
                     title = {trendingTitles[3]}
                 />
-                <Hero_image
+                <HeroImage
                     active = {carousel === 4 && 'active'}
                     posterPath = {trendingPosters[4]}
                     title = {trendingTitles[4]}

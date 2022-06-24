@@ -4,8 +4,7 @@
     width: 100%;
     color: #f5f6fa;
     overflow-x: hidden;
-    margin-top: 75px; 
-    
+    margin-top: 95px;     
 
     &__images {
         @include media-mobile {
@@ -17,7 +16,7 @@
         justify-content: center;
         // width: clamp(65%, 1000px, 100%);
         max-width: 1280px;
-        height: calc(100vh - 510px);
+        height: calc(100vh - 540px);
         padding: 1.5rem 2rem;
         gap: 1.2rem;
 

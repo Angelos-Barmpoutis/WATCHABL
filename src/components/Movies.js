@@ -8,11 +8,12 @@ const Movies = (props) => {
         const genreMap = genreIds.map(genreId => {
             for (let i=0; i<genres.length; i++) {
                 if (genres[i].id === genreId) {
-                    return genres[i].name
+                    return genres[i].name;
                 }
             }
+            return null;
         })
-        return genreMap.toString().replaceAll(',', ', ')
+        return genreMap.toString().replaceAll(',', ', ');
     }
 
     // Convert entire release date to only its year
@@ -40,17 +41,18 @@ const Movies = (props) => {
                     getGenre = {getGenre}
                     getReleaseYear = {getReleaseYear}
                  />
-            )
+            );
         }
+        return null;
     })
 
     return (
         <section className="wrapper" id='movies'>
             {props.method === 'discover' && <h1 className='title'>Explore the Most Popular <span>Movies</span> & <span>TV Shows</span></h1>}
             {props.method === 'search' && <h1 className='title'>Search results for <em>"{props.searchInput}"</em></h1>}
-            <div className="categories">
-                <a href='#' className={props.category === 'movie' ? 'category active' : 'category'} onClick={props.getMovies}>Movies</a>
-                <a href='#' className={props.category === 'tv' ? 'category active' : 'category'} onClick={props.getTvShows}>TV Shows</a>
+            <div className="movies__categories">
+                <button type='button' className={props.category === 'movie' ? 'movies__categories__category active' : 'movies__categories__category'} onClick={props.getMovies}>Movies</button>
+                <button type='button' className={props.category === 'tv' ? 'movies__categories__category active' : 'movies__categories__category'} onClick={props.getTvShows}>TV Shows</button>
             </div>
             {movies}
         </section>
