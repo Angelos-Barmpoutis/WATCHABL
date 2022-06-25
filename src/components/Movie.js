@@ -19,7 +19,7 @@ const Movie = props => {
         className="movie"
         initial = {{opacity: 0, x: -250}}
         animate = {{opacity: 1, x:0}}
-        transition = {{duration: 0.15, delay: props.movieAnimationDelay, ease: "linear"}}
+        transition = {{ delay: props.movieAnimationDelay, type: 'spring', stiffness: 120}}
         >
             <motion.img
             src={`https://image.tmdb.org/t/p/w200${props.image}`}
@@ -27,7 +27,7 @@ const Movie = props => {
             className="movie__image"
             initial = {{opacity: 0, scale: 0}}
             animate = {{opacity: 1, scale: 1}}
-            transition = {{duration: 0.15, delay: props.movieAnimationDelay + 0.15, ease: "linear"}}
+            transition = {{ delay: props.movieAnimationDelay + 0.2}}
             />
             <div className="movie__details">
                 <h2 className="movie__details__title">{title} <span>{props.getReleaseYear(releaseDate)}</span></h2>
