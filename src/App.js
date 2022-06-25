@@ -3,6 +3,7 @@ import Movies from './components/Movies';
 import Pages from './components/Pages';
 import Footer from './components/Footer';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const App = () => {
   // Variables & States declaration
@@ -16,10 +17,23 @@ const App = () => {
     genres: []
     }
   );
-  const [movieInput, setMovieInput] = useState('');
+  const [searchInput, setSearchInput] = useState('');
   const [allMovies, setAllMovies] = useState([]);
   const [moviesOffSetTop, setMoviesOffSetTop] = useState();
   const [navOffsetHeight, setNavOffsetHeight] = useState();
+  
+  // App Variants
+  const appVariants = {
+    hidden: {
+      opacity: 0
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.3
+      }
+    }
+  }
   
   // Send request to get genres' list
   useEffect(() => {
@@ -62,23 +76,26 @@ const App = () => {
     .catch(error => console.log(error))
   }, [request.page, request.searchInput, request.method, request.category])
 
-  // Set movieInput to whatever is being typed in searchInput
+  // Set searchInput to whatever is being typed in searchInput
   function searchInputChange(e) {
-    setMovieInput(e.target.value);
+    setSearchInput(e.target.value);
   }
 
   // Search for a query when searchForm gets submitted
   function searchFormSubmit(e) {
     e.preventDefault();
-    setRequest(prevRequest => (
-      {
-        ...prevRequest,
-        page: 1,
-        method: 'search',
-        searchInput: [true, movieInput]
-      }
-    ))
-    scrollToMovies()
+
+    if (searchInput && searchInput !== '') {
+      setRequest(prevRequest => (
+        {
+          ...prevRequest,
+          page: 1,
+          method: 'search',
+          searchInput: [true, searchInput]
+        }
+      ))
+      scrollToMovies()
+    }
   }
 
   // Set request's category to movie
@@ -155,7 +172,12 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <motion.div
+    className="container"
+    variants = {appVariants}
+    initial = 'hidden'
+    animate = 'visible'
+    >
         <Header 
         searchFormSubmit = {searchFormSubmit}
         searchInputChange = {searchInputChange}
@@ -180,7 +202,7 @@ const App = () => {
           />
         </main>
         <Footer />
-    </div>
+    </motion.div>
   )
 }
 

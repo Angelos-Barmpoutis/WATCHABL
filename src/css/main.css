@@ -1,15 +1,3 @@
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .wrapper {
   max-width: 1440px;
   margin-inline: auto;
@@ -37,18 +25,6 @@
     font-size: 1.4rem;
     letter-spacing: .7px;
     line-height: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
@@ -172,18 +148,6 @@ nav .nav .header-form #searchButton {
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .wrapper {
   max-width: 1440px;
   margin-inline: auto;
@@ -292,18 +256,6 @@ nav .nav .header-form #searchButton {
 @media screen and (max-width: 768px) {
   .hero__images__image h2 {
     font-size: 1.2rem;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
@@ -481,7 +433,6 @@ nav .nav .header-form #searchButton {
 }
 
 body {
-  animation: fadeIn 1.7s ease-in-out forwards;
   font-family: 'Roboto', sans-serif;
   background-color: #15181b;
   background: linear-gradient(210deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;

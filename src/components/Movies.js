@@ -1,15 +1,29 @@
+import { motion } from 'framer-motion';
 import Movie from './Movie';
 
 const Movies = (props) => {
-    const genres = props.genres;
-    let  movieAnimationDelay = 0.15;
+    let  movieAnimationDelay = .15;
+
+    // Movies Variants
+    const moviesVariants = {
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 1,
+                delay: 1
+            }
+        }
+    }
 
     // Convert genre IDs from numbers to words
     function getGenre(genreIds) {
         const genreMap = genreIds.map(genreId => {
-            for (let i=0; i<genres.length; i++) {
-                if (genres[i].id === genreId) {
-                    return genres[i].name;
+            for (let i = 0; i < props.genres.length; i++) {
+                if (props.genres[i].id === genreId) {
+                    return props.genres[i].name;
                 }
             }
             return null;
@@ -26,7 +40,7 @@ const Movies = (props) => {
     }
 
     const movies = props.responseMovies.map((movie) => {
-        movieAnimationDelay += .15;
+        movieAnimationDelay += .25;
         const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
         if (poster_path !== null && overview) {
             return (
@@ -50,7 +64,13 @@ const Movies = (props) => {
     })
 
     return (
-        <section className="wrapper" id='movies'>
+        <motion.section
+        className="wrapper"
+        id='movies'
+        variants = {moviesVariants}
+        initial = 'hidden'
+        animate = 'visible'
+        >
             {props.method === 'discover' && <h1 className='title'>Explore the Most Popular <span>Movies</span> & <span>TV Shows</span></h1>}
             {props.method === 'search' && <h1 className='title'>Search results for <em>"{props.searchInput}"</em></h1>}
             <div className="movies__categories">
@@ -58,7 +78,7 @@ const Movies = (props) => {
                 <button type='button' className={props.category === 'tv' ? 'movies__categories__category active' : 'movies__categories__category'} onClick={props.getTvShows}>TV Shows</button>
             </div>
             {movies}
-        </section>
+        </motion.section>
     )
 }
 
