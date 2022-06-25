@@ -5,16 +5,14 @@
         height: 130px;
         margin-bottom: 1.5rem;
     }
-    // animation: fadeIn 1s ease-in-out forwards;
     display: flex;
     border-radius: 10px;
     margin-bottom: 2rem;
-    // width: clamp(65%, 1000px, 100%);
     max-width: 1000px;
     margin-inline: auto;
     height: 200px;
-    background: #353b48;
-    border: 1px solid #718093;
+    background: #141516b9;
+    border: 1px solid #718093a2;
 
     &__image {
         border-radius: 10px 0 0 10px;

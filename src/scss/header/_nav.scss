@@ -41,6 +41,7 @@ nav {
                     max-width: 180px;
                     padding: 0.3rem 0.5rem;
                 }
+                font-family: inherit;
                 padding: 0.5rem 0.7rem;
                 font-family: inherit;
                 background-color: $primary-color;
@@ -66,6 +67,7 @@ nav {
                 }
                 
                 &::placeholder {
+                    font-family: inherit;
                     color: #dcdde1;
                     text-overflow: ellipsis;
                     font-size: .9rem;

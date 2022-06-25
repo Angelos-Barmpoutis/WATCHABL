@@ -21,7 +21,7 @@ body {
         main {
 
             #movies {
-                border-top: 1px solid #718093;
+                border-top: 1px solid #718093a2;
                 padding-top: 20px;
 
                 .movies__categories {
@@ -32,11 +32,12 @@ body {
                     max-width: 250px;
                     margin-inline: auto;
                     margin-block: 1rem 2rem; 
-                    background-color: #273c75;
+                    background-color: $primary-color;
                     padding: 4px;
                     gap: 4px;
 
                     &__category {
+                        font-family: inherit;
                         width: 100%;
                         padding: .35rem;
                         text-align: center;
@@ -47,12 +48,12 @@ body {
                         text-decoration: none;
                         font-weight: 600;
                         letter-spacing: .5px;
-                        background-color: #273c75;
+                        background-color: $primary-color;
                         cursor: pointer;
                         transition: all .2s linear;
 
                         &.active {
-                            color: #273c75;
+                            color: $primary-color;
                             background-color: #f5f6fa;
                         }
                     }
@@ -68,6 +69,7 @@ body {
                 margin-block-end: 2rem;
     
                 &__page {
+                    font-family: inherit;
                     font-size: 1rem;
                     font-weight: 600;
                     min-width: 30px;
