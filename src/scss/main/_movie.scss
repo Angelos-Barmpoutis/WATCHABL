@@ -8,15 +8,16 @@
     display: flex;
     border-radius: 10px;
     margin-bottom: 2rem;
-    max-width: 1000px;
+    max-width: 1024px;
     margin-inline: auto;
     height: 200px;
     background: #141516b9;
     border: 1px solid #718093a2;
+    cursor: pointer;
 
     &__image {
         border-radius: 10px 0 0 10px;
-        max-width: 130px;
+        max-width: 200px;
         display: inline-block;
         flex: 0 0 0;
     }
@@ -45,7 +46,7 @@
             font-weight: 600;
             max-width: 75%;
             letter-spacing: .5px;
-            color: #f5f6fa;
+            color: $primary-text-color;
             line-height: 1.1;
 
             span {
@@ -88,7 +89,7 @@
             border-radius: 5px;
             font-size: 1rem;
             font-weight: 500;
-            background-color: #2f3640;
+            background-color: #2f3640a7;
             letter-spacing: .7px;
             position: absolute;
             top: 1.7rem;
@@ -103,7 +104,7 @@
             }
         
             &.red {
-                color: #e84118;
+                color: #ff3a3a;
             }
         }
 
@@ -114,7 +115,7 @@
             line-height: 1.4;
             width: 90%;
             letter-spacing: .3px;
-            color: #dcdde1;
+            color: $secondary-text-color;
             font-size: .95rem;
             max-height: 3.8rem;
             overflow: hidden;

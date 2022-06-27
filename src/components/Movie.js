@@ -5,7 +5,7 @@ const Movie = props => {
     const title = props.movieTitle ? props.movieTitle : props.tvTitle;
     const releaseDate = props.movieReleaseDate ? props.movieReleaseDate : props.tvReleaseDate;
 
-    // Animation Variants
+    // Movie Variants
     const movieVariants = {
         hidden: {
             opacity: 0,
@@ -25,6 +25,7 @@ const Movie = props => {
         }
     }
 
+    // Image Variants
     const imageVariants = {
         hidden: {
             opacity: 0,
@@ -54,16 +55,31 @@ const Movie = props => {
         }
     }
 
+    function openModal() {
+        fetch(`https://api.themoviedb.org/3/${props.category}/${props.id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
+        .then(response => response.json())
+        .then(responseData => {
+            props.setModal(prevModal => ({
+                ...prevModal,
+                isOpen: true,
+                queryId: props.id,
+                response: responseData
+            }))
+        })
+    }
+
     return (
         <motion.div
         className="movie"
+        onClick = {openModal}
         variants= {movieVariants}
         initial = 'hidden'
         animate = 'visible'
         >
             <motion.img
+            loading=""  
             src={`https://image.tmdb.org/t/p/w200${props.image}`}
-            alt={props.title}
+            alt={title}
             className="movie__image"
             variants= {imageVariants}
             />

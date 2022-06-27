@@ -2,6 +2,8 @@ import Header from './components/Header';
 import Movies from './components/Movies';
 import Pages from './components/Pages';
 import Footer from './components/Footer';
+import Modal from './components/Modal';
+import Movie from './components/Movie';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -21,19 +23,28 @@ const App = () => {
   const [allMovies, setAllMovies] = useState([]);
   const [moviesOffSetTop, setMoviesOffSetTop] = useState();
   const [navOffsetHeight, setNavOffsetHeight] = useState();
-  
-  // App Variants
-  const appVariants = {
+  const [modal, setModal] = useState({
+    isOpen: false,
+    queryId: null,
+    response: null
+  })
+
+  // Backdrop Variatnts
+  const backdropVariants = {
     hidden: {
-      opacity: 0
+        opacity: 0
     },
     visible: {
-      opacity: 1,
-      transition: {
-        duration: 1.3
-      }
+        opacity: 1,
+        transition: {
+            duration: 1,
+            type: 'spring'
+        }
     }
   }
+
+  // Set initial delay for the Movie component
+  let movieAnimationDelay = .15;
   
   // Send request to get genres' list
   useEffect(() => {
@@ -122,6 +133,27 @@ const App = () => {
     scrollToMovies()
   }
 
+  // Convert genre IDs from numbers to words
+  function getGenre(genreIds) {
+    const genreMap = genreIds.map(genreId => {
+      for (let i = 0; i < request.genres.length; i++) {
+        if (request.genres[i].id === genreId) {
+          return request.genres[i].name;
+        }
+      }
+      return null;
+      })
+      return genreMap.toString().replaceAll(',', ', ');
+  }
+
+  // Convert entire release date to only its year
+  function getReleaseYear(releaseDate) {
+    if (releaseDate) {
+        const releaseYear = new Date(releaseDate).getFullYear()
+        return `(${releaseYear})`
+    }
+  }
+
   // Go up 1 page
   function onePageUp() {
     if (request.page < request.totalPages) {
@@ -171,13 +203,46 @@ const App = () => {
     window.scrollTo(0,  moviesOffSetTop - navOffsetHeight);
   }
 
+  // Close modal and reset its state
+  function closeModal() {
+    setModal(prevModal => ({
+      ...prevModal,
+      isOpen: false,
+      queryId: null,
+      response: null
+    }));
+  }
+
+  // Create Movie component
+  const movies = allMovies.map((movie) => {
+    movieAnimationDelay += .25;
+    const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
+    if (poster_path !== null && overview) {
+        return (
+            <Movie
+                key = {id}
+                id = {id}
+                movieTitle = {title}
+                tvTitle = {name}
+                overview = {overview}
+                image = {poster_path}
+                rating = {vote_average}
+                genre = {genre_ids}
+                movieReleaseDate = {release_date}
+                tvReleaseDate = {first_air_date}
+                getGenre = {getGenre}
+                getReleaseYear = {getReleaseYear}
+                setModal = {setModal}
+                movieAnimationDelay = {movieAnimationDelay}
+                category = {request.category}
+             />
+        );
+    }
+    return null;
+  })
+
   return (
-    <motion.div
-    className="container"
-    variants = {appVariants}
-    initial = 'hidden'
-    animate = 'visible'
-    >
+    <div className="container">
         <Header 
         searchFormSubmit = {searchFormSubmit}
         searchInputChange = {searchInputChange}
@@ -191,6 +256,9 @@ const App = () => {
           searchInput = {request.searchInput[1]}
           getMovies = {getMovies}
           getTvShows = {getTvShows}
+          getGenre = {getGenre}
+          getReleaseYear = {getReleaseYear}
+          movies = {movies}
           />
           <Pages 
           page = {request.page}
@@ -200,9 +268,25 @@ const App = () => {
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
           />
+          {modal.isOpen &&  <>
+            <motion.div
+              className="modal-overlay"
+              onClick={closeModal}
+              variants = {backdropVariants}
+              initial = 'hidden'
+              animate = 'visible'
+              >
+            </motion.div>
+           <Modal
+              closeModal = {closeModal}
+              modal = {modal}
+              category = {request.category}
+              setModal = {setModal}
+           />
+          </>}
         </main>
         <Footer />
-    </motion.div>
+    </div>
   )
 }
 

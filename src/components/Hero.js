@@ -6,12 +6,14 @@ const Hero = () => {
     const [trendingPosters, setTrendingPosters] = useState([])
     const [carousel, setCarousel] = useState(2)
     
+    //Fetch trending list when the page loads for the first time and save response's
+    // first 5 images and titles, save them into states and pass them to the image carousel
     useEffect(() => {
         fetch('https://api.themoviedb.org/3/trending/all/week?api_key=6de482bc8c5768aa3648618b9c3cc98a')
         .then(response => response.json())
         .then(responseData => {
-            setTrendingPosters([])
-            setTrendingTitles([])
+            // setTrendingPosters([])
+            // setTrendingTitles([])
             for (let i=0; i<5; i++) {
                 setTrendingPosters(prevState => (
                     [
@@ -30,7 +32,7 @@ const Hero = () => {
         })
     }, [])
 
-
+    // Change the image of carousel every 4 seconds
     useEffect(() => {
         let i = 2;
         setInterval(() => {
