@@ -43,9 +43,6 @@ const App = () => {
     }
   }
 
-  // Set initial delay for the Movie component
-  let movieAnimationDelay = .15;
-  
   // Send request to get genres' list
   useEffect(() => {
     let requestUrl = `https://api.themoviedb.org/3/genre/${request.category}/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
@@ -214,14 +211,14 @@ const App = () => {
   }
 
   // Create Movie component
-  const movies = allMovies.map((movie) => {
-    movieAnimationDelay += .25;
+  const movies = allMovies.map((movie, index) => {
     const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
     if (poster_path !== null && overview) {
         return (
             <Movie
                 key = {id}
                 id = {id}
+                index = {index}
                 movieTitle = {title}
                 tvTitle = {name}
                 overview = {overview}
@@ -233,7 +230,6 @@ const App = () => {
                 getGenre = {getGenre}
                 getReleaseYear = {getReleaseYear}
                 setModal = {setModal}
-                movieAnimationDelay = {movieAnimationDelay}
                 category = {request.category}
              />
         );

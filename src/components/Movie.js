@@ -9,19 +9,19 @@ const Movie = props => {
     const movieVariants = {
         hidden: {
             opacity: 0,
-            x: -400
+            x: -800
         },
         visible: {
             opacity: 1,
-             x:0,
-             transition: {
-                duration: 0.2,
-                delay: props.movieAnimationDelay,
+            x:0,
+            transition: {
+                delay: props.index * 0.3,
+                duration: 0.3,
                 type: 'spring',
-                stiffness: 75,
-                mass: 0.7,
-                damping: 9
-             }
+                stiffness: 100,
+                mass: 1,
+                damping: 15
+            }
         }
     }
 
@@ -35,11 +35,12 @@ const Movie = props => {
             opacity: 1,
             scale: 1,
             transition: {
-                delay: props.movieAnimationDelay + 0.25,
+                delay: (props.index * 0.3) + 0.3,
+                duration: 0.3,
                 type: 'spring',
-                stiffness: 400,
-                mass: 0.2,
-                damping: 9
+                stiffness: 100,
+                mass: 1,
+                damping: 15
             }
         }
     }
@@ -82,6 +83,8 @@ const Movie = props => {
             alt={title}
             className="movie__image"
             variants= {imageVariants}
+            initial = 'hidden'
+            animate = 'visible'
             />
             <div className="movie__details">
                 <h2 className="movie__details__title">{title} <span>{props.getReleaseYear(releaseDate)}</span></h2>
