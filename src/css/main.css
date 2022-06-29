@@ -624,6 +624,7 @@ h5 {
     row-gap: 0;
     padding-top: 1rem;
     padding: 1rem;
+    border: 0;
   }
 }
 
@@ -672,8 +673,8 @@ h5 {
 @media screen and (max-width: 569px) {
   .modal-container .modal .modal__image {
     margin-inline: auto;
-    max-width: 240px;
-    align-self: center;
+    max-width: 180px;
+    align-self: end;
   }
 }
 
@@ -684,6 +685,12 @@ h5 {
 @media screen and (max-width: 769px) {
   .modal-container .modal .modal__details {
     align-self: center;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .modal-container .modal .modal__details {
+    align-self: start;
   }
 }
 
@@ -724,18 +731,12 @@ h5 {
 }
 
 .modal-container .modal .modal__details__tagline {
-  margin-bottom: 1.5rem;
   color: #95c7f7;
-}
-
-@media screen and (max-width: 569px) {
-  .modal-container .modal .modal__details__tagline {
-    margin-bottom: 1.2rem;
-  }
 }
 
 .modal-container .modal .modal__overview {
   font-size: 1.2rem;
+  margin-top: 1.5rem;
   height: 13rem;
   overflow-y: auto;
   grid-area: overview;
@@ -743,9 +744,11 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .modal-container .modal .modal__overview {
+    margin-top: 1.2rem;
     font-size: 1rem;
-    height: 8rem;
+    height: 10rem;
     overflow-y: auto;
+    border: 1px solid red;
   }
 }
 
@@ -785,9 +788,9 @@ body .container main #movies .movies__categories {
   max-width: 250px;
   margin-inline: auto;
   margin-block: 1rem 2rem;
-  background-color: #13103b;
-  padding: 4px;
-  gap: 4px;
+  background-color: #1f68de;
+  padding: 2px;
+  gap: 2px;
 }
 
 body .container main #movies .movies__categories__category {
@@ -802,14 +805,14 @@ body .container main #movies .movies__categories__category {
   text-decoration: none;
   font-weight: 600;
   letter-spacing: .5px;
-  background-color: #13103b;
+  background-color: #1f68de;
   cursor: pointer;
   transition: all .2s linear;
 }
 
 body .container main #movies .movies__categories__category.active {
-  color: #13103b;
-  background-color: #f5f6fa;
+  color: #f5f6fa;
+  background-color: #13103b;
 }
 
 body .container main .pages {

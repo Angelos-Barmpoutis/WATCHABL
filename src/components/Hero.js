@@ -12,8 +12,6 @@ const Hero = () => {
         fetch('https://api.themoviedb.org/3/trending/all/week?api_key=6de482bc8c5768aa3648618b9c3cc98a')
         .then(response => response.json())
         .then(responseData => {
-            // setTrendingPosters([])
-            // setTrendingTitles([])
             for (let i=0; i<5; i++) {
                 setTrendingPosters(prevState => (
                     [

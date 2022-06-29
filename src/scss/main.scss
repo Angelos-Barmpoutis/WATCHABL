@@ -33,9 +33,9 @@ body {
                     max-width: 250px;
                     margin-inline: auto;
                     margin-block: 1rem 2rem; 
-                    background-color: $primary-color;
-                    padding: 4px;
-                    gap: 4px;
+                    background-color: $secondary-color;
+                    padding: 2px;
+                    gap: 2px;
 
                     &__category {
                         font-family: inherit;
@@ -49,13 +49,13 @@ body {
                         text-decoration: none;
                         font-weight: 600;
                         letter-spacing: .5px;
-                        background-color: $primary-color;
+                        background-color: $secondary-color;
                         cursor: pointer;
                         transition: all .2s linear;
 
                         &.active {
-                            color: $primary-color;
-                            background-color: #f5f6fa;
+                            color: $primary-text-color;
+                            background-color: $primary-color;
                         }
                     }
                 }

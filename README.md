@@ -1,5 +1,7 @@
 # WatchDB Application
 
+[Live Demo](https://watchdb.netlify.app/)
+
 `WatchDb` is a Web App which enables users to get details for their favorite Movies and TV Shows from their PC, Laptop, Tablet or their Smartphone.
 
 ## Features
@@ -12,11 +14,7 @@
 
 -Search for your favorite Movie or TV Show
 
-<<<<<<< HEAD
-
 ### Get Movie Informations about:
-
-=======
 
 --Original language
 
@@ -31,8 +29,6 @@
 <<<<<<< HEAD
 
 ### Get Tv Show Informations about:
-
-=======
 
 --Original language
 
