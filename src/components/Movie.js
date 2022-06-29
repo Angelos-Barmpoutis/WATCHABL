@@ -5,24 +5,26 @@ const Movie = props => {
     const title = props.movieTitle ? props.movieTitle : props.tvTitle;
     const releaseDate = props.movieReleaseDate ? props.movieReleaseDate : props.tvReleaseDate;
 
+    const i = props.index;
+
     // Movie Variants
     const movieVariants = {
         hidden: {
             opacity: 0,
-            x: -800
+            x: -400
         },
-        visible: {
+        visible: i => ({
             opacity: 1,
             x:0,
             transition: {
-                delay: props.index * 0.3,
+                delay: i * 0.3,
                 duration: 0.3,
                 type: 'spring',
                 stiffness: 100,
                 mass: 1,
                 damping: 15
             }
-        }
+        })
     }
 
     // Image Variants
@@ -31,18 +33,18 @@ const Movie = props => {
             opacity: 0,
             scale: 0
         },
-        visible: {
+        visible: i => ({
             opacity: 1,
             scale: 1,
             transition: {
-                delay: (props.index * 0.3) + 0.3,
+                delay: (i * 0.3) + 0.3,
                 duration: 0.3,
                 type: 'spring',
                 stiffness: 100,
                 mass: 1,
                 damping: 15
             }
-        }
+        })
     }
 
     // Return rating's color based on the rating
@@ -76,6 +78,7 @@ const Movie = props => {
         variants= {movieVariants}
         initial = 'hidden'
         animate = 'visible'
+        custom = {i}
         >
             <motion.img
             loading=""  
@@ -85,6 +88,7 @@ const Movie = props => {
             variants= {imageVariants}
             initial = 'hidden'
             animate = 'visible'
+            custom = {i}
             />
             <div className="movie__details">
                 <h2 className="movie__details__title">{title} <span>{props.getReleaseYear(releaseDate)}</span></h2>

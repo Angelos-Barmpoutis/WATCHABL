@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Movie from './components/Movie';
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
   // Variables & States declaration
@@ -28,20 +28,6 @@ const App = () => {
     queryId: null,
     response: null
   })
-
-  // Backdrop Variatnts
-  const backdropVariants = {
-    hidden: {
-        opacity: 0
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: 1,
-            type: 'spring'
-        }
-    }
-  }
 
   // Send request to get genres' list
   useEffect(() => {
@@ -243,6 +229,14 @@ const App = () => {
         searchFormSubmit = {searchFormSubmit}
         searchInputChange = {searchInputChange}
         />
+        <AnimatePresence>
+          {modal.isOpen && <Modal
+              closeModal = {closeModal}
+              modal = {modal}
+              category = {request.category}
+              setModal = {setModal}
+          />}
+        </AnimatePresence>
         <main>
           <Movies 
           responseMovies = {allMovies}
@@ -263,23 +257,7 @@ const App = () => {
           twoPagesBack = {twoPagesBack}
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
-          />
-          {modal.isOpen &&  <>
-            <motion.div
-              className="modal-overlay"
-              onClick={closeModal}
-              variants = {backdropVariants}
-              initial = 'hidden'
-              animate = 'visible'
-              >
-            </motion.div>
-           <Modal
-              closeModal = {closeModal}
-              modal = {modal}
-              category = {request.category}
-              setModal = {setModal}
-           />
-          </>}
+          />            
         </main>
         <Footer />
     </div>
