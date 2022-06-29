@@ -12,7 +12,11 @@
 
 -Search for your favorite Movie or TV Show
 
+<<<<<<< HEAD
+
 ### Get Movie Informations about:
+
+=======
 
 --Original language
 
@@ -24,7 +28,11 @@
 
 --Overview
 
+<<<<<<< HEAD
+
 ### Get Tv Show Informations about:
+
+=======
 
 --Original language
 
