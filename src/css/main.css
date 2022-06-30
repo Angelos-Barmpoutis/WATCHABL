@@ -111,6 +111,12 @@ nav .nav {
   height: 75px;
 }
 
+@media screen and (max-width: 569px) {
+  nav .nav {
+    height: 65px;
+  }
+}
+
 nav .nav .header-logo {
   color: #1f68de;
   font-size: 1.4rem;
@@ -119,6 +125,12 @@ nav .nav .header-logo {
   text-decoration: none;
   font-weight: 600;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+@media screen and (max-width: 569px) {
+  nav .nav .header-logo {
+    font-size: 1.2rem;
+  }
 }
 
 nav .nav .header-logo span {
@@ -370,7 +382,7 @@ nav .nav .header-form #searchButton {
 .movie {
   display: flex;
   border-radius: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   max-width: 1024px;
   margin-inline: auto;
   height: 200px;
@@ -382,7 +394,7 @@ nav .nav .header-form #searchButton {
 @media screen and (max-width: 569px) {
   .movie {
     height: 160px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 }
 
@@ -403,7 +415,7 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .movie__details {
-    padding: .6rem;
+    padding: 1rem;
     height: 100%;
   }
 }
@@ -468,8 +480,8 @@ nav .nav .header-form #searchButton {
 @media screen and (max-width: 569px) {
   .movie__details__rating {
     top: auto;
-    bottom: .6rem;
-    right: .6rem;
+    bottom: 1rem;
+    right: 1rem;
     font-size: .85rem;
     width: 30px;
     height: 30px;
@@ -772,7 +784,7 @@ h5 {
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #15181b;
-  background: linear-gradient(to bottom, rgba(4, 3, 15, 0.901), rgba(4, 3, 15, 0.95)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
+  background: linear-gradient(to bottom, rgba(4, 3, 15, 0.85), rgba(4, 3, 15, 0.92)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
 }
 
 body .container main #movies {
