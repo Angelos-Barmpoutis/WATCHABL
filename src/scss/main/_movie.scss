@@ -2,7 +2,7 @@
 
 .movie {
     @include media-mobile{
-        height: 130px;
+        height: 160px;
         margin-bottom: 1.5rem;
     }
     display: flex;

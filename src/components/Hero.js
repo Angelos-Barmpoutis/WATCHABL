@@ -9,7 +9,7 @@ const Hero = () => {
     //Fetch trending list when the page loads for the first time and save response's
     // first 5 images and titles, save them into states and pass them to the image carousel
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/trending/all/week?api_key=6de482bc8c5768aa3648618b9c3cc98a')
+        fetch('https://api.themoviedb.org/3/trending/all/day?api_key=6de482bc8c5768aa3648618b9c3cc98a')
         .then(response => response.json())
         .then(responseData => {
             for (let i=0; i<5; i++) {
@@ -46,7 +46,7 @@ const Hero = () => {
     return (
         <div className="hero">
             <div className="wrapper">
-                <h2 className="title">Trending this week</h2>
+                <h2 className="title">Trending Today</h2>
             </div>
             <div className="hero__images wrapper">
                 <HeroImage
