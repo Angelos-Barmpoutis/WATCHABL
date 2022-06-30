@@ -85,7 +85,7 @@ h5 {
                 @include media-mobile {
                    font-size: 1.4rem;
                    align-self: center;
-                   margin: 0;
+                   margin: 0 auto;
                 }
                 max-width: 90%;
                 color: $primary-text-color;
