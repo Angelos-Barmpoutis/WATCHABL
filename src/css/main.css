@@ -423,6 +423,7 @@ nav .nav .header-form #searchButton {
     font-size: 1rem;
     letter-spacing: .1px;
     max-width: 95%;
+    font-weight: 400;
   }
 }
 
