@@ -261,7 +261,7 @@ nav .nav .header-form #searchButton {
   align-items: center;
   justify-content: center;
   max-width: 1280px;
-  height: calc(100vh - 540px);
+  height: calc(100vh - 520px);
   max-height: 700px;
   padding: 1.5rem 2rem;
   gap: 1.2rem;
@@ -393,8 +393,10 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .movie {
-    height: 160px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    border: 0;
+    background-color: transparent;
+    gap: 1rem;
   }
 }
 
@@ -405,8 +407,14 @@ nav .nav .header-form #searchButton {
   flex: 0 0 0;
 }
 
+@media screen and (max-width: 569px) {
+  .movie__image {
+    border-radius: 10px;
+  }
+}
+
 .movie__details {
-  padding: 1.7rem;
+  padding: 1.3rem;
   flex-grow: 1;
   position: relative;
   overflow: hidden;
@@ -415,14 +423,13 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .movie__details {
-    padding: 1rem;
+    padding: 0;
     height: 100%;
   }
 }
 
 .movie__details__title {
-  font-size: 1.2rem;
-  margin-bottom: .2rem;
+  font-size: 1.3rem;
   font-weight: 600;
   max-width: 75%;
   letter-spacing: .5px;
@@ -432,10 +439,10 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .movie__details__title {
-    font-size: 1rem;
+    font-size: 1.2rem;
     letter-spacing: .1px;
-    max-width: 95%;
-    font-weight: 400;
+    max-width: 100%;
+    font-weight: 500;
   }
 }
 
@@ -443,10 +450,16 @@ nav .nav .header-form #searchButton {
   color: #dcdde1;
 }
 
+.movie__details__release {
+  color: #dcdde1;
+  font-size: 1rem;
+  margin-block: .5rem;
+}
+
 .movie__details__genre {
   color: #95c7f7;
   font-weight: 400;
-  font-size: .85rem;
+  font-size: 1rem;
   margin-bottom: 1.5rem;
   letter-spacing: .5px;
   max-width: 75%;
@@ -473,8 +486,8 @@ nav .nav .header-form #searchButton {
   background-color: #2f3640a7;
   letter-spacing: .7px;
   position: absolute;
-  top: 1.7rem;
-  right: 1.7rem;
+  top: 1.3rem;
+  right: 1.3rem;
 }
 
 @media screen and (max-width: 569px) {
@@ -482,9 +495,9 @@ nav .nav .header-form #searchButton {
     top: auto;
     bottom: 1rem;
     right: 1rem;
-    font-size: .85rem;
-    width: 30px;
-    height: 30px;
+    font-size: .9rem;
+    width: 33px;
+    height: 33px;
     letter-spacing: .3px;
   }
 }
@@ -506,7 +519,7 @@ nav .nav .header-form #searchButton {
   width: 90%;
   letter-spacing: .3px;
   color: #dcdde1;
-  font-size: .95rem;
+  font-size: 1rem;
   max-height: 3.8rem;
   overflow: hidden;
 }
@@ -601,7 +614,7 @@ h5 {
 .modal-container .modal {
   font-family: inherit;
   width: clamp(40%, 1024px, 90%);
-  background-color: #141516f8;
+  background-color: #0e0d0d;
   border-radius: 5px;
   border: 1px solid #718093a2;
   color: white;

@@ -133,7 +133,7 @@ const App = () => {
   function getReleaseYear(releaseDate) {
     if (releaseDate) {
         const releaseYear = new Date(releaseDate).getFullYear()
-        return `(${releaseYear})`
+        return releaseYear
     }
   }
 

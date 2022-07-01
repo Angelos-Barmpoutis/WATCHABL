@@ -24,7 +24,6 @@ const Modal = (props) => {
                 </motion.div>
                 <motion.div
                     className = "modal"
-                    style={{background: `linear-gradient(to top, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)), url(https://image.tmdb.org/t/p/w780${props.modal.response.backdrop_path}) no-repeat center center/cover`}}
                     initial = {{opacity: 0, scale: 0}}
                     animate = {{opacity: 1, scale: 1}}
                     transition = {{duration: .7, type: 'spring'}}

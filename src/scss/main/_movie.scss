@@ -2,8 +2,10 @@
 
 .movie {
     @include media-mobile{
-        height: 160px;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        border: 0;
+        background-color: transparent;
+        gap: 1rem;
     }
     display: flex;
     border-radius: 10px;
@@ -16,6 +18,9 @@
     cursor: pointer;
 
     &__image {
+        @include media-mobile {
+            border-radius: 10px;
+        }
         border-radius: 10px 0 0 10px;
         max-width: 200px;
         display: inline-block;
@@ -24,11 +29,11 @@
 
     &__details {
         @include media-mobile{
-            padding: 1rem;
+            padding: 0;
             height: 100%;
         }
 
-        padding: 1.7rem;
+        padding: 1.3rem;
         flex-grow: 1;
         position: relative;
         overflow: hidden;
@@ -36,14 +41,13 @@
 
         &__title {
             @include media-mobile{
-                font-size: 1rem;
+                font-size: 1.2rem;
                 letter-spacing: .1px;
-                max-width: 95%;
-                font-weight: 400;
+                max-width: 100%;
+                font-weight: 500;
             }
 
-            font-size: 1.2rem;
-            margin-bottom: .2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             max-width: 75%;
             letter-spacing: .5px;
@@ -55,6 +59,12 @@
             }
         }
 
+        &__release {
+            color: $secondary-text-color;
+            font-size: 1rem;
+            margin-block: .5rem;
+        }
+
         &__genre {
             @include media-mobile {
                 letter-spacing: .1px;
@@ -63,7 +73,7 @@
 
             color: #95c7f7;
             font-weight: 400;
-            font-size: .85rem;
+            font-size: 1rem;
             margin-bottom: 1.5rem;
             letter-spacing: .5px;
             max-width: 75%;
@@ -75,9 +85,9 @@
                 top: auto;
                 bottom: 1rem;
                 right: 1rem;
-                font-size: .85rem;
-                width: 30px;
-                height: 30px;
+                font-size: .9rem;
+                width: 33px;
+                height: 33px;
                 letter-spacing: .3px;
             }
 
@@ -93,8 +103,8 @@
             background-color: #2f3640a7;
             letter-spacing: .7px;
             position: absolute;
-            top: 1.7rem;
-            right: 1.7rem;
+            top: 1.3rem;
+            right: 1.3rem;
 
             &.green {
                 color: #4cd137;
@@ -117,7 +127,7 @@
             width: 90%;
             letter-spacing: .3px;
             color: $secondary-text-color;
-            font-size: .95rem;
+            font-size: 1rem;
             max-height: 3.8rem;
             overflow: hidden;
         }
