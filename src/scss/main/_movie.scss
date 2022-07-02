@@ -13,7 +13,7 @@
     margin-bottom: 2.5rem;
     max-width: 1024px;
     margin-inline: auto;
-    height: 200px;
+    height: 220px;
     background: #141516b9;
     border: 1px solid #718093a2;
     cursor: pointer;
@@ -46,7 +46,7 @@
         flex-grow: 1;
         position: relative;
         overflow: hidden;
-        max-height: 180px;
+        max-height: 210px;
 
         &__title {
             @include media-mobile{
@@ -147,12 +147,12 @@
                 display: none;
             }
             line-height: 1.4;
-            margin-top: 1.3rem;
+            margin-top: 1.2rem;
             width: 90%;
             letter-spacing: .3px;
             color: $secondary-text-color;
             font-size: 1rem;
-            max-height: 3.8rem;
+            max-height: 4rem;
             overflow: hidden;
         }
     }
