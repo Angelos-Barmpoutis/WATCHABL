@@ -92,9 +92,10 @@ const Movie = props => {
             custom = {i}
             />
             <div className="movie__details">
-                <h2 className="movie__details__title">{title}</h2>
-                <h3 className="movie__details__release">{props.getReleaseYear(releaseDate)}</h3>
-                <h3 className="movie__details__genre">{props.getGenre(props.genre)}</h3>
+                <h2 className="movie__details__title"><span>Title:</span>{title}</h2>
+                <h3 className="movie__details__release"><span>Release Date:</span>{releaseDate}</h3>
+                <h3 className="movie__details__genre"><span>Genre:</span>{props.getGenre(props.genre)}</h3>
+                
                 <h4 className={`movie__details__rating ${ratingColor(props.rating)}`}>{props.rating !== 0 && props.rating !== 10 ? props.rating.toFixed(1) : props.rating}</h4>
                 <p className="movie__details__overview">{props.overview}</p>
             </div>

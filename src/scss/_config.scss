@@ -13,8 +13,8 @@
 
 
 // VARIABLES
-$primary-color: rgb(19, 16, 59);
-$secondary-color: #1f68de;
+$primary-color: rgb(9, 18, 58);
+$secondary-color: #5b38f8;
 $primary-text-color: #f5f6fa;
 $secondary-text-color: #dcdde1;
 
@@ -44,7 +44,7 @@ $secondary-text-color: #dcdde1;
         line-height: 1;
     }
     text-align: center;
-    padding-block-start: 1.5rem;
+    padding-block: 1.5rem .2rem;
     padding-inline: 2rem;
     font-size: 2rem;
     letter-spacing: 2px;  

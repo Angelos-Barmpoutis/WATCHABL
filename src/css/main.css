@@ -25,7 +25,7 @@
 
 .title {
   text-align: center;
-  padding-block-start: 1.5rem;
+  padding-block: 1.5rem .2rem;
   padding-inline: 2rem;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -73,7 +73,7 @@
 
 .title {
   text-align: center;
-  padding-block-start: 1.5rem;
+  padding-block: 1.5rem .2rem;
   padding-inline: 2rem;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -95,7 +95,7 @@
 }
 
 nav {
-  background-color: rgba(19, 16, 59, 0.97);
+  background-color: rgba(9, 18, 58, 0.97);
   position: fixed;
   top: 0;
   right: 0;
@@ -118,7 +118,7 @@ nav .nav {
 }
 
 nav .nav .header-logo {
-  color: #1f68de;
+  color: #5b38f8;
   font-size: 1.4rem;
   letter-spacing: 1.5px;
   line-height: 1.5;
@@ -136,7 +136,7 @@ nav .nav .header-logo {
 nav .nav .header-logo span {
   color: #f5f6fa;
   padding: 5px;
-  background-color: #1f68de;
+  background-color: #5b38f8;
   border-radius: 5px;
   margin-left: 0.2rem;
 }
@@ -146,9 +146,9 @@ nav .nav .header-form #searchInput {
   font-family: inherit;
   padding: 0.5rem 0.7rem;
   font-family: inherit;
-  background-color: #13103b;
+  background-color: #09123a;
   color: #dcdde1;
-  border: 2px solid #1f68de;
+  border: 2px solid #5b38f8;
   border-right: none;
   border-radius: 5px 0 0 5px;
   letter-spacing: .5px;
@@ -163,8 +163,8 @@ nav .nav .header-form #searchInput {
 
 nav .nav .header-form #searchInput:focus {
   outline: none;
-  box-shadow: 0 0 10px #1f68de;
-  background-color: #13103b;
+  box-shadow: 0 0 10px #5b38f8;
+  background-color: #09123a;
   width: 200px;
 }
 
@@ -189,8 +189,8 @@ nav .nav .header-form #searchButton {
   color: #f5f6fa;
   padding: 0.5rem 0.9rem;
   border-radius: 0 5px 5px 0;
-  background-color: #13103b;
-  border: 2px solid #1f68de;
+  background-color: #09123a;
+  border: 2px solid #5b38f8;
   border-left: none;
   cursor: pointer;
 }
@@ -228,7 +228,7 @@ nav .nav .header-form #searchButton {
 
 .title {
   text-align: center;
-  padding-block-start: 1.5rem;
+  padding-block: 1.5rem .2rem;
   padding-inline: 2rem;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -261,7 +261,7 @@ nav .nav .header-form #searchButton {
   align-items: center;
   justify-content: center;
   max-width: 1280px;
-  height: calc(100vh - 520px);
+  height: calc(100vh - 550px);
   max-height: 700px;
   padding: 1.5rem 2rem;
   gap: 1.2rem;
@@ -358,7 +358,7 @@ nav .nav .header-form #searchButton {
 
 .title {
   text-align: center;
-  padding-block-start: 1.5rem;
+  padding-block: 1.5rem .2rem;
   padding-inline: 2rem;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -393,10 +393,21 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .movie {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border: 0;
     background-color: transparent;
     gap: 1rem;
+    height: 180px;
+  }
+}
+
+.movie span {
+  display: none;
+}
+
+@media screen and (max-width: 569px) {
+  .movie span {
+    display: block;
   }
 }
 
@@ -439,28 +450,36 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .movie__details__title {
-    font-size: 1.2rem;
+    font-size: .95rem;
     letter-spacing: .1px;
-    max-width: 100%;
-    font-weight: 500;
+    max-width: 78%;
+    font-weight: 400;
+    margin-bottom: .5rem;
   }
 }
 
 .movie__details__title span {
-  color: #dcdde1;
+  color: #f5f6fa;
+  line-height: 1.3;
+  font-weight: 500;
 }
 
 .movie__details__release {
   color: #dcdde1;
-  font-size: 1rem;
+  font-size: .95rem;
   margin-block: .5rem;
+}
+
+.movie__details__release span {
+  color: #f5f6fa;
+  line-height: 1.3;
+  font-weight: 500;
 }
 
 .movie__details__genre {
   color: #95c7f7;
   font-weight: 400;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
+  font-size: .9rem;
   letter-spacing: .5px;
   max-width: 75%;
   line-height: 1.1;
@@ -469,7 +488,12 @@ nav .nav .header-form #searchButton {
 @media screen and (max-width: 569px) {
   .movie__details__genre {
     letter-spacing: .1px;
-    max-width: 100%;
+    max-width: 90%;
+  }
+  .movie__details__genre span {
+    color: #f5f6fa;
+    line-height: 1.3;
+    font-weight: 500;
   }
 }
 
@@ -493,11 +517,11 @@ nav .nav .header-form #searchButton {
 @media screen and (max-width: 569px) {
   .movie__details__rating {
     top: auto;
-    bottom: 1rem;
+    top: 0;
     right: 1rem;
     font-size: .9rem;
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
     letter-spacing: .3px;
   }
 }
@@ -516,6 +540,7 @@ nav .nav .header-form #searchButton {
 
 .movie__details__overview {
   line-height: 1.4;
+  margin-top: 1.3rem;
   width: 90%;
   letter-spacing: .3px;
   color: #dcdde1;
@@ -557,7 +582,7 @@ nav .nav .header-form #searchButton {
 
 .title {
   text-align: center;
-  padding-block-start: 1.5rem;
+  padding-block: 1.5rem .2rem;
   padding-inline: 2rem;
   font-size: 2rem;
   letter-spacing: 2px;
@@ -615,7 +640,7 @@ h5 {
   font-family: inherit;
   width: clamp(40%, 1024px, 90%);
   background-color: #0e0d0d;
-  border-radius: 5px;
+  border-radius: 15px;
   border: 1px solid #718093a2;
   color: white;
   z-index: 11;
@@ -671,7 +696,7 @@ h5 {
   margin-bottom: 2rem;
   text-align: center;
   font-weight: 600;
-  color: #1f68de;
+  color: #5b38f8;
   grid-area: title;
 }
 
@@ -797,7 +822,7 @@ h5 {
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #15181b;
-  background: linear-gradient(to bottom, rgba(4, 3, 15, 0.85), rgba(4, 3, 15, 0.92)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(10, 10, 10, 0.95)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
 }
 
 body .container main #movies {
@@ -812,8 +837,8 @@ body .container main #movies .movies__categories {
   align-items: center;
   max-width: 250px;
   margin-inline: auto;
-  margin-block: 1rem 2rem;
-  background-color: #1f68de;
+  margin-block: 1rem 3rem;
+  background-color: #09123a;
   padding: 2px;
   gap: 2px;
 }
@@ -830,14 +855,14 @@ body .container main #movies .movies__categories__category {
   text-decoration: none;
   font-weight: 600;
   letter-spacing: .5px;
-  background-color: #1f68de;
+  background-color: #09123a;
   cursor: pointer;
   transition: all .2s linear;
 }
 
 body .container main #movies .movies__categories__category.active {
   color: #f5f6fa;
-  background-color: #13103b;
+  background-color: #5b38f8;
 }
 
 body .container main .pages {
@@ -845,7 +870,7 @@ body .container main .pages {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-top: .5rem;
+  padding-top: 2.1rem;
   margin-block-end: 2rem;
 }
 
@@ -874,7 +899,7 @@ body .container main .pages__page.active {
 body .container footer {
   color: #f5f6fa;
   text-align: center;
-  background-color: #13103b;
+  background-color: #09123a;
   padding-block: 1.8rem;
   font-size: 1rem;
 }

@@ -2,10 +2,11 @@
 
 .movie {
     @include media-mobile{
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
         border: 0;
         background-color: transparent;
         gap: 1rem;
+        height: 180px;
     }
     display: flex;
     border-radius: 10px;
@@ -16,6 +17,14 @@
     background: #141516b9;
     border: 1px solid #718093a2;
     cursor: pointer;
+
+    span {
+        @include media-mobile {
+            display: block;
+        }
+
+        display: none;
+    }
 
     &__image {
         @include media-mobile {
@@ -41,10 +50,11 @@
 
         &__title {
             @include media-mobile{
-                font-size: 1.2rem;
+                font-size: .95rem;
                 letter-spacing: .1px;
-                max-width: 100%;
-                font-weight: 500;
+                max-width: 78%;
+                font-weight: 400;
+                margin-bottom: .5rem;
             }
 
             font-size: 1.3rem;
@@ -55,26 +65,39 @@
             line-height: 1.1;
 
             span {
-                color: #dcdde1;
+                color: $primary-text-color;
+                line-height: 1.3;
+                font-weight: 500;
             }
         }
 
         &__release {
             color: $secondary-text-color;
-            font-size: 1rem;
+            font-size: .95rem;
             margin-block: .5rem;
+
+            span {
+                color: $primary-text-color;
+                line-height: 1.3;
+                font-weight: 500;
+            }
         }
 
         &__genre {
             @include media-mobile {
                 letter-spacing: .1px;
-                max-width: 100%;
+                max-width: 90%;
+
+                span {
+                    color: $primary-text-color;
+                    line-height: 1.3;
+                    font-weight: 500;
+                }
             }
 
             color: #95c7f7;
             font-weight: 400;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+            font-size: .9rem;
             letter-spacing: .5px;
             max-width: 75%;
             line-height: 1.1;
@@ -83,11 +106,11 @@
         &__rating {
             @include media-mobile{
                 top: auto;
-                bottom: 1rem;
+                top: 0;
                 right: 1rem;
                 font-size: .9rem;
-                width: 33px;
-                height: 33px;
+                width: 32px;
+                height: 32px;
                 letter-spacing: .3px;
             }
 
@@ -124,6 +147,7 @@
                 display: none;
             }
             line-height: 1.4;
+            margin-top: 1.3rem;
             width: 90%;
             letter-spacing: .3px;
             color: $secondary-text-color;

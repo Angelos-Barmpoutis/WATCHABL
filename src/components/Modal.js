@@ -18,7 +18,7 @@ const Modal = (props) => {
                     onClick={props.closeModal}
                     initial = {{opacity: 0}}
                     animate = {{opacity: 1}}
-                    transition= {{ duration: 0.7, type: 'spring'}}
+                    transition= {{ type: 'spring'}}
                     exit = {{opacity: 0}}
                 >
                 </motion.div>
@@ -26,7 +26,7 @@ const Modal = (props) => {
                     className = "modal"
                     initial = {{opacity: 0, scale: 0}}
                     animate = {{opacity: 1, scale: 1}}
-                    transition = {{duration: .7, type: 'spring'}}
+                    transition = {{type: 'spring', stiffness: 70}}
                     exit = {{opacity: 0, scale: 0}}
                 >
                 <div className="modal__x-button" onClick={props.closeModal}>
