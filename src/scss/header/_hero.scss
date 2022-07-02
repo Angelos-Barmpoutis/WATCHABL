@@ -9,7 +9,6 @@
     &__images {
         @include media-mobile {
             gap: 0;
-            height: calc(100vh - 530px);
         }
 
         display: flex;
