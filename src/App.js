@@ -22,7 +22,6 @@ const App = () => {
   const [searchInput, setSearchInput] = useState('');
   const [allMovies, setAllMovies] = useState([]);
   const [moviesOffSetTop, setMoviesOffSetTop] = useState();
-  const [navOffsetHeight, setNavOffsetHeight] = useState();
   const [modal, setModal] = useState({
     isOpen: false,
     queryId: null,
@@ -65,7 +64,6 @@ const App = () => {
         }
       ))
       setMoviesOffSetTop(document.querySelector('#movies').offsetTop);
-      setNavOffsetHeight(document.querySelector('.nav').offsetHeight);
     })
     .catch(error => console.log(error))
   }, [request.page, request.searchInput, request.method, request.category])
@@ -183,7 +181,7 @@ const App = () => {
 
   // Scroll to movies section
   function scrollToMovies() {
-    window.scrollTo(0,  moviesOffSetTop - navOffsetHeight);
+    window.scrollTo(0,  moviesOffSetTop);
   }
 
   // Close modal and reset its state

@@ -96,11 +96,6 @@
 
 nav {
   background-color: rgba(9, 18, 58, 0.97);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 10;
 }
 
 nav .nav {
@@ -253,7 +248,7 @@ nav .nav .header-form #searchButton {
   width: 100%;
   color: #f5f6fa;
   overflow-x: hidden;
-  margin-top: 95px;
+  margin-top: 2rem;
 }
 
 .hero__images {
@@ -261,7 +256,7 @@ nav .nav .header-form #searchButton {
   align-items: center;
   justify-content: center;
   max-width: 1280px;
-  height: calc(100vh - 580px);
+  height: calc(40vh);
   max-height: 700px;
   padding: 1.5rem 2rem;
   gap: 1.2rem;
