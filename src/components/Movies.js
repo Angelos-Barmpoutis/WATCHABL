@@ -1,5 +1,4 @@
 const Movies = (props) => {
-    console.log(props.responseMovies.length)
     return (
         <section className="wrapper" id='movies'>
             {props.method === 'discover' && <h1 className='title'>Explore the Most Popular <span>Movies</span> & <span>TV Shows</span></h1>}

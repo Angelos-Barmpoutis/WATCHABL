@@ -1,4 +1,4 @@
-# WatchDB Application
+# WatchDB
 
 [Live Demo](https://watchdb.netlify.app/)
 
@@ -25,8 +25,6 @@
 --Genres
 
 --Overview
-
-<<<<<<< HEAD
 
 ### Get Tv Show Informations about:
 
