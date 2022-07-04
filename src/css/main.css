@@ -452,7 +452,7 @@ nav .nav .header-form #searchButton {
   .movie__details__title {
     font-size: .95rem;
     letter-spacing: .1px;
-    max-width: 78%;
+    max-width: 75%;
     font-weight: 400;
     margin-bottom: .5rem;
   }
@@ -639,7 +639,7 @@ h5 {
 .modal-container .modal {
   font-family: inherit;
   width: clamp(30%, 1024px, 80%);
-  background-color: #0c1025;
+  background-color: #03050c;
   border-radius: 15px;
   height: 90%;
   border: 1px solid #718093a2;
@@ -690,7 +690,7 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .modal-container .modal__hero {
-    height: 40vh;
+    height: 38vh;
   }
 }
 
