@@ -806,6 +806,14 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
 }
 
+body .container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 0;
+  justify-content: space-between;
+}
+
 body .container main #movies {
   border-top: 1px solid #718093a2;
   padding-top: 20px;
@@ -844,6 +852,13 @@ body .container main #movies .movies__categories__category {
 body .container main #movies .movies__categories__category.active {
   color: #f5f6fa;
   background-color: #5b38f8;
+}
+
+body .container main .no-results {
+  color: #f5f6fa;
+  text-align: center;
+  font-size: 1.5rem;
+  padding-block: 3rem 6rem;
 }
 
 body .container main .pages {

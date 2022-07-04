@@ -1,4 +1,5 @@
 const Movies = (props) => {
+    console.log(props.responseMovies.length)
     return (
         <section className="wrapper" id='movies'>
             {props.method === 'discover' && <h1 className='title'>Explore the Most Popular <span>Movies</span> & <span>TV Shows</span></h1>}
@@ -7,6 +8,7 @@ const Movies = (props) => {
                 <button type='button' className={props.category === 'movie' ? 'movies__categories__category active' : 'movies__categories__category'} onClick={props.getMovies}>Movies</button>
                 <button type='button' className={props.category === 'tv' ? 'movies__categories__category active' : 'movies__categories__category'} onClick={props.getTvShows}>TV Shows</button>
             </div>
+            {(props.method === 'search' && props.responseMovies.length === 0) && <h3 className="no-results">No results for <em>"{props.searchInput}"</em></h3>}
             {props.movies}
         </section>
     )

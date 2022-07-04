@@ -86,6 +86,7 @@ const App = () => {
           searchInput: [true, searchInput]
         }
       ))
+      document.getElementById('searchInput').value = '';
       scrollToMovies()
     }
   }
@@ -250,14 +251,14 @@ const App = () => {
           getReleaseYear = {getReleaseYear}
           movies = {movies}
           />
-          <Pages 
+          {allMovies.length !== 0 && <Pages 
           page = {request.page}
           totalPages = {request.totalPages}
           onePageBack = {onePageBack}
           twoPagesBack = {twoPagesBack}
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
-          />            
+          /> }           
         </main>
         <Footer />
     </div>
