@@ -639,7 +639,7 @@ h5 {
 .modal-container .modal {
   font-family: inherit;
   width: clamp(30%, 1024px, 80%);
-  background-color: #0e0d0d;
+  background-color: #0c1025;
   border-radius: 15px;
   height: 90%;
   border: 1px solid #718093a2;
