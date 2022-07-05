@@ -62,7 +62,7 @@ const Movie = props => {
         fetch(`https://api.themoviedb.org/3/${props.category}/${props.id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
         .then(response => response.json())
         .then(responseData => {
-            
+            document.querySelector('body').style.overflow = 'hidden';
             props.setModal(prevModal => ({
                 ...prevModal,
                 isOpen: true,

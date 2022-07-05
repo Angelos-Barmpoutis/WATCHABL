@@ -52,9 +52,9 @@ h5 {
             font-size: 1rem;
             position: relative;
 
-            span {
+            h3 {
                 display: block;
-                line-height: 1.6;
+                line-height: 1.4;
                 color: $primary-text-color;
                 font-weight: 500;
                 font-size: 1rem;
@@ -123,6 +123,7 @@ h5 {
                         font-size: .9rem;
                         display: flex;
                         align-items: center;
+                        font-weight: 400;
                     }
                 }
 
@@ -135,8 +136,17 @@ h5 {
                     @include media-mobile {
                         max-width: 100%;
                     }
-                    margin-block: 1.5rem;
                     max-width: 90%;
+                    margin-top: 1.5rem;
+
+                    h3 {
+                        border-left: .2rem solid $secondary-color;
+                        padding-left: .5rem;
+                    }
+
+                    p{
+                        padding-left: .7rem;
+                    }
                 }
 
                 &__stats {
@@ -149,7 +159,16 @@ h5 {
                     }
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    row-gap: 1rem;
+                    row-gap: 1.5rem;
+
+                    h3 {
+                        border-left: .2rem solid $secondary-color;
+                        padding-left: .5rem;
+                    }
+
+                    p{
+                        padding-left: .7rem;
+                    }
                 }
             }
         }

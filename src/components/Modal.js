@@ -35,12 +35,12 @@ const Modal = (props) => {
                             <i className="fa-solid fa-x"></i>
                     </div>
                     
-                    <div
+                    <section
                         className="modal__hero"
                         style = {{background: `linear-gradient(-150deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(https://image.tmdb.org/t/p/w780${backgroundImage}) no-repeat center center/cover`}}
                         >
-                    </div>
-                    <div className="modal__details">
+                    </section>
+                    <section className="modal__details">
                         <div className="modal__details__profile">
                             {props.modal.response.poster_path !== null &&<img
                                 loading="lazy"  
@@ -67,85 +67,88 @@ const Modal = (props) => {
                         <div className="modal__details__genres">
                             {props.modal.response.genres && genresNames}
                         </div>
+                        
                         <div className="modal__details__stats">
+                            {props.modal.response.status
+                                && <div className="modal__details__stats__item">
+                                        <h3>Status:</h3>
+                                        <p>{props.modal.response.status}</p>
+                            </div>}
+
                             {props.modal.response.release_date
                             && <div className="modal__details__stats__item">
-                                    <span>Release Date:</span>
+                                    <h3>Release Date:</h3>
                                     <p>{props.modal.response.release_date}</p>
                             </div>}
 
                             {props.modal.response.first_air_date && <div className="modal__details__stats__item">
-                                    <span>First Air Date:</span>
+                                    <h3>First Air Date:</h3>
                                     <p>{props.modal.response.first_air_date}</p>
                             </div>}
                             
                             {props.modal.response.first_air_date && <div className="modal__details__stats__item">
-                                    <span>Last Air Date:</span>
+                                    <h3>Last Air Date:</h3>
                                     <p>{props.modal.response.last_air_date}</p>
                             </div>}
 
                             {props.modal.response.episode_run_time
                                 && <div className="modal__details__stats__item">
-                                        <span>Episode Runtime:</span>
+                                        <h3>Episode Runtime:</h3>
                                         <p>{props.modal.response.episode_run_time[0]} minutes</p>
                             </div>}
 
                             {(props.modal.response.runtime && props.modal.response.runtime !== null)
                                 && <div className="modal__details__stats__item">
-                                        <span>Runtime:</span>
+                                        <h3>Runtime:</h3>
                                         <p>{props.modal.response.runtime} minutes</p>
                             </div>}
 
                             {props.modal.response.number_of_seasons
                                 && <div className="modal__details__stats__item">
-                                        <span>Seasons:</span>
+                                        <h3>Seasons:</h3>
                                         <p>{props.modal.response.number_of_seasons}</p>
                             </div>}
                         
                             {props.modal.response.number_of_episodes
                                 && <div className="modal__details__stats__item">
-                                        <span>Episodes:</span>
+                                        <h3>Episodes:</h3>
                                         <p>{props.modal.response.number_of_episodes}</p>
                             </div>}
 
                             {props.modal.response.original_language
                                 && <div className="modal__details__stats__item">
-                                        <span>Original Language:</span>
+                                        <h3>Original Language:</h3>
                                         <p>{props.modal.response.original_language}</p>
-                            </div>}
-
-                            {props.modal.response.status
-                                && <div className="modal__details__stats__item">
-                                        <span>Status:</span>
-                                        <p>{props.modal.response.status}</p>
                             </div>}
 
                             {props.modal.response.type
                                 && <div className="modal__details__stats__item">
-                                        <span>Type:</span>
+                                        <h3>Type:</h3>
                                         <p>{props.modal.response.type}</p>
                             </div>}
 
                             {props.modal.response.vote_average
                                 && <div className="modal__details__stats__item">
-                                        <span>Average Rating:</span>
+                                        <h3>Average Rating:</h3>
                                         <p>{props.modal.response.vote_average}</p>
                             </div>}
 
 
                             {props.modal.response.vote_count
                                 && <div className="modal__details__stats__item">
-                                        <span>Rate Count:</span>
+                                        <h3>Rate Count:</h3>
                                         <p>{props.modal.response.vote_count}</p>
                             </div>}
                         </div>
 
                         {props.modal.response.overview
-                        && <p className="modal__details__overview">
-                                <span>Overview:</span>
-                                {props.modal.response.overview}
-                            </p>}
-                    </div>
+                                && <div className="modal__details__overview">
+                                <h3>Overview:</h3>
+                                <p>
+                                    {props.modal.response.overview}
+                                </p>
+                        </div>}
+                    </section>
                 </motion.div>
         </div>
     )
