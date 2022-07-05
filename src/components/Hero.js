@@ -16,7 +16,7 @@ const Hero = () => {
                 setTrendingPosters(prevState => (
                     [
                         ...prevState,
-                        [responseData.results[i].poster_path]
+                        [responseData.results[i].backdrop_path]
                     ]
                 ))
 

@@ -27,7 +27,6 @@ const App = () => {
     queryId: null,
     response: null
   })
-  const [findSimilar, setFindSimilar] = useState([]);
 
   // Send request to get genres' list
   useEffect(() => {
@@ -129,14 +128,6 @@ const App = () => {
       return genreMap.toString().replaceAll(',', ', ');
   }
 
-  // Convert entire release date to only its year
-  function getReleaseYear(releaseDate) {
-    if (releaseDate) {
-        const releaseYear = new Date(releaseDate).getFullYear()
-        return releaseYear
-    }
-  }
-
   // Go up 1 page
   function onePageUp() {
     if (request.page < request.totalPages) {
@@ -214,7 +205,6 @@ const App = () => {
                 movieReleaseDate = {release_date}
                 tvReleaseDate = {first_air_date}
                 getGenre = {getGenre}
-                getReleaseYear = {getReleaseYear}
                 setModal = {setModal}
                 category = {request.category}
              />
@@ -247,7 +237,6 @@ const App = () => {
           getMovies = {getMovies}
           getTvShows = {getTvShows}
           getGenre = {getGenre}
-          getReleaseYear = {getReleaseYear}
           movies = {movies}
           />
           {allMovies.length !== 0 && <Pages 
