@@ -187,8 +187,6 @@ const App = () => {
 
   // Close modal and reset its state
   function closeModal() {
-    document.querySelector('body').style.overflow = 'initial';
-
     setModal(prevModal => ({
       ...prevModal,
       isOpen: false,
