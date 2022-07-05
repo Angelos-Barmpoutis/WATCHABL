@@ -27,6 +27,7 @@ const App = () => {
     queryId: null,
     response: null
   })
+  const [findSimilar, setFindSimilar] = useState([]);
 
   // Send request to get genres' list
   useEffect(() => {

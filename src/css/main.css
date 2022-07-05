@@ -767,12 +767,12 @@ h5 {
 }
 
 .modal-container .modal__details__overview h3 {
-  border-left: 0.2rem solid #5b38f8;
+  border-left: 0.15rem solid #5b38f8;
   padding-left: .5rem;
 }
 
 .modal-container .modal__details__overview p {
-  padding-left: .7rem;
+  padding-left: .65rem;
 }
 
 .modal-container .modal__details__stats {
@@ -794,12 +794,12 @@ h5 {
 }
 
 .modal-container .modal__details__stats h3 {
-  border-left: 0.2rem solid #5b38f8;
+  border-left: 0.15rem solid #5b38f8;
   padding-left: .5rem;
 }
 
 .modal-container .modal__details__stats p {
-  padding-left: .7rem;
+  padding-left: .65rem;
 }
 
 .modal-container .modal-backdrop {
@@ -878,6 +878,7 @@ body .container main .no-results {
   text-align: center;
   font-size: 1.5rem;
   padding-block: 3rem 6rem;
+  font-weight: 400;
 }
 
 body .container main .pages {
