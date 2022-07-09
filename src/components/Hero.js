@@ -13,19 +13,21 @@ const Hero = () => {
         .then(response => response.json())
         .then(responseData => {
             for (let i=0; i<5; i++) {
-                setTrendingPosters(prevState => (
-                    [
-                        ...prevState,
-                        [responseData.results[i].backdrop_path]
-                    ]
-                ))
-
-                setTrendingTitles(prevState => (
-                    [
-                        ...prevState,
-                        [responseData.results[i].title ? responseData.results[i].title : responseData.results[i].name]
-                    ]
-                ))
+                if (responseData.results[i].backdrop_path) {
+                    setTrendingPosters(prevState => (
+                        [
+                            ...prevState,
+                            [responseData.results[i].backdrop_path]
+                        ]
+                    ))
+    
+                    setTrendingTitles(prevState => (
+                        [
+                            ...prevState,
+                            [responseData.results[i].title ? responseData.results[i].title : responseData.results[i].name]
+                        ]
+                    ))
+                }
             }
         })
     }, [])

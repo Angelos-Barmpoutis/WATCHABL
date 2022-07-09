@@ -139,15 +139,6 @@ h5 {
                     }
                     max-width: 90%;
                     margin-top: 1.5rem;
-
-                    h3 {
-                        border-left: .15rem solid $secondary-color;
-                        padding-left: .5rem;
-                    }
-
-                    p{
-                        padding-left: .65rem;
-                    }
                 }
 
                 &__stats {
@@ -161,15 +152,12 @@ h5 {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     row-gap: 1.5rem;
+                }
 
-                    h3 {
-                        border-left: .15rem solid $secondary-color;
-                        padding-left: .5rem;
-                    }
-
-                    p{
-                        padding-left: .65rem;
-                    }
+                .fa-regular,
+                .fa-solid {
+                    margin-right: .5rem;
+                    color: $secondary-color;
                 }
             }
         }

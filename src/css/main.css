@@ -767,15 +767,6 @@ h5 {
   }
 }
 
-.modal-container .modal__details__overview h3 {
-  border-left: 0.15rem solid #5b38f8;
-  padding-left: .5rem;
-}
-
-.modal-container .modal__details__overview p {
-  padding-left: .65rem;
-}
-
 .modal-container .modal__details__stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -794,13 +785,10 @@ h5 {
   }
 }
 
-.modal-container .modal__details__stats h3 {
-  border-left: 0.15rem solid #5b38f8;
-  padding-left: .5rem;
-}
-
-.modal-container .modal__details__stats p {
-  padding-left: .65rem;
+.modal-container .modal__details .fa-regular,
+.modal-container .modal__details .fa-solid {
+  margin-right: .5rem;
+  color: #5b38f8;
 }
 
 .modal-container .modal-backdrop {
