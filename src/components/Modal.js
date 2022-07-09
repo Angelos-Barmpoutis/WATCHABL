@@ -128,14 +128,14 @@ const Modal = (props) => {
                                         <p>{props.modal.response.type}</p>
                             </div>}
 
-                            {props.modal.response.vote_average
+                            {props.modal.response.vote_average !== 0
                                 && <div className="modal__details__stats__item">
                                         <h3><i class="fa-regular fa-star"></i>Average Rating:</h3>
                                         <p>{props.modal.response.vote_average}</p>
                             </div>}
 
 
-                            {props.modal.response.vote_count
+                            {props.modal.response.vote_count !== 0
                                 && <div className="modal__details__stats__item">
                                         <h3><i class="fa-solid fa-person"></i>Rate Count:</h3>
                                         <p>{props.modal.response.vote_count}</p>
