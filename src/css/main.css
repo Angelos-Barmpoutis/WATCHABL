@@ -10,6 +10,30 @@
   }
 }
 
+@keyframes slideInLeft {
+  0% {
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 .wrapper {
   max-width: 1440px;
   overflow: hidden;
@@ -55,6 +79,30 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
@@ -112,28 +160,8 @@ nav .nav {
   }
 }
 
-nav .nav .header-logo {
-  color: #5b38f8;
-  font-size: 1.4rem;
-  letter-spacing: 1.5px;
-  line-height: 1.5;
-  text-decoration: none;
-  font-weight: 600;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-@media screen and (max-width: 569px) {
-  nav .nav .header-logo {
-    font-size: 1.2rem;
-  }
-}
-
-nav .nav .header-logo span {
-  color: #f5f6fa;
-  padding: 5px;
-  background-color: #5b38f8;
-  border-radius: 5px;
-  margin-left: 0.2rem;
+nav .nav .logo {
+  width: 150px;
 }
 
 nav .nav .header-form #searchInput {
@@ -208,6 +236,30 @@ nav .nav .header-form #searchButton {
   }
 }
 
+@keyframes slideInLeft {
+  0% {
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 .wrapper {
   max-width: 1440px;
   overflow: hidden;
@@ -278,9 +330,9 @@ nav .nav .header-form #searchButton {
 
 @media screen and (max-width: 569px) {
   .hero__images__image {
-    width: 0;
     margin: 0;
-    opacity: 0;
+    gap: 0;
+    width: 0;
   }
 }
 
@@ -292,11 +344,12 @@ nav .nav .header-form #searchButton {
 @media screen and (max-width: 569px) {
   .hero__images__image.active {
     opacity: 1;
+    animation: slideInLeft .6s ease-in-out forwards, slideInRight .6s ease-in-out forwards 3.4s;
   }
 }
 
 .hero__images__image.active h2 {
-  animation: fadeIn 1.7s ease-in-out forwards;
+  animation: fadeIn .6s ease-in-out forwards .6s;
 }
 
 .hero__images__image h2 {
@@ -335,6 +388,30 @@ nav .nav .header-form #searchButton {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
   }
 }
 
@@ -562,6 +639,30 @@ nav .nav .header-form #searchButton {
   }
 }
 
+@keyframes slideInLeft {
+  0% {
+    width: 100%;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 .wrapper {
   max-width: 1440px;
   overflow: hidden;
@@ -714,6 +815,7 @@ h5 {
   align-items: flex-end;
   gap: 1rem;
   color: #dcdde1;
+  margin-bottom: 3rem;
 }
 
 .modal-container .modal__details__profile__image {
@@ -735,7 +837,7 @@ h5 {
 }
 
 .modal-container .modal__details__genres {
-  margin-block: 1.2rem;
+  margin-block: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: .8rem;
@@ -753,12 +855,11 @@ h5 {
 
 .modal-container .modal__details__tagline {
   color: #95c7f7;
-  margin-top: 1.5rem;
 }
 
 .modal-container .modal__details__overview {
   max-width: 90%;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
 }
 
 @media screen and (max-width: 569px) {
@@ -770,7 +871,7 @@ h5 {
 .modal-container .modal__details__stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 1.5rem;
+  row-gap: 2rem;
 }
 
 @media screen and (max-width: 769px) {

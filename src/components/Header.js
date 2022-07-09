@@ -6,7 +6,7 @@ const Header = (props) => {
             <nav>
                 <div className="nav wrapper">
                     <a href='index.html' className="header-logo"
-                        >Watch<span>DB</span>
+                        ><img src="../images/logo.png" alt="Logo" className='logo'/>
                     </a>
                     <form className="header-form" onSubmit={props.searchFormSubmit}>
                         <input type="text" id="searchInput" name="searchInput" placeholder='Search...' onChange={props.searchInputChange}/>

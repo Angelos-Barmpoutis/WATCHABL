@@ -13,7 +13,7 @@
 
 
 // VARIABLES
-$primary-color: rgb(9, 18, 58);
+$primary-color: #09123a;
 $secondary-color: #5b38f8;
 $primary-text-color: #f5f6fa;
 $secondary-text-color: #dcdde1;
@@ -23,6 +23,30 @@ $secondary-text-color: #dcdde1;
     0% {opacity: 0;}
     50% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+@keyframes slideInLeft {
+    0% {
+        width: 100%;
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        width: 100%;
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
 }
 
 // UTILITY CLASSES

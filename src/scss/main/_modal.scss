@@ -94,6 +94,7 @@ h5 {
                     align-items: flex-end;
                     gap: 1rem;
                     color: $secondary-text-color;
+                    margin-bottom: 3rem;
 
                     &__image {
                         width: 120px;
@@ -112,7 +113,7 @@ h5 {
                 }
 
                 &__genres {
-                    margin-block: 1.2rem;
+                    margin-block: 2rem;
                     display: flex;
                     flex-wrap: wrap;
                     gap: .8rem;
@@ -130,7 +131,6 @@ h5 {
 
                 &__tagline {
                     color: #95c7f7;
-                    margin-top: 1.5rem;
                 }
 
                 &__overview {
@@ -138,7 +138,7 @@ h5 {
                         max-width: 100%;
                     }
                     max-width: 90%;
-                    margin-top: 1.5rem;
+                    margin-top: 2rem;
                 }
 
                 &__stats {
@@ -151,7 +151,7 @@ h5 {
                     }
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
-                    row-gap: 1.5rem;
+                    row-gap: 2rem;
                 }
 
                 .fa-regular,

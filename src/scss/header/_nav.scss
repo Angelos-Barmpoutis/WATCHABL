@@ -15,26 +15,8 @@ nav {
         justify-content: space-between;
         height: 75px;
 
-        .header-logo {
-            @include media-mobile {
-                font-size: 1.2rem;
-            }
-
-            color: $secondary-color;
-            font-size: 1.4rem;
-            letter-spacing: 1.5px;
-            line-height: 1.5;
-            text-decoration: none;
-            font-weight: 600;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-            span {
-                color: #f5f6fa;
-                padding: 5px;
-                background-color: $secondary-color;
-                border-radius: 5px;
-                margin-left: 0.2rem;
-            }
+        .logo {
+            width: 150px;
         }
 
         .header-form {
