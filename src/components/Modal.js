@@ -71,80 +71,80 @@ const Modal = (props) => {
                         <div className="modal__details__stats">
                             {props.modal.response.status
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-regular fa-circle"></i>Status:</h3>
+                                        <h3><i className="fa-regular fa-circle"></i>Status:</h3>
                                         <p>{props.modal.response.status}</p>
                             </div>}
 
                             {props.modal.response.release_date
                             && <div className="modal__details__stats__item">
-                                    <h3><i class="fa-regular fa-calendar"></i>Release Date:</h3>
+                                    <h3><i className="fa-regular fa-calendar"></i>Release Date:</h3>
                                     <p>{props.modal.response.release_date}</p>
                             </div>}
 
                             {props.modal.response.first_air_date && <div className="modal__details__stats__item">
                                 
-                                    <h3><i class="fa-regular fa-calendar"></i>First Air Date:</h3>
+                                    <h3><i className="fa-regular fa-calendar"></i>First Air Date:</h3>
                                     <p>{props.modal.response.first_air_date}</p>
                             </div>}
                             
                             {props.modal.response.first_air_date && <div className="modal__details__stats__item">
-                                    <h3><i class="fa-regular fa-calendar"></i>Last Air Date:</h3>
+                                    <h3><i className="fa-regular fa-calendar"></i>Last Air Date:</h3>
                                     <p>{props.modal.response.last_air_date}</p>
                             </div>}
 
                             {props.modal.response.episode_run_time
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-regular fa-clock"></i>Episode Runtime:</h3>
+                                        <h3><i className="fa-regular fa-clock"></i>Episode Runtime:</h3>
                                         <p>{props.modal.response.episode_run_time[0]} minutes</p>
                             </div>}
 
                             {(props.modal.response.runtime && props.modal.response.runtime !== null)
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-regular fa-clock"></i>Runtime:</h3>
+                                        <h3><i className="fa-regular fa-clock"></i>Runtime:</h3>
                                         <p>{props.modal.response.runtime} minutes</p>
                             </div>}
 
                             {props.modal.response.number_of_seasons
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-solid fa-clapperboard"></i>Seasons:</h3>
+                                        <h3><i className="fa-solid fa-clapperboard"></i>Seasons:</h3>
                                         <p>{props.modal.response.number_of_seasons}</p>
                             </div>}
                         
                             {props.modal.response.number_of_episodes
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-solid fa-film"></i>Episodes:</h3>
+                                        <h3><i className="fa-solid fa-film"></i>Episodes:</h3>
                                         <p>{props.modal.response.number_of_episodes}</p>
                             </div>}
 
                             {props.modal.response.original_language
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-solid fa-language"></i>Original Language:</h3>
+                                        <h3><i className="fa-solid fa-language"></i>Original Language:</h3>
                                         <p>{props.modal.response.original_language}</p>
                             </div>}
 
                             {props.modal.response.type
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-solid fa-tape"></i>Type:</h3>
+                                        <h3><i className="fa-solid fa-tape"></i>Type:</h3>
                                         <p>{props.modal.response.type}</p>
                             </div>}
 
                             {props.modal.response.vote_average !== 0
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-regular fa-star"></i>Average Rating:</h3>
+                                        <h3><i className="fa-regular fa-star"></i>Average Rating:</h3>
                                         <p>{props.modal.response.vote_average}</p>
                             </div>}
 
 
                             {props.modal.response.vote_count !== 0
                                 && <div className="modal__details__stats__item">
-                                        <h3><i class="fa-solid fa-person"></i>Rate Count:</h3>
+                                        <h3><i className="fa-solid fa-person"></i>Rate Count:</h3>
                                         <p>{props.modal.response.vote_count}</p>
                             </div>}
                         </div>
 
                         {props.modal.response.overview
                                 && <div className="modal__details__overview">
-                                <h3><i class="fa-solid fa-info"></i>Overview:</h3>
+                                <h3><i className="fa-solid fa-info"></i>Overview:</h3>
                                 <p>
                                     {props.modal.response.overview}
                                 </p>

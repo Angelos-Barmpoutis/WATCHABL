@@ -58,23 +58,10 @@ const Movie = props => {
         }
     }
 
-    function openModal() {
-        fetch(`https://api.themoviedb.org/3/${props.category}/${props.id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
-        .then(response => response.json())
-        .then(responseData => {
-            props.setModal(prevModal => ({
-                ...prevModal,
-                isOpen: true,
-                queryId: props.id,
-                response: responseData
-            }))
-        })
-    }
-
     return (
         <motion.div
         className="movie"
-        onClick = {openModal}
+        onClick = {() => props.openModal(props.category, props.id, title)}
         variants= {movieVariants}
         initial = 'hidden'
         animate = 'visible'

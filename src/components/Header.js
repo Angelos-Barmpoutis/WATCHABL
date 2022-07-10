@@ -14,7 +14,9 @@ const Header = (props) => {
                     </form>
                 </div>
             </nav>
-            <Hero />
+            <Hero
+                openModal = {props.openModal}
+            />
         </header>
     )
 }

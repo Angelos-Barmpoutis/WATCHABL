@@ -326,6 +326,7 @@ nav .nav .header-form #searchButton {
   position: relative;
   border-radius: 25px;
   transition: all 1s ease-in-out;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 569px) {
