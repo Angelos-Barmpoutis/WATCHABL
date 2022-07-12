@@ -8,9 +8,8 @@ const Header = (props) => {
                     <a href='index.html' className="header-logo"
                         ><img src="../images/logo.png" alt="Logo" className='logo'/>
                     </a>
-                    <form className="header-form" onSubmit={props.searchFormSubmit}>
+                    <form className="header-form" onSubmit={props.searchFormSubmit}><i className="fa-solid fa-magnifying-glass"></i>
                         <input type="text" id="searchInput" name="searchInput" placeholder='Search...' onChange={props.searchInputChange}/>
-                        <button aria-label='Search button' type="submit" id="searchButton"><i className="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
             </nav>

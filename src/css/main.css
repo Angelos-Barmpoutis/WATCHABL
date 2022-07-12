@@ -164,29 +164,37 @@ nav .nav .logo {
   width: 150px;
 }
 
-nav .nav .header-form #searchInput {
-  width: 80px;
-  font-family: inherit;
-  padding: 0.5rem 0.7rem;
-  font-family: inherit;
+nav .nav .header-form {
   background-color: #09123a;
   color: #dcdde1;
   border: 2px solid #5b38f8;
-  border-right: none;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
+}
+
+nav .nav .header-form .fa-magnifying-glass {
+  padding-left: .7rem;
+}
+
+nav .nav .header-form #searchInput {
+  width: 80px;
+  font-family: inherit;
+  padding: 0.7rem;
+  font-family: inherit;
+  background-color: #09123a;
+  color: #dcdde1;
+  border: none;
   letter-spacing: .5px;
   transition: all .2s ease-in-out;
 }
 
 @media screen and (max-width: 569px) {
   nav .nav .header-form #searchInput {
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem;
   }
 }
 
 nav .nav .header-form #searchInput:focus {
   outline: none;
-  box-shadow: 0 0 10px #5b38f8;
   background-color: #09123a;
   width: 200px;
 }
@@ -206,22 +214,6 @@ nav .nav .header-form #searchInput::placeholder {
   color: #dcdde1;
   text-overflow: ellipsis;
   font-size: .9rem;
-}
-
-nav .nav .header-form #searchButton {
-  color: #f5f6fa;
-  padding: 0.5rem 0.9rem;
-  border-radius: 0 5px 5px 0;
-  background-color: #09123a;
-  border: 2px solid #5b38f8;
-  border-left: none;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 569px) {
-  nav .nav .header-form #searchButton {
-    padding: 0.3rem 0.5rem;
-  }
 }
 
 @keyframes fadeIn {
@@ -782,12 +774,12 @@ h5 {
 
 .modal-container .modal__hero {
   width: 100%;
-  height: 38%;
+  height: 40%;
 }
 
 @media screen and (max-width: 569px) {
   .modal-container .modal__hero {
-    height: 38vh;
+    height: 40vh;
   }
 }
 

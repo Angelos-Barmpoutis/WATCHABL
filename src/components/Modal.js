@@ -37,7 +37,7 @@ const Modal = (props) => {
                     
                     <section
                         className="modal__hero"
-                        style = {{background: `linear-gradient(-150deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url(https://image.tmdb.org/t/p/w780${backgroundImage}) no-repeat center center/cover`}}
+                        style = {{background: `linear-gradient(-150deg, rgba(3, 5, 12, 0.3), rgba(3, 5, 12, 0)),linear-gradient(to bottom, rgba(3, 5, 12, 0), rgb(3, 5, 12)), url(https://image.tmdb.org/t/p/w780${backgroundImage}) no-repeat center center/cover`}}
                         >
                     </section>
                     <section className="modal__details">
