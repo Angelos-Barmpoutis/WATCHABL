@@ -205,10 +205,6 @@ nav .nav .header-form #searchInput:focus {
   }
 }
 
-nav .nav .header-form #searchInput:focus + #searchButton {
-  box-shadow: 0 0 10px #203f61;
-}
-
 nav .nav .header-form #searchInput::placeholder {
   font-family: inherit;
   color: #dcdde1;
@@ -837,13 +833,15 @@ h5 {
 }
 
 .modal-container .modal__details__genres__genre {
-  padding: .2rem .9rem;
+  padding: .4rem .9rem;
   border: 1px solid #718093;
-  border-radius: 1.6rem;
+  background-color: #21252b;
+  border-radius: 5px;
   font-size: .9rem;
   display: flex;
   align-items: center;
-  font-weight: 400;
+  font-weight: 500;
+  letter-spacing: .5px;
 }
 
 .modal-container .modal__details__tagline {

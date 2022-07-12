@@ -50,10 +50,6 @@ nav {
                     outline: none;
                     background-color: $primary-color;
                     width: 200px;
-
-                    &+#searchButton {
-                        box-shadow: 0 0 10px rgb(32, 63, 97);
-                    }
                 }
                 
                 &::placeholder {
