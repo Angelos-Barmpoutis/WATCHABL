@@ -4,11 +4,19 @@ import Pages from './components/Pages';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Movie from './components/Movie';
+import Sneakpeak from './components/Sneakpeak';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
   // Variables & States declaration
+  const [searchInput, setSearchInput] = useState('');
+  const [moviesOffSetTop, setMoviesOffSetTop] = useState();
+  const [modal, setModal] = useState({
+    isOpen: false,
+    queryId: null,
+    response: null
+  })
   const [request, setRequest] = useState(
     {
     method: 'discover',
@@ -19,14 +27,66 @@ const App = () => {
     genres: []
     }
   );
-  const [searchInput, setSearchInput] = useState('');
-  const [allMovies, setAllMovies] = useState([]);
-  const [moviesOffSetTop, setMoviesOffSetTop] = useState();
-  const [modal, setModal] = useState({
-    isOpen: false,
-    queryId: null,
-    response: null
-  })
+  const [response, setResponse] = useState(
+    {
+      results: [],
+      totalPages: 1,
+      genres: []
+    }
+  )
+
+  const [mostPopular, setMostPopular] = useState(
+    {
+      method: 'discover',
+      category: 'movie',
+      page: 1,
+      totalPages: 1,
+      results: [],
+      genres: []
+    }
+  )
+
+  const [trending, setTrending] = useState(
+    {
+      category: 'movie',
+      page: 1,
+      totalPages: 1,
+      results: [],
+      genres: []
+    }
+  )
+
+    // Fetch dynamic data based on the request
+    async function fetchData(url) {
+      const response = await fetch(url);
+      const responseData = await response.json()
+  
+      return await responseData
+    }
+  
+    // Fetch & store to state
+    async function fetchState(url, state, setState) {
+    fetchData(url, state)
+      .then(responseData => {
+        setState(previousState => (
+          {
+            ...previousState,
+            results: responseData.results,
+            totalPages: responseData.total_pages
+          }
+        ))
+      })
+    }
+  
+    // Fetch Most Popular
+    useEffect(() => {
+      fetchState(`https://api.themoviedb.org/3/${mostPopular.method}/${mostPopular.category}?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${mostPopular.page}`, mostPopular, setMostPopular)
+    }, [mostPopular.page, mostPopular.searchInput, mostPopular.method, mostPopular.category])
+
+    // Fetch Trending
+    useEffect(() => {
+      fetchState(`https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`, trending, setTrending)
+    }, [trending.page, trending.searchInput, trending.method, trending.category])
 
   // Send request to get genres' list
   useEffect(() => {
@@ -55,7 +115,12 @@ const App = () => {
     fetch(requestUrl)
     .then(response => response.json())
     .then(data => {
-      setAllMovies(data.results);
+      setResponse(prevResponse => (
+        {
+          ...prevResponse,
+          results: data.results
+        }
+      ));
       setRequest(prevRequest => (
         {
           ...prevRequest,
@@ -92,27 +157,27 @@ const App = () => {
   }
 
   // Set request's category to movie
-  function getMovies() {
-    setRequest(prevRequest => (
+  function getMovies(setState) {
+    setState(prevRequest => (
       {
         ...prevRequest,
         page: 1,
         category: 'movie'
       }
     ));
-    scrollToMovies()
+    // scrollToMovies()
   }
 
   // Set request's category to tv
-  function getTvShows() {
-    setRequest(prevRequest => (
+  function getTvShows(setState) {
+    setState(prevRequest => (
       {
         ...prevRequest,
         page: 1,
         category: 'tv'
       }
     ));
-    scrollToMovies()
+    // scrollToMovies()
   }
 
   // Convert genre IDs from numbers to words
@@ -218,7 +283,7 @@ const App = () => {
   }
 
   // Create Movie component
-  const movies = allMovies.map((movie, index) => {
+  const movies = response.results.map((movie, index) => {
     const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
     if (poster_path !== null && overview) {
         return (
@@ -260,8 +325,26 @@ const App = () => {
           />}
         </AnimatePresence>
         <main>
-          <Movies 
-          responseMovies = {allMovies}
+          <Sneakpeak
+            getMovies = {getMovies}
+            getTvShows = {getTvShows}
+            state = {mostPopular}
+            setState = {setMostPopular}
+            header = 'Most Popular'
+            results = {mostPopular.results}
+            parameter = 'category'
+          />
+          <Sneakpeak
+            getMovies = {getMovies}
+            getTvShows = {getTvShows}
+            state = {trending}
+            setState = {setTrending}
+            header = "Week's Trending"
+            results = {trending.results}
+            parameter = 'category'
+          />
+          {/* <Movies 
+          responseMovies = {response.results}
           genres = {request.genres}
           category = {request.category}
           method = {request.method}
@@ -271,14 +354,14 @@ const App = () => {
           getGenre = {getGenre}
           movies = {movies}
           />
-          {allMovies.length !== 0 && <Pages 
+          {response.results.length !== 0 && <Pages 
           page = {request.page}
           totalPages = {request.totalPages}
           onePageBack = {onePageBack}
           twoPagesBack = {twoPagesBack}
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
-          /> }           
+          /> }            */}
         </main>
         <Footer />
     </div>

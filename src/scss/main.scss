@@ -3,6 +3,7 @@
 @import './header/hero';
 @import './main/movie';
 @import './main/modal';
+@import './main/sneakpeak/_sneakpeak';
 
 // BASIC RESETS
 * {
@@ -10,7 +11,29 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+
+    /* width */
+    ::-webkit-scrollbar {
+        @include media-mobile {
+            height: 0;
+        }
+        width: 5px;
+        height: 5px;
+    }
+  
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $primary-color;
+        border-radius: 10px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: $secondary-color;
+        border-radius: 10px;
+    }
 }
+
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -26,43 +49,7 @@ body {
         main {
 
             #movies {
-                border-top: 1px solid #718093a2;
                 padding-top: 20px;
-
-                .movies__categories {
-                    border-radius: 5px;
-                    display: flex;
-                    justify-content: space-evenly;
-                    align-items: center;
-                    max-width: 250px;
-                    margin-inline: auto;
-                    margin-block: 1rem 3rem; 
-                    background-color: $primary-color;
-                    padding: 2px;
-                    gap: 2px;
-
-                    &__category {
-                        font-family: inherit;
-                        width: 100%;
-                        padding: .35rem;
-                        text-align: center;
-                        border-radius: 5px;
-                        border: none;
-                        font-size: .85rem;
-                        color: #f5f6fa;
-                        text-decoration: none;
-                        font-weight: 600;
-                        letter-spacing: .5px;
-                        background-color: $primary-color;
-                        cursor: pointer;
-                        transition: all .2s linear;
-
-                        &.active {
-                            color: $primary-text-color;
-                            background-color: $secondary-color;
-                        }
-                    }
-                }
             }
 
             .no-results {

@@ -1,0 +1,67 @@
+@import '../../config';
+
+.sneakpeak {
+    @include media-mobile{
+        padding-block: 1rem 0;
+    }
+    font-family: inherit;
+    padding-block: 1rem 2rem;
+
+    &-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__title {
+            @include media-mobile {
+                font-size: 1.1rem;
+            }
+            color: $primary-text-color;
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+    }
+
+    &__results {
+        @include media-mobile {
+            padding-block: 1.3rem 1rem;
+        }
+        display: flex;
+        align-items: stretch;
+        gap: 1.3rem;
+        overflow-x: auto;
+        border-radius: 10px;
+        padding-block: 1.3rem 2rem;
+
+        &__card {
+            @include media-mobile {
+                width: 120px;
+            }
+            font-family: inherit;
+            width: 150px;
+
+            &__image {
+                @include media-mobile {
+                    width: 120px;
+                    height: 180px;
+                }
+                border-radius: 10px;
+                width: 150px;
+                height: 215px;
+            }
+
+            &__title {
+                color: $primary-text-color;
+                line-height: 1.1;
+                font-size: .95rem;
+                font-weight: 500;
+                padding-bottom: 0.2rem;
+            }
+
+            &__release-date {
+                color: $secondary-text-color;
+                font-size: .9rem;
+            }
+        }
+    }
+}

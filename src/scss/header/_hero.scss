@@ -4,7 +4,8 @@
     width: 100%;
     color: #f5f6fa;
     overflow-x: hidden;
-    margin-top: 1rem;     
+    margin-top: 1rem; 
+    // border-bottom: 1px solid #718093a2;    
 
     &__images {
         @include media-mobile {
@@ -15,7 +16,7 @@
         align-items: center;
         justify-content: center;
         max-width: 1280px;
-        height: calc(40vh);
+        height: 43vh;
         max-height: 700px;
         padding: 1.5rem 2rem;
         gap: 1.2rem;
