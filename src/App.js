@@ -66,6 +66,24 @@ const App = () => {
     }
   )
 
+  const [airingToday, setAiringToday] = useState(
+    {
+      page: 1,
+      totalPages: 1,
+      results: [],
+      genres: []
+    }
+  )
+  
+  const [nowPlaying, setNowPlaying] = useState(
+    {
+      page: 1,
+      totalPages: 1,
+      results: [],
+      genres: []
+    }
+  )
+
     // Fetch dynamic data based on the request
     async function fetchData(url) {
       const response = await fetch(url);
@@ -73,9 +91,6 @@ const App = () => {
   
       return await responseData
     }
-  
-    // Fetch & store to state
-  
     // Fetch Most Popular
     useEffect(() => {
       async function fetchState(url, state, setState) {
@@ -111,7 +126,7 @@ const App = () => {
       fetchState(`https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`, trending, setTrending)
     }, [trending])
 
-    // Fetch Trending
+    // Fetch Top Rated
     useEffect(() => {
       async function fetchState(url, state, setState) {
         fetchData(url, state)
@@ -127,6 +142,40 @@ const App = () => {
         }
       fetchState(`https://api.themoviedb.org/3/${topRated.category}/top_rated?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${topRated.page}`, topRated, setTopRated)
     }, [topRated])
+
+    // Fetch Airing Today
+    useEffect(() => {
+      async function fetchState(url, state, setState) {
+        fetchData(url, state)
+          .then(responseData => {
+            setState(previousState => (
+              {
+                ...previousState,
+                results: responseData.results,
+                totalPages: responseData.total_pages
+              }
+            ))
+          })
+        }
+      fetchState(`https://api.themoviedb.org/3/tv/airing_today?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${airingToday.page}`, airingToday, setAiringToday)
+    }, [airingToday])
+
+    // Fetch Now Playing
+    useEffect(() => {
+      async function fetchState(url, state, setState) {
+        fetchData(url, state)
+          .then(responseData => {
+            setState(previousState => (
+              {
+                ...previousState,
+                results: responseData.results,
+                totalPages: responseData.total_pages
+              }
+            ))
+          })
+        }
+      fetchState(`https://api.themoviedb.org/3/movie/now_playing?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${nowPlaying.page}`, nowPlaying, setNowPlaying)
+    }, [nowPlaying])
 
   // Send request to get genres' list
   useEffect(() => {
@@ -376,10 +425,26 @@ const App = () => {
           <Sneakpeak
             getMovies = {getMovies}
             getTvShows = {getTvShows}
+            state = {airingToday}
+            setState = {setAiringToday}
+            header = 'Airing today'
+            results = {airingToday.results}
+          />
+          <Sneakpeak
+            getMovies = {getMovies}
+            getTvShows = {getTvShows}
             state = {trending}
             setState = {setTrending}
             header = "Week's Trending"
             results = {trending.results}
+          />
+          <Sneakpeak
+            getMovies = {getMovies}
+            getTvShows = {getTvShows}
+            state = {nowPlaying}
+            setState = {setNowPlaying}
+            header = "Now Playing"
+            results = {nowPlaying.results}
           />
           <Sneakpeak
             getMovies = {getMovies}
