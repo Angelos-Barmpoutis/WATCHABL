@@ -25,17 +25,17 @@ const Hero = props => {
         .then((carouselArray) => setCarouselImages(carouselArray))
     }, [])
 
-    // // Change the image of carousel every 4 seconds
-    // useEffect(() => {
-    //     let i = 2;
-    //     setInterval(() => {
-    //         i++
-    //         setCarousel(i)
-    //         if (i === 4) {
-    //             i = -1;
-    //         }
-    //     }, 4000)
-    // }, [])
+    // Change the image of carousel every 4 seconds
+    useEffect(() => {
+        let i = 2;
+        setInterval(() => {
+            i++
+            setCarousel(i)
+            if (i === 4) {
+                i = -1;
+            }
+        }, 4000)
+    }, [])
 
 
     return (
