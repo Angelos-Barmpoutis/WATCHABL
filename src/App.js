@@ -75,33 +75,58 @@ const App = () => {
     }
   
     // Fetch & store to state
-    async function fetchState(url, state, setState) {
-    fetchData(url, state)
-      .then(responseData => {
-        setState(previousState => (
-          {
-            ...previousState,
-            results: responseData.results,
-            totalPages: responseData.total_pages
-          }
-        ))
-      })
-    }
   
     // Fetch Most Popular
     useEffect(() => {
+      async function fetchState(url, state, setState) {
+        fetchData(url, state)
+          .then(responseData => {
+            setState(previousState => (
+              {
+                ...previousState,
+                results: responseData.results,
+                totalPages: responseData.total_pages
+              }
+            ))
+          })
+        }
+
       fetchState(`https://api.themoviedb.org/3/${mostPopular.method}/${mostPopular.category}?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${mostPopular.page}`, mostPopular, setMostPopular)
-    }, [mostPopular.page, mostPopular.searchInput, mostPopular.method, mostPopular.category])
+    }, [mostPopular])
 
     // Fetch Trending
     useEffect(() => {
+      async function fetchState(url, state, setState) {
+        fetchData(url, state)
+          .then(responseData => {
+            setState(previousState => (
+              {
+                ...previousState,
+                results: responseData.results,
+                totalPages: responseData.total_pages
+              }
+            ))
+          })
+        }
       fetchState(`https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`, trending, setTrending)
-    }, [trending.page, trending.searchInput, trending.method, trending.category])
+    }, [trending])
 
     // Fetch Trending
     useEffect(() => {
+      async function fetchState(url, state, setState) {
+        fetchData(url, state)
+          .then(responseData => {
+            setState(previousState => (
+              {
+                ...previousState,
+                results: responseData.results,
+                totalPages: responseData.total_pages
+              }
+            ))
+          })
+        }
       fetchState(`https://api.themoviedb.org/3/${topRated.category}/top_rated?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${topRated.page}`, topRated, setTopRated)
-    }, [topRated.page, topRated.searchInput, topRated.method, topRated.category])
+    }, [topRated])
 
   // Send request to get genres' list
   useEffect(() => {
@@ -364,7 +389,7 @@ const App = () => {
             header = "Top Rated"
             results = {topRated.results}
           />
-          {/* <Movies 
+          <Movies 
           responseMovies = {response.results}
           genres = {request.genres}
           category = {request.category}
@@ -382,7 +407,7 @@ const App = () => {
           twoPagesBack = {twoPagesBack}
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
-          /> }            */}
+          /> }           
         </main>
         <Footer />
     </div>
