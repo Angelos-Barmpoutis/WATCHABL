@@ -53,7 +53,7 @@
   align-items: center;
   width: 180px;
   padding: 2px;
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .categories__category {
@@ -157,7 +157,7 @@
   align-items: center;
   width: 180px;
   padding: 2px;
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .categories__category {
@@ -332,7 +332,7 @@ nav .nav .header-form #searchInput::placeholder {
   align-items: center;
   width: 180px;
   padding: 2px;
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .categories__category {
@@ -520,7 +520,7 @@ nav .nav .header-form #searchInput::placeholder {
   align-items: center;
   width: 180px;
   padding: 2px;
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .categories__category {
@@ -800,7 +800,7 @@ nav .nav .header-form #searchInput::placeholder {
   align-items: center;
   width: 180px;
   padding: 2px;
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .categories__category {
@@ -1108,7 +1108,7 @@ h5 {
   align-items: center;
   width: 180px;
   padding: 2px;
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .categories__category {
@@ -1249,8 +1249,8 @@ h5 {
 }
 
 * ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
 @media screen and (max-width: 569px) {

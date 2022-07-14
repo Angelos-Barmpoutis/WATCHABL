@@ -56,6 +56,16 @@ const App = () => {
     }
   )
 
+  const [topRated, setTopRated] = useState(
+    {
+      category: 'movie',
+      page: 1,
+      totalPages: 1,
+      results: [],
+      genres: []
+    }
+  )
+
     // Fetch dynamic data based on the request
     async function fetchData(url) {
       const response = await fetch(url);
@@ -87,6 +97,11 @@ const App = () => {
     useEffect(() => {
       fetchState(`https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`, trending, setTrending)
     }, [trending.page, trending.searchInput, trending.method, trending.category])
+
+    // Fetch Trending
+    useEffect(() => {
+      fetchState(`https://api.themoviedb.org/3/${topRated.category}/top_rated?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${topRated.page}`, topRated, setTopRated)
+    }, [topRated.page, topRated.searchInput, topRated.method, topRated.category])
 
   // Send request to get genres' list
   useEffect(() => {
@@ -332,7 +347,6 @@ const App = () => {
             setState = {setMostPopular}
             header = 'Most Popular'
             results = {mostPopular.results}
-            parameter = 'category'
           />
           <Sneakpeak
             getMovies = {getMovies}
@@ -341,7 +355,14 @@ const App = () => {
             setState = {setTrending}
             header = "Week's Trending"
             results = {trending.results}
-            parameter = 'category'
+          />
+          <Sneakpeak
+            getMovies = {getMovies}
+            getTvShows = {getTvShows}
+            state = {topRated}
+            setState = {setTopRated}
+            header = "Top Rated"
+            results = {topRated.results}
           />
           {/* <Movies 
           responseMovies = {response.results}
