@@ -14,9 +14,6 @@
 
     /* width */
     ::-webkit-scrollbar {
-        @include media-mobile {
-            height: 0;
-        }
         width: 6px;
         height: 6px;
     }
@@ -38,7 +35,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(21, 24, 27);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/hero-bg.webp) no-repeat center center/cover;
 
     .container {
         display: flex;
@@ -47,9 +44,11 @@ body {
         gap: 0;
         justify-content: space-between;
         main {
+            padding-bottom: 2rem;
 
             #movies {
                 padding-top: 20px;
+                display: none;
             }
 
             .no-results {
@@ -62,6 +61,7 @@ body {
 
             .pages {
                 display: flex;
+                display: none;
                 justify-content: center;
                 align-items: center;
                 gap: 1rem;

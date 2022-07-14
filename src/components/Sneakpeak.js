@@ -2,7 +2,7 @@ import SneakpeakCard from "./SneakpeakCard"
 
 const Sneakpeak = ({getMovies, getTvShows, state, setState, header, results}) => {
     // Keep the first 13 results
-    const resultsFilter = results.filter((result, index) => index < 13)
+    const resultsFilter = results.filter((result, index) => index < 12)
     const resultsMap = resultsFilter.map(result => {
         return (
         <SneakpeakCard
@@ -26,7 +26,7 @@ const Sneakpeak = ({getMovies, getTvShows, state, setState, header, results}) =>
                     </div>}
                 </div>
 
-                <div className="sneakpeak__results">
+                <div className={state.category ? 'sneakpeak__results' : 'sneakpeak__results overflow-x'}>
                     {resultsMap}
                 </div>
             </div>

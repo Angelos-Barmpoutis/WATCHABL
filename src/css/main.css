@@ -1164,7 +1164,7 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .sneakpeak {
-    padding-block: 1rem 0;
+    padding-block: 1.5rem 0;
   }
 }
 
@@ -1187,10 +1187,11 @@ h5 {
 }
 
 .sneakpeak__results {
-  display: flex;
-  align-items: stretch;
-  gap: 1.3rem;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
+  justify-content: space-between;
+  row-gap: 1.5rem;
+  column-gap: 1.4rem;
   border-radius: 10px;
   padding-block: 1.3rem 2rem;
 }
@@ -1198,29 +1199,37 @@ h5 {
 @media screen and (max-width: 569px) {
   .sneakpeak__results {
     padding-block: 1.3rem 1rem;
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.sneakpeak__results.overflow-x {
+  grid-template-columns: repeat(12, 1fr);
+  overflow-x: scroll;
 }
 
 .sneakpeak__results__card {
   font-family: inherit;
   width: 150px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card {
-    width: 120px;
+    max-width: 130px;
   }
 }
 
 .sneakpeak__results__card__image {
   border-radius: 10px;
+  margin-bottom: .5rem;
   width: 150px;
   height: 215px;
 }
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card__image {
-    width: 120px;
+    max-width: 130px;
     height: 180px;
   }
 }
@@ -1253,12 +1262,6 @@ h5 {
   height: 6px;
 }
 
-@media screen and (max-width: 569px) {
-  * ::-webkit-scrollbar {
-    height: 0;
-  }
-}
-
 * ::-webkit-scrollbar-track {
   background: #09123a;
   border-radius: 10px;
@@ -1272,7 +1275,7 @@ h5 {
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #15181b;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/hero-bg.jpg) no-repeat center center/cover;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/hero-bg.webp) no-repeat center center/cover;
 }
 
 body .container {
@@ -1283,8 +1286,13 @@ body .container {
   justify-content: space-between;
 }
 
+body .container main {
+  padding-bottom: 2rem;
+}
+
 body .container main #movies {
   padding-top: 20px;
+  display: none;
 }
 
 body .container main .no-results {
@@ -1297,6 +1305,7 @@ body .container main .no-results {
 
 body .container main .pages {
   display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   gap: 1rem;
