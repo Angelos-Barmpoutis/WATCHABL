@@ -362,9 +362,7 @@ const App = () => {
       response: null
     }));
   }
-
-  console.log('ok')
-
+  
   // Create Movie component
   const movies = response.results.map((movie, index) => {
     const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
