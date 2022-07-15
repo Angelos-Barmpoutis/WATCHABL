@@ -42,7 +42,7 @@
 
         &__card {
             @include media-mobile {
-                max-width: 130px;
+                max-width: 100px;
             }
             font-family: inherit;
             width: 150px;
@@ -50,8 +50,8 @@
 
             &__image {
                 @include media-mobile {
-                    max-width: 130px;
-                    height: 180px;
+                    max-width: 100px;
+                    height: 140px;
                 }
                 border-radius: 10px;
                 margin-bottom: .5rem;

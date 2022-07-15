@@ -10,38 +10,41 @@
     &__images {
         @include media-mobile {
             gap: 0;
+            height: 30vh;
         }
 
         display: flex;
         align-items: center;
         justify-content: center;
         max-width: 1280px;
-        height: 43vh;
+        height: 70vh;
         max-height: 700px;
         padding: 1.5rem 2rem;
         gap: 1.2rem;
+        overflow-x: auto;
 
         &__image {
             @include media-mobile {
                 margin: 0;
                 gap: 0;
-                width: 0;
             }
-            width: 130px;
-            height: 93%;
+            width: 100%;
+            height: 100%;
+            display: none;
             position: relative;
             border-radius: 25px;
             transition: all 1s ease-in-out;
             cursor: pointer;
 
             &.active {
-                @include media-mobile {
-                    opacity: 1;
-                    animation: slideInLeft .6s ease-in-out forwards, slideInRight .6s ease-in-out forwards 3.4s;
+                // @include media-mobile {
+                //     opacity: 1;
+                //     // animation: slideInLeft .6s ease-in-out forwards, slideInRight .6s ease-in-out forwards 3.4s;
 
-                }
-                width: 100%;
-                height: 100%;
+                // }
+                // width: 100%;
+                // height: 100%;
+                display: block;
                
                 h2 {
                     animation: fadeIn .6s ease-in-out forwards .6s;

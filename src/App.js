@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Movie from './components/Movie';
 import Sneakpeak from './components/Sneakpeak';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
@@ -37,7 +37,6 @@ const App = () => {
 
   const [mostPopular, setMostPopular] = useState(
     {
-      method: 'discover',
       category: 'movie',
       page: 1,
       totalPages: 1,
@@ -84,98 +83,91 @@ const App = () => {
     }
   )
 
-    // Fetch dynamic data based on the request
-    async function fetchData(url) {
-      const response = await fetch(url);
-      const responseData = await response.json()
+
+  // Fetch Most Popular
+  useEffect(() => {
+    const requestUrl = `https://api.themoviedb.org/3/discover/${mostPopular.category}?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${mostPopular.page}`
+
+      fetch(requestUrl)
+      .then(response => response.json())
+      .then(responseData => {
+        setMostPopular(previousState => (
+          {
+            ...previousState,
+            results: responseData.results,
+            totalPages: responseData.total_pages
+          }
+        ))
+      })
+  }, [mostPopular.category, mostPopular.page])
+
+  // Fetch Trending
+  useEffect(() => {
+      const requestUrl = `https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`;
   
-      return await responseData
-    }
-    // Fetch Most Popular
-    useEffect(() => {
-      async function fetchState(url, state, setState) {
-        fetchData(url, state)
-          .then(responseData => {
-            setState(previousState => (
-              {
-                ...previousState,
-                results: responseData.results,
-                totalPages: responseData.total_pages
-              }
-            ))
-          })
-        }
+        fetch(requestUrl)
+        .then(response => response.json())
+        .then(responseData => {
+          setTrending(previousState => (
+            {
+              ...previousState,
+              results: responseData.results,
+              totalPages: responseData.total_pages
+            }
+          ))
+        })
+  }, [trending.category, trending.page])
 
-      fetchState(`https://api.themoviedb.org/3/${mostPopular.method}/${mostPopular.category}?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${mostPopular.page}`, mostPopular, setMostPopular)
-    }, [mostPopular])
+  // Fetch Top Rated
+  useEffect(() => {
+      const requestUrl = `https://api.themoviedb.org/3/${topRated.category}/top_rated?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${topRated.page}`;
+  
+        fetch(requestUrl)
+        .then(response => response.json())
+        .then(responseData => {
+          setTopRated(previousState => (
+            {
+              ...previousState,
+              results: responseData.results,
+              totalPages: responseData.total_pages
+            }
+          ))
+        })
+  }, [topRated.category, topRated.page])
 
-    // Fetch Trending
-    useEffect(() => {
-      async function fetchState(url, state, setState) {
-        fetchData(url, state)
-          .then(responseData => {
-            setState(previousState => (
-              {
-                ...previousState,
-                results: responseData.results,
-                totalPages: responseData.total_pages
-              }
-            ))
-          })
-        }
-      fetchState(`https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`, trending, setTrending)
-    }, [trending])
+  // Fetch Airing Today
+  useEffect(() => {
+    const requestUrl = `https://api.themoviedb.org/3/tv/airing_today?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${airingToday.page}`;
 
-    // Fetch Top Rated
-    useEffect(() => {
-      async function fetchState(url, state, setState) {
-        fetchData(url, state)
-          .then(responseData => {
-            setState(previousState => (
-              {
-                ...previousState,
-                results: responseData.results,
-                totalPages: responseData.total_pages
-              }
-            ))
-          })
-        }
-      fetchState(`https://api.themoviedb.org/3/${topRated.category}/top_rated?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${topRated.page}`, topRated, setTopRated)
-    }, [topRated])
+      fetch(requestUrl)
+      .then(response => response.json())
+      .then(responseData => {
+        setAiringToday(previousState => (
+          {
+            ...previousState,
+            results: responseData.results,
+            totalPages: responseData.total_pages
+          }
+        ))
+      })
+  }, [airingToday.page])
 
-    // Fetch Airing Today
-    useEffect(() => {
-      async function fetchState(url, state, setState) {
-        fetchData(url, state)
-          .then(responseData => {
-            setState(previousState => (
-              {
-                ...previousState,
-                results: responseData.results,
-                totalPages: responseData.total_pages
-              }
-            ))
-          })
-        }
-      fetchState(`https://api.themoviedb.org/3/tv/airing_today?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${airingToday.page}`, airingToday, setAiringToday)
-    }, [airingToday])
+  // Fetch Now Playing
+  useEffect(() => {
+    const requestUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${nowPlaying.page}`;
 
-    // Fetch Now Playing
-    useEffect(() => {
-      async function fetchState(url, state, setState) {
-        fetchData(url, state)
-          .then(responseData => {
-            setState(previousState => (
-              {
-                ...previousState,
-                results: responseData.results,
-                totalPages: responseData.total_pages
-              }
-            ))
-          })
-        }
-      fetchState(`https://api.themoviedb.org/3/movie/now_playing?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${nowPlaying.page}`, nowPlaying, setNowPlaying)
-    }, [nowPlaying])
+      fetch(requestUrl)
+      .then(response => response.json())
+      .then(responseData => {
+        setNowPlaying(previousState => (
+          {
+            ...previousState,
+            results: responseData.results,
+            totalPages: responseData.total_pages
+          }
+        ))
+      })
+  }, [nowPlaying.page])
 
   // Send request to get genres' list
   useEffect(() => {
@@ -370,6 +362,8 @@ const App = () => {
       response: null
     }));
   }
+
+  console.log('ok')
 
   // Create Movie component
   const movies = response.results.map((movie, index) => {

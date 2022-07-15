@@ -393,21 +393,24 @@ nav .nav .header-form #searchInput::placeholder {
   align-items: center;
   justify-content: center;
   max-width: 1280px;
-  height: 43vh;
+  height: 70vh;
   max-height: 700px;
   padding: 1.5rem 2rem;
   gap: 1.2rem;
+  overflow-x: auto;
 }
 
 @media screen and (max-width: 569px) {
   .hero__images {
     gap: 0;
+    height: 30vh;
   }
 }
 
 .hero__images__image {
-  width: 130px;
-  height: 93%;
+  width: 100%;
+  height: 100%;
+  display: none;
   position: relative;
   border-radius: 25px;
   transition: all 1s ease-in-out;
@@ -418,20 +421,11 @@ nav .nav .header-form #searchInput::placeholder {
   .hero__images__image {
     margin: 0;
     gap: 0;
-    width: 0;
   }
 }
 
 .hero__images__image.active {
-  width: 100%;
-  height: 100%;
-}
-
-@media screen and (max-width: 569px) {
-  .hero__images__image.active {
-    opacity: 1;
-    animation: slideInLeft .6s ease-in-out forwards, slideInRight .6s ease-in-out forwards 3.4s;
-  }
+  display: block;
 }
 
 .hero__images__image.active h2 {
@@ -1216,7 +1210,7 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card {
-    max-width: 130px;
+    max-width: 100px;
   }
 }
 
@@ -1229,8 +1223,8 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card__image {
-    max-width: 130px;
-    height: 180px;
+    max-width: 100px;
+    height: 140px;
   }
 }
 
@@ -1260,6 +1254,12 @@ h5 {
 * ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+}
+
+@media screen and (max-width: 569px) {
+  * ::-webkit-scrollbar {
+    height: 0;
+  }
 }
 
 * ::-webkit-scrollbar-track {
