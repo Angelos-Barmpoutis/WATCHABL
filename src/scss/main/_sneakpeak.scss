@@ -1,4 +1,4 @@
-@import '../../config';
+@import '../config';
 
 .sneakpeak {
     @include media-mobile{
@@ -42,7 +42,7 @@
 
         &__card {
             @include media-mobile {
-                max-width: 100px;
+                max-width: 95px;
             }
             font-family: inherit;
             width: 150px;
@@ -50,7 +50,7 @@
 
             &__image {
                 @include media-mobile {
-                    max-width: 100px;
+                    max-width: 95px;
                     height: 140px;
                 }
                 border-radius: 10px;
@@ -60,6 +60,9 @@
             }
 
             &__title {
+                @include media-mobile {
+                    font-size: .85rem;
+                }
                 color: $primary-text-color;
                 line-height: 1.1;
                 font-size: .95rem;
@@ -68,6 +71,9 @@
             }
 
             &__release-date {
+                @include media-mobile {
+                    font-size: .8rem;
+                }
                 color: $secondary-text-color;
                 font-size: .9rem;
             }

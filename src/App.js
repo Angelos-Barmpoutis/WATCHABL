@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Movie from './components/Movie';
 import Sneakpeak from './components/Sneakpeak';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
@@ -395,7 +395,6 @@ const App = () => {
         <Header 
         searchFormSubmit = {searchFormSubmit}
         searchInputChange = {searchInputChange}
-        openModal = {openModal}
         />
         <AnimatePresence>
           {modal.isOpen && <Modal

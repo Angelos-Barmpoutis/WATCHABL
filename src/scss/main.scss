@@ -3,7 +3,7 @@
 @import './header/hero';
 @import './main/movie';
 @import './main/modal';
-@import './main/sneakpeak/_sneakpeak';
+@import './main/sneakpeak';
 
 // BASIC RESETS
 * {
@@ -38,7 +38,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(21, 24, 27);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/hero-bg.webp) no-repeat center center/cover;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/background.webp) no-repeat center center/cover;
 
     .container {
         display: flex;
