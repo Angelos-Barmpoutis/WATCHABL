@@ -2,36 +2,25 @@
 
 .movie {
     @include media-mobile{
-        margin-bottom: 1.5rem;
-        border: 0;
-        background-color: transparent;
-        gap: 1rem;
-        height: 180px;
+        margin-bottom: 1.3rem;
+        gap: .6rem;
+        height: 130px;
     }
+    
     display: flex;
     border-radius: 10px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.7rem;
     max-width: 1024px;
     margin-inline: auto;
-    height: 220px;
-    background: #141516b9;
-    border: 1px solid #718093a2;
+    height: 180px;
+    gap: .6rem;
+    background-color: transparent;
     cursor: pointer;
 
-    span {
-        @include media-mobile {
-            display: block;
-        }
-
-        display: none;
-    }
 
     &__image {
-        @include media-mobile {
-            border-radius: 10px;
-        }
-        border-radius: 10px 0 0 10px;
-        max-width: 200px;
+        border-radius: 10px;
+        // max-width: 200px;
         display: inline-block;
         flex: 0 0 0;
     }
@@ -42,118 +31,62 @@
             height: 100%;
         }
 
-        padding: 1.3rem;
+        display: flex;
         flex-grow: 1;
+        flex-direction: column;
+        justify-content: space-around;
         position: relative;
-        overflow: hidden;
-        max-height: 210px;
 
         &__title {
-            @include media-mobile{
-                font-size: .95rem;
-                letter-spacing: .1px;
-                max-width: 75%;
-                font-weight: 400;
-                margin-bottom: .5rem;
+            @include media-tablet {
+                font-size: 1rem;
             }
-
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            max-width: 75%;
-            letter-spacing: .5px;
+            letter-spacing: .1px;
             color: $primary-text-color;
-            line-height: 1.1;
-
-            span {
-                color: $primary-text-color;
-                line-height: 1.3;
-                font-weight: 500;
-            }
+            line-height: 1.2;
         }
 
         &__release {
             color: $secondary-text-color;
             font-size: .95rem;
-            margin-block: .5rem;
-
-            span {
-                color: $primary-text-color;
-                line-height: 1.3;
-                font-weight: 500;
-            }
+            font-weight: 500;
         }
 
         &__genre {
             @include media-mobile {
                 letter-spacing: .1px;
-                max-width: 90%;
-
-                span {
-                    color: $primary-text-color;
-                    line-height: 1.3;
-                    font-weight: 500;
-                }
             }
 
             color: #95c7f7;
             font-weight: 400;
             font-size: .9rem;
             letter-spacing: .5px;
-            max-width: 75%;
             line-height: 1.1;
-        }
-
-        &__rating {
-            @include media-mobile{
-                top: auto;
-                top: 0;
-                right: 1rem;
-                font-size: .9rem;
-                width: 32px;
-                height: 32px;
-                letter-spacing: .3px;
-            }
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #718093;
-            width: 41px;
-            height: 41px;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 500;
-            background-color: #2f3640a7;
-            letter-spacing: .7px;
-            position: absolute;
-            top: 1.3rem;
-            right: 1.3rem;
-
-            &.green {
-                color: #4cd137;
-            }
-        
-            &.orange {
-                color: #fbc531;
-            }
-        
-            &.red {
-                color: #ff3a3a;
-            }
         }
 
         &__overview {
             @include media-mobile {
                 display: none;
             }
+            
+            width: 100%;
             line-height: 1.4;
-            margin-top: 1.2rem;
-            width: 90%;
             letter-spacing: .3px;
             color: $secondary-text-color;
             font-size: 1rem;
-            max-height: 4rem;
             overflow: hidden;
+            max-height: 3rem;
+        }
+
+        &__rating {
+            @include media-mobile {
+                position: initial;
+            }
+            position: absolute;
+            top: .6rem;
+            right: .6rem;
         }
     }
 }

@@ -1,11 +1,7 @@
 @import '../config';
 
 .sneakpeak {
-    @include media-mobile{
-        padding-block: 1.5rem 0;
-    }
     font-family: inherit;
-    padding-block: 1rem 2rem;
 
     &-header {
         display: flex;
@@ -14,68 +10,95 @@
 
         &__title {
             @include media-mobile {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             color: $primary-text-color;
             font-weight: 600;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            text-decoration: none;
+        }
+
+        &__view-all {
+            color: rgb(45, 148, 245);
+            text-decoration: none;
+            font-family: inherit;
         }
     }
 
     &__results {
+        @include media-tablet {
+            padding: 1.5rem 0 0 0;
+            column-gap: 1.5rem;
+        }
+        
         @include media-mobile {
-            padding-block: 1.3rem 1rem;
-            grid-template-columns: repeat(3,1fr);
+            grid-template-columns: repeat(auto-fill, 100px);
+            column-gap: 1.3rem;
         }
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(130px, 150px));
-        justify-content: space-between;
-        row-gap: 1.5rem;
-        column-gap: 1.4rem;
+        grid-template-columns: repeat(auto-fill, 145px);
+        justify-content: left;
         border-radius: 10px;
-        padding-block: 1.3rem 2rem;
-
-        &.overflow-x {
-            grid-template-columns: repeat(12, 1fr);
-            overflow-x: scroll;
-        }
+        padding: 1.5rem;
+        row-gap: 1.7rem;
+        column-gap: 3rem;
+        justify-content: space-around;
 
         &__card {
             @include media-mobile {
-                max-width: 95px;
+                max-width: 105px;
             }
+
             font-family: inherit;
-            width: 150px;
+            max-width: 145px;
             margin: 0 auto;
+            align-items: start;
+            border-radius: 10px;
+
+            position: relative;
+
+            .rating {
+                top: .3rem;
+                right: .3rem;
+            }
 
             &__image {
                 @include media-mobile {
-                    max-width: 95px;
-                    height: 140px;
+                    max-width: 105px;
                 }
+
                 border-radius: 10px;
                 margin-bottom: .5rem;
-                width: 150px;
-                height: 215px;
+                max-width: 145px;
             }
 
             &__title {
                 @include media-mobile {
-                    font-size: .85rem;
+                    font-size: .95rem;
                 }
+
                 color: $primary-text-color;
                 line-height: 1.1;
-                font-size: .95rem;
+                font-size: 1rem;
                 font-weight: 500;
                 padding-bottom: 0.2rem;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
             }
 
             &__release-date {
                 @include media-mobile {
-                    font-size: .8rem;
+                    font-size: .9rem;
                 }
                 color: $secondary-text-color;
-                font-size: .9rem;
+                font-size: .95rem;
+            }
+
+            .rating {
+                position: absolute;
+                top: .2rem;
+                right: .2rem;
             }
         }
     }

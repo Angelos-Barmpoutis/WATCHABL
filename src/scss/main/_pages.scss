@@ -1,0 +1,33 @@
+@import '../config';
+
+.pages {
+    display: flex;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 2.1rem;
+    margin-block-end: 2rem;
+
+    &__page {
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        min-width: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: #dcdde1;
+        background-color: transparent;
+        border: none;
+        transition: background-color .2s ease-in-out;
+        cursor: pointer;
+
+        &.active {
+            color: #f5f6fa;
+            border: 1px solid #dcdde1;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+    }
+}

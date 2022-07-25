@@ -1,17 +1,22 @@
 import Header from './components/Header';
-import Movies from './components/Movies';
-import Pages from './components/Pages';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Movie from './components/Movie';
-import Sneakpeak from './components/Sneakpeak';
+import Home from './components/Home';
+import Widget from './components/Widget';
+import MostPopular from './components/MostPopular';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
   // Variables & States declaration
   const [searchInput, setSearchInput] = useState('');
-  const [moviesOffSetTop, setMoviesOffSetTop] = useState();
+  // const [moviesOffSetTop, setMoviesOffSetTop] = useState();
+  const [genres, setGenres] = useState({
+    movie : [],
+    tv : []
+  })
   const [modal, setModal] = useState({
     isOpen: false,
     queryId: null,
@@ -23,25 +28,16 @@ const App = () => {
     category: 'movie',
     page: 1,
     searchInput: [false, ''],
-    totalPages: 1,
-    genres: []
+    totalPages: 1
     }
   );
-  const [response, setResponse] = useState(
-    {
-      results: [],
-      totalPages: 1,
-      genres: []
-    }
-  )
 
   const [mostPopular, setMostPopular] = useState(
     {
       category: 'movie',
       page: 1,
       totalPages: 1,
-      results: [],
-      genres: []
+      results: []
     }
   )
 
@@ -50,8 +46,7 @@ const App = () => {
       category: 'movie',
       page: 1,
       totalPages: 1,
-      results: [],
-      genres: []
+      results: []
     }
   )
 
@@ -60,8 +55,7 @@ const App = () => {
       category: 'movie',
       page: 1,
       totalPages: 1,
-      results: [],
-      genres: []
+      results: []
     }
   )
 
@@ -69,8 +63,7 @@ const App = () => {
     {
       page: 1,
       totalPages: 1,
-      results: [],
-      genres: []
+      results: []
     }
   )
   
@@ -78,11 +71,39 @@ const App = () => {
     {
       page: 1,
       totalPages: 1,
-      results: [],
-      genres: []
+      results: []
     }
   )
 
+  // Send request to get TV genres' list
+  useEffect(() => {
+      let requestUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
+  
+      fetch(requestUrl)
+      .then(response => response.json())
+      .then(responseData => setGenres(prevGenres => (
+        {
+          ...prevGenres,
+          tv: responseData.genres
+        }
+      )))
+      .catch(error => console.log(error))
+  }, [])
+
+  // Send request to get Movie genres' list
+  useEffect(() => {
+      let requestUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
+  
+      fetch(requestUrl)
+      .then(response => response.json())
+      .then(responseData => setGenres(prevGenres => (
+        {
+          ...prevGenres,
+          movie: responseData.genres
+        }
+      )))
+      .catch(error => console.log(error))
+  }, [])
 
   // Fetch Most Popular
   useEffect(() => {
@@ -169,50 +190,35 @@ const App = () => {
       })
   }, [nowPlaying.page])
 
-  // Send request to get genres' list
-  useEffect(() => {
-    let requestUrl = `https://api.themoviedb.org/3/genre/${request.category}/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
+  // // Send request to get movies-tv shows
+  // useEffect(() => {
+  //   let requestUrl = ''
+  //   if (!request.searchInput[0]) {
+  //     requestUrl = `https://api.themoviedb.org/3/${request.method}/${request.category}?sort_by=popularity.desc&api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${request.page}`
+  //   } else {
+  //     requestUrl = `https://api.themoviedb.org/3/${request.method}/${request.category}?sort_by=popularity.desc&api_key=6de482bc8c5768aa3648618b9c3cc98a&query=${request.searchInput[1]}&page=${request.page}`
+  //   }
 
-    fetch(requestUrl)
-    .then(response => response.json())
-    .then(data => setRequest(prevRequest => (
-      {
-        ...prevRequest,
-        genres: data.genres
-      }
-    )))
-    .catch(error => console.log(error))
-  }, [request.category])
-
-  // Send request to get movies-tv shows
-  useEffect(() => {
-    let requestUrl = ''
-    if (!request.searchInput[0]) {
-      requestUrl = `https://api.themoviedb.org/3/${request.method}/${request.category}?sort_by=popularity.desc&api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${request.page}`
-    } else {
-      requestUrl = `https://api.themoviedb.org/3/${request.method}/${request.category}?sort_by=popularity.desc&api_key=6de482bc8c5768aa3648618b9c3cc98a&query=${request.searchInput[1]}&page=${request.page}`
-    }
-
-    fetch(requestUrl)
-    .then(response => response.json())
-    .then(data => {
-      setResponse(prevResponse => (
-        {
-          ...prevResponse,
-          results: data.results
-        }
-      ));
-      setRequest(prevRequest => (
-        {
-          ...prevRequest,
-          page: data.page,
-          totalPages: data.total_pages
-        }
-      ))
-      setMoviesOffSetTop(document.querySelector('#movies').offsetTop);
-    })
-    .catch(error => console.log(error))
-  }, [request.page, request.searchInput, request.method, request.category])
+  //   fetch(requestUrl)
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     setResponse(prevResponse => (
+  //       {
+  //         ...prevResponse,
+  //         results: data.results
+  //       }
+  //     ));
+  //     setRequest(prevRequest => (
+  //       {
+  //         ...prevRequest,
+  //         page: data.page,
+  //         totalPages: data.total_pages
+  //       }
+  //     ))
+  //     setMoviesOffSetTop(document.querySelector('#movies').offsetTop);
+  //   })
+  //   .catch(error => console.log(error))
+  // }, [request.page, request.searchInput, request.method, request.category])
 
   // Set searchInput to whatever is being typed in searchInput
   function searchInputChange(e) {
@@ -233,7 +239,7 @@ const App = () => {
         }
       ))
       document.getElementById('searchInput').value = '';
-      scrollToMovies()
+      // scrollToMovies()
     }
   }
 
@@ -246,7 +252,6 @@ const App = () => {
         category: 'movie'
       }
     ));
-    // scrollToMovies()
   }
 
   // Set request's category to tv
@@ -258,20 +263,38 @@ const App = () => {
         category: 'tv'
       }
     ));
-    // scrollToMovies()
   }
 
-  // Convert genre IDs from numbers to words
-  function getGenre(genreIds) {
+  // Convert Movie genre IDs from numbers to words
+  function getMovieGenre(genreIds) {
     const genreMap = genreIds.map(genreId => {
-      for (let i = 0; i < request.genres.length; i++) {
-        if (request.genres[i].id === genreId) {
-          return request.genres[i].name;
+      for (let i = 0; i < genres.movie.length; i++) {
+        if (genres.movie[i].id === genreId) {
+          return genres.movie[i].name;
         }
       }
       return null;
       })
       return genreMap.toString().replaceAll(',', ', ');
+  }
+
+  // Convert TV genre IDs from numbers to words
+  function getTvGenre(genreIds) {
+      const genreMap = genreIds.map(genreId => {
+        for (let i = 0; i < genres.tv.length; i++) {
+          if (genres.tv[i].id === genreId) {
+            return genres.tv[i].name;
+          }
+        }
+        return null;
+        })
+        return genreMap.toString().replaceAll(',', ', ');
+  }
+
+  // Convert Release Date to Release Year
+  const getReleaseYear = (date) => {
+    const year = new Date(date);
+    return `(${year.getFullYear()})`;
   }
 
   // Go up 1 page
@@ -282,7 +305,7 @@ const App = () => {
         page: prevRequest.page + 1
       }
       ));
-      scrollToMovies()
+      // scrollToMovies()
     }
   }
 
@@ -293,7 +316,7 @@ const App = () => {
       page: prevRequest.page + 2
     }
     ));
-    scrollToMovies()
+    // scrollToMovies()
   }
 
   // Go back 1 page
@@ -304,7 +327,7 @@ const App = () => {
         page: prevRequest.page -1
       }
       ));
-      scrollToMovies()
+      // scrollToMovies()
     }
   }
 
@@ -315,13 +338,13 @@ const App = () => {
       page: prevRequest.page - 2
     }
     ));
-    scrollToMovies()
+    // scrollToMovies()
   }
 
   // Scroll to movies section
-  function scrollToMovies() {
-    window.scrollTo(0,  moviesOffSetTop);
-  }
+  // function scrollToMovies() {
+  //   window.scrollTo(0,  moviesOffSetTop);
+  // }
 
   function openModal(category, id, title) {
     fetch(`https://api.themoviedb.org/3/${category}/${id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
@@ -364,7 +387,7 @@ const App = () => {
   }
   
   // Create Movie component
-  const movies = response.results.map((movie, index) => {
+  const movies = mostPopular.results.map((movie, index) => {
     const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
     if (poster_path !== null && overview) {
         return (
@@ -372,17 +395,14 @@ const App = () => {
                 key = {id}
                 id = {id}
                 index = {index}
-                movieTitle = {title}
-                tvTitle = {name}
+                title = {title ? title : name}
                 overview = {overview}
                 image = {poster_path}
                 rating = {vote_average}
                 genre = {genre_ids}
-                movieReleaseDate = {release_date}
-                tvReleaseDate = {first_air_date}
-                getGenre = {getGenre}
+                releaseDate = {release_date ? getReleaseYear(release_date) : getReleaseYear(first_air_date)}
+                getGenre = {mostPopular.category === 'movie' ? getMovieGenre : getTvGenre}
                 setModal = {setModal}
-                category = {request.category}
                 openModal = {openModal}
              />
         );
@@ -404,67 +424,67 @@ const App = () => {
               setModal = {setModal}
           />}
         </AnimatePresence>
+        <div className="main-aside">
         <main>
-          <Sneakpeak
-            getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {mostPopular}
-            setState = {setMostPopular}
-            header = 'Most Popular'
-            results = {mostPopular.results}
-          />
-          <Sneakpeak
-            getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {airingToday}
-            setState = {setAiringToday}
-            header = 'Airing today'
-            results = {airingToday.results}
-          />
-          <Sneakpeak
-            getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {trending}
-            setState = {setTrending}
-            header = "Week's Trending"
-            results = {trending.results}
-          />
-          <Sneakpeak
-            getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {nowPlaying}
-            setState = {setNowPlaying}
-            header = "Now Playing"
-            results = {nowPlaying.results}
-          />
-          <Sneakpeak
-            getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {topRated}
-            setState = {setTopRated}
-            header = "Top Rated"
-            results = {topRated.results}
-          />
-          <Movies 
-          responseMovies = {response.results}
-          genres = {request.genres}
-          category = {request.category}
-          method = {request.method}
-          searchInput = {request.searchInput[1]}
-          getMovies = {getMovies}
-          getTvShows = {getTvShows}
-          getGenre = {getGenre}
-          movies = {movies}
-          />
-          {response.results.length !== 0 && <Pages 
-          page = {request.page}
-          totalPages = {request.totalPages}
-          onePageBack = {onePageBack}
-          twoPagesBack = {twoPagesBack}
-          onePageUp = {onePageUp}
-          twoPagesUp = {twoPagesUp}
-          /> }           
+        <Routes>
+          <Route exact path='/' element={
+              <Home
+                getMovies={getMovies}
+                getTvShows={getTvShows}
+                mostPopular={mostPopular}
+                setMostPopular={setMostPopular}
+                airingToday={airingToday}
+                setAiringToday={setAiringToday}
+                trending={trending}
+                setTrending={setTrending}
+                nowPlaying={nowPlaying}
+                setNowPlaying={setNowPlaying}
+                topRated={topRated}
+                setTopRated={setTopRated}
+                request = {request}
+                setRequest = {setRequest}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+              />
+            }>
+
+          </Route>
+          <Route path='/mostPopular' element={
+              <MostPopular
+                movies = {movies}
+                state = {mostPopular}
+                states = {[setMostPopular]}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+                getMovies = {getMovies}
+                getTvShows = {getTvShows}
+                onePageBack = {onePageBack}
+                twoPagesBack = {twoPagesBack}
+                onePageUp = {onePageUp}
+                twoPagesUp = {twoPagesUp}
+                title = 'the Most Popular'
+              />
+            }>
+          </Route>
+        </Routes>
         </main>
+          <aside>
+            <div className="wrapper">
+              <Widget
+              results = {nowPlaying.results}
+              header = 'Now Playing'
+              genres = {genres}
+              getGenre = {getMovieGenre}
+            />
+            <Widget
+              results = {airingToday.results}
+              header = 'Airing Today'
+              genres = {genres}
+              getGenre = {getTvGenre}
+            />
+            </div>
+          </aside>
+        </div>
         <Footer />
     </div>
   )

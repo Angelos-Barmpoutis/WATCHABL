@@ -4,7 +4,6 @@
     width: 100%;
     color: #f5f6fa;
     overflow-x: hidden;
-    margin-top: 24px;
 
     &__image {
         @include media-mobile {
@@ -14,7 +13,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 50vh;
+        height: 43vh;
+        width: 80%;
+        margin: 0 auto;
         background: url(/public/images/hero.webp) no-repeat center center/cover;
         z-index: 10;
         position: relative;
@@ -28,10 +29,14 @@
             bottom: 0;
             z-index: -100;
             position: absolute;
-            background-color: rgba(0, 0, 0, 0.829);
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.801);
         }
 
         h2 {
+            @include media-mobile {
+                max-width: 380px;
+            }
             max-width: 500px;
         }
     }

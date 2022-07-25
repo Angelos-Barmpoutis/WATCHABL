@@ -1,15 +1,10 @@
 import { motion } from "framer-motion";
 
-const Movie = props => {
 
-    const title = props.movieTitle ? props.movieTitle : props.tvTitle;
-    const releaseDate = props.movieReleaseDate ? props.movieReleaseDate : props.tvReleaseDate;
 
-    const i = props.index;
-
-    // Movie Variants
-    const movieVariants = {
-        hidden: {
+// Movie Variants
+const movieVariants = {
+    hidden: {
             opacity: 0,
             x: -400
         },
@@ -27,8 +22,8 @@ const Movie = props => {
         })
     }
 
-    // Image Variants
-    const imageVariants = {
+// Image Variants
+const imageVariants = {
         hidden: {
             opacity: 0,
             scale: 0
@@ -45,7 +40,11 @@ const Movie = props => {
                 damping: 15
             }
         })
-    }
+}
+
+const Movie = ({index, image, title, releaseDate, genre, rating, overview, getGenre}) => {
+
+    const i = index;
 
     // Return rating's color based on the rating
     const ratingColor = (rating) => {
@@ -61,15 +60,15 @@ const Movie = props => {
     return (
         <motion.div
         className="movie"
-        onClick = {() => props.openModal(props.category, props.id, title)}
+        // onClick = {() => props.openModal(props.category, props.id, title)}
         variants= {movieVariants}
         initial = 'hidden'
         animate = 'visible'
         custom = {i}
         >
             <motion.img
-            loading=""  
-            src={`https://image.tmdb.org/t/p/w200${props.image}`}
+            loading="lazy"  
+            src={`https://image.tmdb.org/t/p/w200${image}`}
             alt={title}
             className="movie__image"
             variants= {imageVariants}
@@ -78,12 +77,12 @@ const Movie = props => {
             custom = {i}
             />
             <div className="movie__details">
-                <h2 className="movie__details__title"><span>Title:</span>{title}</h2>
-                <h3 className="movie__details__release"><span>Release Date:</span>{releaseDate}</h3>
-                <h3 className="movie__details__genre"><span>Genre:</span>{props.getGenre(props.genre)}</h3>
+                <h2 className="movie__details__title">{title} {releaseDate}</h2>
+                {/* <h3 className="movie__details__release">{props.releaseDate}</h3> */}
+                <h3 className="movie__details__genre">{getGenre(genre.filter((genre, index) => index < 3))}</h3>
                 
-                <h4 className={`movie__details__rating ${ratingColor(props.rating)}`}>{props.rating !== 0 && props.rating !== 10 ? props.rating.toFixed(1) : props.rating}</h4>
-                <p className="movie__details__overview">{props.overview}</p>
+                <h4 className={`movie__details__rating rating ${ratingColor(rating)}`}>{rating !== 0 && rating !== 10 ? rating.toFixed(1) : rating}</h4>
+                <p className="movie__details__overview">{overview}</p>
             </div>
         </motion.div>
     )

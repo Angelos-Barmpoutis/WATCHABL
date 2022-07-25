@@ -4,6 +4,8 @@
 @import './main/movie';
 @import './main/modal';
 @import './main/sneakpeak';
+@import './main/pages';
+@import './aside/widget';
 
 // BASIC RESETS
 * {
@@ -37,21 +39,79 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(21, 24, 27);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.83), rgba(0, 0, 0, 0.88)), url(/public/images/background.webp) no-repeat center center/cover;
+    background-color: rgba(0, 0, 0, 0.97);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.827), rgba(0, 0, 0, 0.88)), url(/public/images/background.webp) no-repeat center center/cover;
 
     .container {
-        display: flex;
-        flex-direction: column;
+        width: 100%;
         min-height: 100vh;
-        gap: 0;
-        justify-content: space-between;
-        main {
-            padding-bottom: 2rem;
 
-            #movies {
-                padding-top: 20px;
-                display: none;
+        .main-aside {
+            @include media-tablet {
+                grid-template-columns: 1fr;
+            }
+            display: grid;
+            grid-template-columns: 4fr 1fr;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        main {
+
+            .categories-search-container {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                align-items: center;
+                padding-block: .5rem;
+
+                .search-form {
+                    background-color: transparent;
+                    color: #dcdde1;
+                    border: 1px solid $secondary-color;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+        
+                    .fa-magnifying-glass {
+                        padding: 0 .6rem;
+                    }
+        
+                    #search-input {
+                        @include media-tablet {
+                            width: 120px;
+                        }
+                        font-family: inherit;
+                        background-color: transparent;
+                        color: #dcdde1;
+                        border: none;
+                        border-radius: 10px;
+                        letter-spacing: .5px;
+                        transition: all .2s ease-in-out;
+                        padding-block: .6rem;
+                        padding-right: .8rem;
+        
+                        &:focus {
+                            outline: none;
+
+                            background-color: transparent;
+                        }
+        
+                        
+                        &::placeholder {
+                            font-family: inherit;
+                            color: $secondary-text-color;
+                            font-size: .9rem;
+                            font-weight: 400;
+                        }
+                    }
+                }
+            }
+
+            .movies-categories {
+                padding-bottom: 1.5rem;
             }
 
             .no-results {
@@ -61,38 +121,11 @@ body {
                 padding-block: 3rem 6rem;
                 font-weight: 400;
             }
+        }
 
-            .pages {
-                display: flex;
-                display: none;
-                justify-content: center;
-                align-items: center;
-                gap: 1rem;
-                padding-top: 2.1rem;
-                margin-block-end: 2rem;
-    
-                &__page {
-                    font-family: inherit;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    min-width: 30px;
-                    text-align: center;
-                    text-decoration: none;
-                    color: #dcdde1;
-                    background-color: transparent;
-                    border: none;
-                    transition: background-color .2s ease-in-out;
-                    cursor: pointer;
-    
-                    &.active {
-                        color: #f5f6fa;
-                        border: 1px solid #dcdde1;
-                        padding: 5px;
-                        border-radius: 5px;
-                        font-size: 1rem;
-                    }
-                }
-            }
+        aside {
+            border-left: 1px solid rgba(97, 92, 92, 0.174);
+            color: #dcdde1;
         }
         
         footer {
@@ -103,8 +136,11 @@ body {
             color: #f5f6fa;
             text-align: center;
             background-color: $primary-color;
-            padding-block: 1.8rem;
             font-size: 1rem;
+
+            .wrapper {
+                padding-bottom: 2rem;
+            }
         }
     }   
 }
