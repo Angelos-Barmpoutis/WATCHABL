@@ -318,20 +318,33 @@
   color: #ff3a3a;
 }
 
+nav {
+  position: fixed;
+  top: .5rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.412);
+  border-radius: 10px;
+  width: 95%;
+  margin-inline: auto;
+}
+
 nav .nav {
-  display: flex;
-  align-items: center;
   padding: .8rem 1.5rem;
+  text-align: center;
 }
 
-@media screen and (max-width: 769px) {
-  nav .nav {
-    justify-content: center;
-  }
+nav .nav h3 {
+  font-family: 'anuratiRegular';
+  letter-spacing: 2px;
+  font-size: 1rem;
 }
 
-nav .nav .logo {
-  width: 150px;
+nav .nav h3 a {
+  color: #f5f6fa;
+  text-decoration: none;
 }
 
 @keyframes fadeIn {
@@ -1906,6 +1919,11 @@ h5 {
   background-color: #2d58f5;
 }
 
+@font-face {
+  font-family: anuratiRegular;
+  src: url(../Anurati-Regular.otf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1938,6 +1956,7 @@ h5 {
 }
 
 body {
+  padding-top: 3.1rem;
   font-family: 'Roboto', sans-serif;
   background-color: rgba(0, 0, 0, 0.97);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0.88)), url(/public/images/background.webp) no-repeat center center/cover;
@@ -2025,7 +2044,7 @@ body .container main .movies-form {
 }
 
 body .container main .movies-title {
-  text-align: center;
+  text-align: left;
   padding-bottom: 1.5rem;
 }
 
@@ -2078,7 +2097,8 @@ body .container aside {
 body .container footer {
   color: #f5f6fa;
   text-align: center;
-  background-color: rgba(6, 13, 45, 0.853);
+  backdrop-filter: blur(12px);
+  background-color: rgba(0, 0, 0, 0.412);
   font-size: 1rem;
   line-height: 1.5;
 }
@@ -2094,6 +2114,6 @@ body .container footer a {
 }
 
 body .container footer .wrapper {
-  padding-block: 2rem;
+  padding-block: 1rem;
 }
 /*# sourceMappingURL=main.css.map */

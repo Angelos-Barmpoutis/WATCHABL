@@ -5,9 +5,7 @@ const Header = ({searchFormSubmit, searchInputChange}) => {
         <header>
             <nav>
                 <div className="nav wrapper">
-                    <Link to='/' className="header-logo"
-                        ><img src="../images/logo.png" alt="Logo" className='logo'/>
-                    </Link>
+                <h3><Link to='/'>WATCHABL</Link></h3>
                 </div>
             </nav>
         </header>
