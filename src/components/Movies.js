@@ -3,15 +3,20 @@ import Categories from "./Categories";
 const Movies = ({state, states, getMovies, getTvShows, searchFormSubmit, searchInputChange, title, movies}) => {
     return (
         <section className="wrapper" id='movies'>
-            <h1 className='title'>Explore {title} <span>Movies</span> & <span>Tv Shows</span></h1>
+            <h1 className='title movies-title'>{title}</h1>
+            <form className="search-form movies-form" onSubmit={searchFormSubmit}>
+                <i className="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="search-input" name="searchInput" placeholder='Search...' autoComplete="off" onChange={searchInputChange}/>
+            </form>
             <div className="categories-search-container movies-categories">
+                <h1 className='title movies-mobile-title'>{title}</h1>
                 <Categories
                 state = {state}
                 states = {states}
                 getMovies = {getMovies}
                 getTvShows = {getTvShows}
                 />
-                <form className="search-form" onSubmit={searchFormSubmit}>
+                <form className="search-form movies-desktop-form" onSubmit={searchFormSubmit}>
                 <i className="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="search-input" name="searchInput" placeholder='Search...' autoComplete="off" onChange={searchInputChange}/>
                 </form>

@@ -2,7 +2,7 @@ import Sneakpeak from './Sneakpeak';
 import Hero from './Hero';
 import Categories from './Categories';
 
-const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, setAiringToday, trending, setTrending, nowPlaying, setNowPlaying, topRated, setTopRated, request, setRequest, searchFormSubmit, searchInputChange}) => {
+const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, setAiringToday, trending, setTrending, nowPlaying, setNowPlaying, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
   return (
     <>
     <div className="categories-search-container wrapper">
@@ -32,9 +32,9 @@ const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, 
             getTvShows = {getTvShows}
             state = {trending}
             setState = {setTrending}
-            header = "Week's Trending"
+            header = "Trending Today"
             results = {trending.results}
-            href = 'trending'
+            href = '/trending'
         />
         <Sneakpeak
           getMovies = {getMovies}
@@ -43,7 +43,7 @@ const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, 
             setState = {setTopRated}
             header = "Top Rated"
             results = {topRated.results}
-            href = 'topRated'
+            href = '/topRated'
         />
     </>
   )

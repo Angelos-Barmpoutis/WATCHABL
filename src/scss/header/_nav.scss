@@ -3,8 +3,12 @@
 nav {   
 
     .nav {
+        @include media-tablet{
+            justify-content: center;
+        }
         display: flex;
         align-items: center;
+        padding: .8rem 1.5rem;
 
         .logo {
             width: 150px;

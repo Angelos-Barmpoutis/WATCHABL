@@ -5,14 +5,16 @@ import Movie from './components/Movie';
 import Home from './components/Home';
 import Widget from './components/Widget';
 import MostPopular from './components/MostPopular';
+import Trending from './components/Trending';
+import TopRated from './components/TopRated';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
+
   // Variables & States declaration
   const [searchInput, setSearchInput] = useState('');
-  // const [moviesOffSetTop, setMoviesOffSetTop] = useState();
   const [genres, setGenres] = useState({
     movie : [],
     tv : []
@@ -116,7 +118,8 @@ const App = () => {
           {
             ...previousState,
             results: responseData.results,
-            totalPages: responseData.total_pages
+            totalPages: responseData.total_pages,
+            page: responseData.page
           }
         ))
       })
@@ -124,7 +127,7 @@ const App = () => {
 
   // Fetch Trending
   useEffect(() => {
-      const requestUrl = `https://api.themoviedb.org/3/trending/${trending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`;
+      const requestUrl = `https://api.themoviedb.org/3/trending/${trending.category}/day?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${trending.page}`;
   
         fetch(requestUrl)
         .then(response => response.json())
@@ -133,7 +136,8 @@ const App = () => {
             {
               ...previousState,
               results: responseData.results,
-              totalPages: responseData.total_pages
+              totalPages: responseData.total_pages,
+              page: responseData.page
             }
           ))
         })
@@ -150,7 +154,8 @@ const App = () => {
             {
               ...previousState,
               results: responseData.results,
-              totalPages: responseData.total_pages
+              totalPages: responseData.total_pages,
+              page: responseData.page
             }
           ))
         })
@@ -189,36 +194,6 @@ const App = () => {
         ))
       })
   }, [nowPlaying.page])
-
-  // // Send request to get movies-tv shows
-  // useEffect(() => {
-  //   let requestUrl = ''
-  //   if (!request.searchInput[0]) {
-  //     requestUrl = `https://api.themoviedb.org/3/${request.method}/${request.category}?sort_by=popularity.desc&api_key=6de482bc8c5768aa3648618b9c3cc98a&page=${request.page}`
-  //   } else {
-  //     requestUrl = `https://api.themoviedb.org/3/${request.method}/${request.category}?sort_by=popularity.desc&api_key=6de482bc8c5768aa3648618b9c3cc98a&query=${request.searchInput[1]}&page=${request.page}`
-  //   }
-
-  //   fetch(requestUrl)
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     setResponse(prevResponse => (
-  //       {
-  //         ...prevResponse,
-  //         results: data.results
-  //       }
-  //     ));
-  //     setRequest(prevRequest => (
-  //       {
-  //         ...prevRequest,
-  //         page: data.page,
-  //         totalPages: data.total_pages
-  //       }
-  //     ))
-  //     setMoviesOffSetTop(document.querySelector('#movies').offsetTop);
-  //   })
-  //   .catch(error => console.log(error))
-  // }, [request.page, request.searchInput, request.method, request.category])
 
   // Set searchInput to whatever is being typed in searchInput
   function searchInputChange(e) {
@@ -298,33 +273,33 @@ const App = () => {
   }
 
   // Go up 1 page
-  function onePageUp() {
-    if (request.page < request.totalPages) {
-      setRequest(prevRequest => ({
-        ...prevRequest,
-        page: prevRequest.page + 1
+  function onePageUp(state, setState) {
+    if (state.page < state.totalPages) {
+      setState( (prevState) => ({
+        ...prevState,
+        page: prevState.page + 1
       }
       ));
-      // scrollToMovies()
+      scrollToTop()
     }
   }
 
   // Go up 2 pages
-  function twoPagesUp() {
-    setRequest(prevRequest => ({
-      ...prevRequest,
-      page: prevRequest.page + 2
+  function twoPagesUp(setState) {
+    setState(prevState => ({
+      ...prevState,
+      page: prevState.page + 2
     }
     ));
-    // scrollToMovies()
+    scrollToTop()
   }
 
   // Go back 1 page
-  function onePageBack() {
-    if (request.page > 1 ) {
-      setRequest(prevRequest => ({
-        ...prevRequest,
-        page: prevRequest.page -1
+  function onePageBack(state, setState) {
+    if (state.page > 1 ) {
+      setState(prevState => ({
+        ...prevState,
+        page: prevState.page -1
       }
       ));
       // scrollToMovies()
@@ -332,19 +307,19 @@ const App = () => {
   }
 
   // // Go back 2 pages
-  function twoPagesBack() {
-    setRequest(prevRequest => ({
-      ...prevRequest,
-      page: prevRequest.page - 2
+  function twoPagesBack(setState) {
+    setState(prevState => ({
+      ...prevState,
+      page: prevState.page - 2
     }
     ));
     // scrollToMovies()
   }
 
-  // Scroll to movies section
-  // function scrollToMovies() {
-  //   window.scrollTo(0,  moviesOffSetTop);
-  // }
+  // Scroll to top
+  function scrollToTop() {
+    window.scrollTo(0,  0);
+  }
 
   function openModal(category, id, title) {
     fetch(`https://api.themoviedb.org/3/${category}/${id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
@@ -387,28 +362,34 @@ const App = () => {
   }
   
   // Create Movie component
-  const movies = mostPopular.results.map((movie, index) => {
-    const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = movie;
-    if (poster_path !== null && overview) {
+  const createMovieItem = (state) => {
+    const movieItem = state.results.map((item, index) => {
+
+      const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = item;
+
+      if (poster_path !== null && overview) {
         return (
-            <Movie
-                key = {id}
-                id = {id}
-                index = {index}
-                title = {title ? title : name}
-                overview = {overview}
-                image = {poster_path}
-                rating = {vote_average}
-                genre = {genre_ids}
-                releaseDate = {release_date ? getReleaseYear(release_date) : getReleaseYear(first_air_date)}
-                getGenre = {mostPopular.category === 'movie' ? getMovieGenre : getTvGenre}
-                setModal = {setModal}
-                openModal = {openModal}
-             />
-        );
-    }
-    return null;
-  })
+          <Movie
+            key = {id}
+            id = {id}
+            index = {index}
+            title = {title ? title : name}
+            overview = {overview}
+            image = {poster_path}
+            rating = {vote_average}
+            genre = {genre_ids}
+            releaseDate = {release_date ? getReleaseYear(release_date) : getReleaseYear(first_air_date)}
+            getGenre = {state.category === 'movie' ? getMovieGenre : getTvGenre}
+            setModal = {setModal}
+            openModal = {openModal}
+          />
+        )
+      } else {
+        return null;
+      }
+    })
+    return movieItem;
+  }
 
   return (
     <div className="container">
@@ -447,11 +428,10 @@ const App = () => {
                 searchInputChange = {searchInputChange}
               />
             }>
-
           </Route>
           <Route path='/mostPopular' element={
               <MostPopular
-                movies = {movies}
+                movies = {createMovieItem(mostPopular)}
                 state = {mostPopular}
                 states = {[setMostPopular]}
                 searchFormSubmit = {searchFormSubmit}
@@ -462,7 +442,41 @@ const App = () => {
                 twoPagesBack = {twoPagesBack}
                 onePageUp = {onePageUp}
                 twoPagesUp = {twoPagesUp}
-                title = 'the Most Popular'
+                title = 'Most Popular'
+              />
+            }>
+          </Route>
+          <Route path='/trending' element={
+              <Trending
+                movies = {createMovieItem(trending)}
+                state = {trending}
+                states = {[setTrending]}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+                getMovies = {getMovies}
+                getTvShows = {getTvShows}
+                onePageBack = {onePageBack}
+                twoPagesBack = {twoPagesBack}
+                onePageUp = {onePageUp}
+                twoPagesUp = {twoPagesUp}
+                title = 'Trending Today'
+              />
+            }>
+          </Route>
+          <Route path='/topRated' element={
+              <TopRated
+                movies = {createMovieItem(topRated)}
+                state = {topRated}
+                states = {[setTopRated]}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+                getMovies = {getMovies}
+                getTvShows = {getTvShows}
+                onePageBack = {onePageBack}
+                twoPagesBack = {twoPagesBack}
+                onePageUp = {onePageUp}
+                twoPagesUp = {twoPagesUp}
+                title = 'Top Rated'
               />
             }>
           </Route>

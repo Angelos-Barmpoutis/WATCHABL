@@ -40,7 +40,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: rgba(0, 0, 0, 0.97);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.827), rgba(0, 0, 0, 0.88)), url(/public/images/background.webp) no-repeat center center/cover;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.88)), url(/public/images/background.webp) no-repeat center center/cover;
 
     .container {
         width: 100%;
@@ -52,7 +52,7 @@ body {
             }
             display: grid;
             grid-template-columns: 4fr 1fr;
-            max-width: 1920px;
+            max-width: 1440px;
             margin: 0 auto;
         }
 
@@ -63,50 +63,79 @@ body {
                 flex-wrap: nowrap;
                 justify-content: space-between;
                 align-items: center;
-                padding-block: .5rem;
+            }
 
-                .search-form {
+            .search-form {
+                background-color: transparent;
+                color: #dcdde1;
+                border: 1px solid $secondary-color;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+    
+                .fa-magnifying-glass {
+                    padding: 0 .6rem;
+                }
+    
+                #search-input {
+                    @include media-tablet {
+                        width: 120px;
+                    }
+                    font-family: inherit;
                     background-color: transparent;
                     color: #dcdde1;
-                    border: 1px solid $secondary-color;
+                    border: none;
                     border-radius: 10px;
-                    overflow: hidden;
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-        
-                    .fa-magnifying-glass {
-                        padding: 0 .6rem;
-                    }
-        
-                    #search-input {
-                        @include media-tablet {
-                            width: 120px;
-                        }
-                        font-family: inherit;
-                        background-color: transparent;
-                        color: #dcdde1;
-                        border: none;
-                        border-radius: 10px;
-                        letter-spacing: .5px;
-                        transition: all .2s ease-in-out;
-                        padding-block: .6rem;
-                        padding-right: .8rem;
-        
-                        &:focus {
-                            outline: none;
+                    letter-spacing: .5px;
+                    transition: all .2s ease-in-out;
+                    padding-block: .6rem;
+                    padding-right: .8rem;
+    
+                    &:focus {
+                        outline: none;
 
-                            background-color: transparent;
-                        }
-        
-                        
-                        &::placeholder {
-                            font-family: inherit;
-                            color: $secondary-text-color;
-                            font-size: .9rem;
-                            font-weight: 400;
-                        }
+                        background-color: transparent;
                     }
+    
+                    
+                    &::placeholder {
+                        font-family: inherit;
+                        color: $secondary-text-color;
+                        font-size: .9rem;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            .movies-form {
+                @include media-tablet {
+                    margin-bottom: 1rem;
+                    display: block;
+                }
+
+                display: none;
+            }
+
+            .movies-title {
+                @include media-tablet {
+                    display: none;
+                }
+                text-align: center;
+                padding-bottom: 1.5rem;
+            }
+
+            .movies-mobile-title {
+                @include media-tablet {
+                    display: block;
+                }
+                display: none;
+            }
+
+            .movies-desktop-form {
+                @include media-tablet {
+                    display: none;
                 }
             }
 
@@ -124,7 +153,11 @@ body {
         }
 
         aside {
-            border-left: 1px solid rgba(97, 92, 92, 0.174);
+            @include media-tablet {
+                border-left: none;
+                border-top: 2px solid rgba(97, 92, 92, 0.174);
+            }
+            border-left: 2px solid rgba(97, 92, 92, 0.174);
             color: #dcdde1;
         }
         
@@ -135,11 +168,16 @@ body {
 
             color: #f5f6fa;
             text-align: center;
-            background-color: $primary-color;
+            background-color: rgba(6, 13, 45, 0.853);
             font-size: 1rem;
+            line-height: 1.5;
+
+            a {
+                color: rgb(0, 128, 255);
+            }
 
             .wrapper {
-                padding-bottom: 2rem;
+                padding-block: 2rem;
             }
         }
     }   

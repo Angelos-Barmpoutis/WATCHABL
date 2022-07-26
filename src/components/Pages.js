@@ -1,18 +1,18 @@
 import Page from './Page';
 
-const Pages = (props) => { 
+const Pages = ({state, setState, page, onePageBack, twoPagesBack, totalPages, onePageUp, twoPagesUp}) => { 
     return (
         <section className="pages wrapper">
-            {props.page > 1 && <button type='button' aria-label='Previous page' className="pages__page" onClick={props.onePageBack}><i className="fa-solid fa-angle-left"></i></button>}
-            {props.page >= 3 && <Page page = {props.page-2} onClick={props.twoPagesBack}/>}
-            {props.page > 1 && <Page page = {props.page-1} onClick={props.onePageBack}/>}
+            {page > 1 && <button type='button' aria-label='Previous page' className="pages__page" onClick={() => onePageBack(state, setState)}><i className="fa-solid fa-angle-left"></i></button>}
+            {page >= 3 && <Page page = {page-2} onClick={() => twoPagesBack(setState)}/>}
+            {page > 1 && <Page page = {page-1} onClick={() => onePageBack(state, setState)}/>}
             <Page
-                page = {props.page}
+                page = {page}
                 pageClass = 'active'
             />
-            {props.page < props.totalPages && <Page page = {props.page+1} onClick={props.onePageUp}/>}
-            {props.page <= (props.totalPages - 2) && <Page page = {props.page+2} onClick={props.twoPagesUp}/>}
-            {props.page < props.totalPages && <button aria-label='Next page' type='button' className="pages__page" onClick={props.onePageUp}><i className="fa-solid fa-angle-right"></i></button>}
+            {page < totalPages && <Page page = {page+1} onClick={() => onePageUp(state, setState)}/>}
+            {page <= (totalPages - 2) && <Page page = {page+2} onClick={() => twoPagesUp(setState)}/>}
+            {page < totalPages && <button aria-label='Next page' type='button' className="pages__page" onClick={() => onePageUp(state, setState)}><i className="fa-solid fa-angle-right"></i></button>}
         </section>
     )
 }

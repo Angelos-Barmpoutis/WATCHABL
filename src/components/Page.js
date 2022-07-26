@@ -1,6 +1,6 @@
-const Page = (props) => {
+const Page = ({page, pageClass, onClick}) => {
     return (
-        <button aria-label={`Go to page ${props.page}`} type="button" className={`pages__page ${props.pageClass}`} onClick={props.onClick}>{props.page}</button>
+        <button aria-label={`Go to page ${page}`} type="button" className={`pages__page ${pageClass}`} onClick={onClick}>{page}</button>
     )
 }
 

@@ -120,17 +120,14 @@ $secondary-text-color: #dcdde1;
     @include media-mobile {
         font-size: 1.2rem;
     }
-    max-width: 25ch;
-    margin-inline: auto;
+
     color: $primary-text-color;
     font-weight: 600;
     font-size: 1.4rem;
     letter-spacing: .2px;
-    text-align: center;
-    padding-bottom: 1.5rem;
 
     span {
-        color: rgb(238, 177, 37);
+        color: rgb(238, 179, 44);
     }
 }
 

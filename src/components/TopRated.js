@@ -1,7 +1,7 @@
 import Movies from "./Movies";
 import Pages from "./Pages";
 
-const MostPopular = ({state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows, title}) => {
+const TopRated = ({state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows, title}) => {
   return (
     <>
         <Movies
@@ -28,4 +28,4 @@ const MostPopular = ({state, states, searchFormSubmit, searchInputChange, onePag
   )
 }
 
-export default MostPopular;
+export default TopRated;
