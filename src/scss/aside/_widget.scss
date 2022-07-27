@@ -68,7 +68,7 @@
             }
     
             &__genre {                
-                color: #95c7f7;
+                color: #60a3fa;
                 font-weight: 400;
                 font-size: .9rem;
                 line-height: 1.1;
@@ -84,7 +84,12 @@
 
     &__view-more {
         width: 100%;
-        border: none;
-        background-color: rgb(45, 88, 245);
+        border: 1px solid $secondary-color;
+        background-color: transparent;
+        transition: background-color .3s ease-in-out;
+
+        &:hover {
+            background-color: $secondary-color;
+        }
     }
 }

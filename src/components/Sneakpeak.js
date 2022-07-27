@@ -22,7 +22,7 @@ const Sneakpeak = ({getMovies, getTvShows, state, setState, header, results, hre
             <div className="wrapper">
                 <div className="sneakpeak-header">
                     <h2 className="sneakpeak-header__title">{header}</h2>
-                    <Link to={href} className='sneakpeak-header__view-all' onClick={() => window.scrollTo(0,  0)}>View All</Link>
+                    <Link to={href} className='sneakpeak-header__view-all' onClick={() => window.scrollTo(0,  0)}>View All <i className="fa-solid fa-chevron-right"></i></Link>
                 </div>
 
                 <div className='sneakpeak__results'>

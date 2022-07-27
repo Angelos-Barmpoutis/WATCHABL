@@ -14,7 +14,7 @@
 
 // VARIABLES
 $primary-color: #09123a;
-$secondary-color: #3f06aa;
+$secondary-color: rgba(45, 88, 245, 0.692);
 $primary-text-color: #f5f6fa;
 $secondary-text-color: #dcdde1;
 
@@ -132,23 +132,24 @@ $secondary-text-color: #dcdde1;
 }
 
 .rating {
-    @include media-mobile{
-        font-size: .9rem;
+    @include media-tablet{
         letter-spacing: .3px;
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
+        font-size: .85rem;
     }
 
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #4b5057;
-    width: 45px;
-    height: 45px;
+    border: 1px solid rgba(255, 255, 255, 0.157);
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
-    font-size: .95rem;
-    font-weight: 600;
-    background-color: #1d1e1fef;
+    font-size: .9rem;
+    font-weight: 500;
+    background-color: #000000c1;
+    backdrop-filter: blur(8px);
     letter-spacing: .7px;
 
     &.green {
