@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import SneakpeakCard from "./SneakpeakCard"
 
 const Sneakpeak = ({getMovies, getTvShows, state, setState, header, results, href}) => {
-    // Keep the first 13 results
+    // Render the first 12 results
     const resultsFilter = results.filter((result, index) => index < 12)
     const resultsMap = resultsFilter.map(result => {
         return (

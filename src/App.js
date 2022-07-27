@@ -2,11 +2,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 import Movie from './components/Movie';
-import Home from './components/Home';
 import Widget from './components/Widget';
-import MostPopular from './components/MostPopular';
-import Trending from './components/Trending';
-import TopRated from './components/TopRated';
+import Home from './pages/Home';
+import MostPopular from './pages/MostPopular';
+import Trending from './pages/Trending';
+import TopRated from './pages/TopRated';
+import NowPlaying from './pages/NowPlaying'
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { Routes, Route } from 'react-router-dom';
@@ -14,6 +15,9 @@ import { Routes, Route } from 'react-router-dom';
 const App = () => {
 
   // Variables & States declaration
+  const NOW_PLAYING_URL = 'http://localhost:3000/nowPlaying';
+  const AIRING_TODAY_URL = 'http://localhost:3000/airingToday';
+
   const [searchInput, setSearchInput] = useState('');
   const [genres, setGenres] = useState({
     movie : [],
@@ -36,6 +40,7 @@ const App = () => {
 
   const [mostPopular, setMostPopular] = useState(
     {
+      title: 'Most Popular',
       category: 'movie',
       page: 1,
       totalPages: 1,
@@ -44,7 +49,8 @@ const App = () => {
   )
 
   const [trending, setTrending] = useState(
-    {
+    { 
+      title: 'Trending Today',
       category: 'movie',
       page: 1,
       totalPages: 1,
@@ -54,6 +60,7 @@ const App = () => {
 
   const [topRated, setTopRated] = useState(
     {
+      title: 'Top Rated',
       category: 'movie',
       page: 1,
       totalPages: 1,
@@ -63,6 +70,8 @@ const App = () => {
 
   const [airingToday, setAiringToday] = useState(
     {
+      title: 'Airing Today',
+      category: 'tv',
       page: 1,
       totalPages: 1,
       results: []
@@ -71,6 +80,8 @@ const App = () => {
   
   const [nowPlaying, setNowPlaying] = useState(
     {
+      title: 'Now Playing',
+      category: 'movie',
       page: 1,
       totalPages: 1,
       results: []
@@ -442,7 +453,6 @@ const App = () => {
                 twoPagesBack = {twoPagesBack}
                 onePageUp = {onePageUp}
                 twoPagesUp = {twoPagesUp}
-                title = 'Most Popular'
               />
             }>
           </Route>
@@ -459,7 +469,6 @@ const App = () => {
                 twoPagesBack = {twoPagesBack}
                 onePageUp = {onePageUp}
                 twoPagesUp = {twoPagesUp}
-                title = 'Trending Today'
               />
             }>
           </Route>
@@ -476,7 +485,22 @@ const App = () => {
                 twoPagesBack = {twoPagesBack}
                 onePageUp = {onePageUp}
                 twoPagesUp = {twoPagesUp}
-                title = 'Top Rated'
+              />
+            }>
+          </Route>
+          <Route path='/nowPlaying' element={
+              <NowPlaying
+                movies = {createMovieItem(nowPlaying)}
+                state = {nowPlaying}
+                states = {[setNowPlaying]}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+                getMovies = {getMovies}
+                getTvShows = {getTvShows}
+                onePageBack = {onePageBack}
+                twoPagesBack = {twoPagesBack}
+                onePageUp = {onePageUp}
+                twoPagesUp = {twoPagesUp}
               />
             }>
           </Route>
@@ -484,18 +508,28 @@ const App = () => {
         </main>
           <aside>
             <div className="wrapper">
-              <Widget
+
+              {window.location.href !== NOW_PLAYING_URL && <Widget
               results = {nowPlaying.results}
-              header = 'Now Playing'
+              header = {nowPlaying.title}
               genres = {genres}
               getGenre = {getMovieGenre}
-            />
-            <Widget
+            />}
+
+            {window.location.href !== AIRING_TODAY_URL && <Widget
               results = {airingToday.results}
-              header = 'Airing Today'
+              header = {airingToday.title}
               genres = {genres}
               getGenre = {getTvGenre}
-            />
+            />}
+
+            {(window.location.href === NOW_PLAYING_URL || window.location.href === AIRING_TODAY_URL) && <Widget
+              results = {trending.results}
+              header = {trending.title}
+              genres = {genres}
+              getGenre = {getMovieGenre}
+            />}
+
             </div>
           </aside>
         </div>

@@ -10,12 +10,12 @@ const Movies = ({state, states, getMovies, getTvShows, searchFormSubmit, searchI
             </form>
             <div className="categories-search-container movies-categories">
                 <h1 className='title movies-mobile-title'>{title}</h1>
-                <Categories
+                {state.title !== 'Now Playing' && <Categories
                 state = {state}
                 states = {states}
                 getMovies = {getMovies}
                 getTvShows = {getTvShows}
-                />
+                />}
                 <form className="search-form movies-desktop-form" onSubmit={searchFormSubmit}>
                 <i className="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="search-input" name="searchInput" placeholder='Search...' autoComplete="off" onChange={searchInputChange}/>

@@ -57,7 +57,7 @@
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -218,7 +218,7 @@
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -329,7 +329,7 @@ nav {
   backdrop-filter: blur(7px);
   background-color: rgba(0, 0, 0, 0.692);
   border-radius: 10px;
-  width: 95%;
+  width: 96%;
   margin-inline: auto;
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
@@ -409,7 +409,7 @@ nav .nav h3 a {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -617,7 +617,7 @@ nav .nav h3 a {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -889,7 +889,7 @@ nav .nav h3 a {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1254,7 +1254,7 @@ h5 {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1384,6 +1384,7 @@ h5 {
   text-decoration: none;
   font-family: inherit;
   transition: border .3s ease-in-out;
+  font-size: .95rem;
 }
 
 .sneakpeak-header__view-all:hover {
@@ -1436,7 +1437,7 @@ h5 {
 }
 
 .sneakpeak__results__card:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .sneakpeak__results__card .rating {
@@ -1549,7 +1550,7 @@ h5 {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1741,7 +1742,7 @@ h5 {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1878,6 +1879,7 @@ h5 {
   background-color: transparent;
   gap: .6rem;
   cursor: pointer;
+  transition: transform .4s ease-in-out;
 }
 
 @media screen and (max-width: 769px) {
@@ -1890,6 +1892,10 @@ h5 {
   .widget .movie {
     height: 130px;
   }
+}
+
+.widget .movie:hover {
+  transform: scale(1.03);
 }
 
 .widget .movie__image {
@@ -1913,7 +1919,7 @@ h5 {
 .widget .movie__details__title {
   color: #f5f6fa;
   line-height: 1;
-  font-size: 1rem;
+  font-size: .9rem;
   letter-spacing: .1px;
   max-width: 75%;
   font-weight: 500;
@@ -1926,7 +1932,7 @@ h5 {
 .widget .movie__details__genre {
   color: #60a3fa;
   font-weight: 400;
-  font-size: .9rem;
+  font-size: .85rem;
   line-height: 1.1;
   margin-bottom: .5rem;
 }

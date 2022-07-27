@@ -36,6 +36,11 @@
         background-color: transparent;
         gap: .6rem;
         cursor: pointer;
+        transition: transform .4s ease-in-out;
+
+            &:hover {
+                transform: scale(1.03);
+            }
     
         &__image {
             border-radius: 10px;
@@ -57,7 +62,7 @@
             &__title {
                 color: $primary-text-color;
                 line-height: 1;
-                font-size: 1rem;
+                font-size: .9rem;
                 letter-spacing: .1px;
                 max-width: 75%;
                 font-weight: 500;
@@ -70,7 +75,7 @@
             &__genre {                
                 color: #60a3fa;
                 font-weight: 400;
-                font-size: .9rem;
+                font-size: .85rem;
                 line-height: 1.1;
                 margin-bottom: .5rem;
             }

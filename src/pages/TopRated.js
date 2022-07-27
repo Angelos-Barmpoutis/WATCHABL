@@ -1,7 +1,7 @@
-import Movies from "./Movies";
-import Pages from "./Pages";
+import Movies from "../components/Movies";
+import Pages from "../components/Pages";
 
-const Trending = ({state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows, title}) => {
+const TopRated = ({state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
   return (
     <>
         <Movies
@@ -9,7 +9,7 @@ const Trending = ({state, states, searchFormSubmit, searchInputChange, onePageBa
           states = {states}
           getMovies = {getMovies}
           getTvShows = {getTvShows}
-          title = {title}
+          title = {state.title}
           movies = {movies}
           searchFormSubmit = {searchFormSubmit}
           searchInputChange = {searchInputChange}
@@ -28,4 +28,4 @@ const Trending = ({state, states, searchFormSubmit, searchInputChange, onePageBa
   )
 }
 
-export default Trending;
+export default TopRated;

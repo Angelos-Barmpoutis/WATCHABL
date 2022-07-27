@@ -1,6 +1,6 @@
-import Sneakpeak from './Sneakpeak';
-import Hero from './Hero';
-import Categories from './Categories';
+import Sneakpeak from '../components/Sneakpeak';
+import Hero from '../components/Hero';
+import Categories from '../components/Categories';
 
 const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, setAiringToday, trending, setTrending, nowPlaying, setNowPlaying, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
   return (
