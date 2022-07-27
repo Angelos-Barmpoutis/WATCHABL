@@ -1426,7 +1426,7 @@ h5 {
   align-items: start;
   border-radius: 10px;
   position: relative;
-  transition: transform .6s ease-in-out;
+  transition: transform .4s ease-in-out;
 }
 
 @media screen and (max-width: 569px) {
@@ -2111,19 +2111,19 @@ body .container main .no-results {
 }
 
 body .container aside {
-  border-left: 2px solid rgba(255, 255, 255, 0.07);
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
   color: #dcdde1;
 }
 
 @media screen and (max-width: 769px) {
   body .container aside {
     border-left: none;
-    border-top: 2px solid rgba(255, 255, 255, 0.07);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
   }
 }
 
 body .container footer {
-  color: #f5f6fa;
+  color: #dcdde1;
   text-align: center;
   background: #020024;
   background: linear-gradient(90deg, rgba(2, 0, 36, 0.338) 0%, rgba(4, 4, 44, 0.659) 50%, rgba(8, 8, 65, 0.53) 50%, rgba(0, 0, 0, 0.505) 100%);

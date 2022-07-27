@@ -161,9 +161,9 @@ body {
         aside {
             @include media-tablet {
                 border-left: none;
-                border-top: 2px solid rgba(255, 255, 255, 0.07);
+                border-top: 1px solid rgba(255, 255, 255, 0.07);
             }
-            border-left: 2px solid rgba(255, 255, 255, 0.07);
+            border-left: 1px solid rgba(255, 255, 255, 0.07);
             color: #dcdde1;
         }
         
@@ -172,7 +172,7 @@ body {
                 font-size: .9rem;
             }
 
-            color: #f5f6fa;
+            color: $secondary-text-color;
             text-align: center;
             background: rgb(2,0,36);
             background: linear-gradient(90deg, rgba(2, 0, 36, 0.338) 0%, rgba(4, 4, 44, 0.659) 50%, rgba(8, 8, 65, 0.53) 50%, rgba(0, 0, 0, 0.505) 100%);
