@@ -65,11 +65,7 @@
             align-items: start;
             border-radius: 10px;
             position: relative;
-            transition: transform .2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.03);
-            }
+            cursor: pointer;
 
             .rating {
                 top: .3rem;

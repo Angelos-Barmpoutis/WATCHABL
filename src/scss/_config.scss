@@ -121,17 +121,13 @@ $secondary-text-color: #dcdde1;
     text-decoration: none;
     font-weight: 500;
     letter-spacing: .5px;
-    background-color:transparent;
+    background-color: rgba(68, 107, 249, 0.092);
     border: 1px solid $secondary-color;
     transition: all .2s ease-in-out;
 
-    &.active {
-        color: $primary-text-color;
-        background-color: $secondary-color;
-    }
-
     &:hover {
-        background-color:rgba(45, 88, 245, 0.141);
+        border: 1px solid rgba(62, 104, 255, 0.886);
+        background-color: rgba(68, 107, 249, 0.182);
     }
 }
 

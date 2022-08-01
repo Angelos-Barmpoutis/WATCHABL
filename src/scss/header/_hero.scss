@@ -1,15 +1,22 @@
 @import '../config';
 
 .hero {
+    @include media-tablet {
+        grid-template-areas: 'images'
+        'circles';
+    }
     width: 100%;
     color: #f5f6fa;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-areas: 'left images right'
+    'circles circles circles';
+    justify-content: space-evenly;
     align-items: center;
-    gap: 1rem;
+    row-gap: 1.5rem;
+    column-gap: .5rem;
 
     &__images {
-        // width: 100%;
+        grid-area: images;
         margin-inline: auto;
         display: flex;
         overflow: hidden;
@@ -23,28 +30,32 @@
             border-radius: 10px;
             display: none;
 
-            &:nth-child(1) {
+            &.active {
                 display: block;
             }
         }
 
         &__title {
+            @include media-tablet {
+                font-size: 1.15rem;
+            }
             color: $secondary-text-color;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
             width: 100%;
             position: absolute;
             text-align: center;
             bottom: 0;
             left: 0;
+            right: 0;
             z-index: 10;
-            padding-block: 2rem;
-            // padding-left: 3rem;
-            display: none;
+            padding-block: 4rem 1rem;
             font-size: 1.3rem;
+            margin-inline: auto;
             font-weight: 500;
+            display: none;
 
-            &:nth-child(6) {
-                display: block;
+            &.active {
+                display: initial;
             }
         }
     }
@@ -52,6 +63,38 @@
     &__navigation-arrow {
         @include media-tablet {
             display: none;
+        }
+
+        &.left-arrow {
+            grid-area: left;
+        }
+
+        &.right-arrow {
+            grid-area: right;
+        }
+
+        background-color: transparent;
+        color: #f5f6fa;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__navigation-circles {
+        width: 100%;
+        grid-area: circles;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+
+        &__circle {
+            width: 10px;
+            height: 10px;
+            background-color: rgb(95, 95, 95);
+            border-radius: 50%;
+
+            &.active {
+                background-color: $primary-text-color;
+            }
         }
     }
 }

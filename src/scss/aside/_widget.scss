@@ -36,11 +36,6 @@
         background-color: transparent;
         gap: .6rem;
         cursor: pointer;
-        transition: transform .2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.03);
-            }
     
         &__image {
             border-radius: 10px;

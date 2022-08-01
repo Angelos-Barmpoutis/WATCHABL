@@ -111,18 +111,14 @@
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -291,18 +287,14 @@
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -364,11 +356,9 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  backdrop-filter: blur(5px);
-  background-color: rgba(0, 0, 0, 0.563);
-  border-radius: 10px;
-  width: 98%;
-  margin-inline: auto;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.365);
+  width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 10px;
 }
@@ -502,18 +492,14 @@ nav .nav h3 a {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -572,13 +558,22 @@ nav .nav h3 a {
 .hero {
   width: 100%;
   color: #f5f6fa;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-areas: 'left images right' 'circles circles circles';
+  justify-content: space-evenly;
   align-items: center;
-  gap: 1rem;
+  row-gap: 1.5rem;
+  column-gap: .5rem;
+}
+
+@media screen and (max-width: 769px) {
+  .hero {
+    grid-template-areas: 'images' 'circles';
+  }
 }
 
 .hero__images {
+  grid-area: images;
   margin-inline: auto;
   display: flex;
   overflow: hidden;
@@ -594,33 +589,75 @@ nav .nav h3 a {
   display: none;
 }
 
-.hero__images__image:nth-child(1) {
+.hero__images__image.active {
   display: block;
 }
 
 .hero__images__title {
   color: #dcdde1;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
   width: 100%;
   position: absolute;
   text-align: center;
   bottom: 0;
   left: 0;
+  right: 0;
   z-index: 10;
-  padding-block: 2rem;
-  display: none;
+  padding-block: 4rem 1rem;
   font-size: 1.3rem;
+  margin-inline: auto;
   font-weight: 500;
+  display: none;
 }
 
-.hero__images__title:nth-child(6) {
-  display: block;
+@media screen and (max-width: 769px) {
+  .hero__images__title {
+    font-size: 1.15rem;
+  }
+}
+
+.hero__images__title.active {
+  display: initial;
+}
+
+.hero__navigation-arrow {
+  background-color: transparent;
+  color: #f5f6fa;
+  border: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 769px) {
   .hero__navigation-arrow {
     display: none;
   }
+}
+
+.hero__navigation-arrow.left-arrow {
+  grid-area: left;
+}
+
+.hero__navigation-arrow.right-arrow {
+  grid-area: right;
+}
+
+.hero__navigation-circles {
+  width: 100%;
+  grid-area: circles;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.hero__navigation-circles__circle {
+  width: 10px;
+  height: 10px;
+  background-color: #5f5f5f;
+  border-radius: 50%;
+}
+
+.hero__navigation-circles__circle.active {
+  background-color: #f5f6fa;
 }
 
 @keyframes fadeIn {
@@ -736,18 +773,14 @@ nav .nav h3 a {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -1036,18 +1069,14 @@ nav .nav h3 a {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -1420,18 +1449,14 @@ h5 {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -1558,17 +1583,13 @@ h5 {
   align-items: start;
   border-radius: 10px;
   position: relative;
-  transition: transform .2s ease-in-out;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card {
     max-width: 105px;
   }
-}
-
-.sneakpeak__results__card:hover {
-  transform: scale(1.03);
 }
 
 .sneakpeak__results__card .rating {
@@ -1736,18 +1757,14 @@ h5 {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -1947,18 +1964,14 @@ h5 {
   text-decoration: none;
   font-weight: 500;
   letter-spacing: .5px;
-  background-color: transparent;
+  background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
   transition: all .2s ease-in-out;
 }
 
-.btn.active {
-  color: #f5f6fa;
-  background-color: rgba(45, 88, 245, 0.692);
-}
-
 .btn:hover {
-  background-color: rgba(45, 88, 245, 0.141);
+  border: 1px solid rgba(62, 104, 255, 0.886);
+  background-color: rgba(68, 107, 249, 0.182);
 }
 
 .title {
@@ -2049,7 +2062,6 @@ h5 {
   background-color: transparent;
   gap: .6rem;
   cursor: pointer;
-  transition: transform .2s ease-in-out;
 }
 
 @media screen and (max-width: 769px) {
@@ -2062,10 +2074,6 @@ h5 {
   .widget .movie {
     height: 130px;
   }
-}
-
-.widget .movie:hover {
-  transform: scale(1.03);
 }
 
 .widget .movie__image {
@@ -2159,7 +2167,7 @@ body {
   padding-top: 3.5rem;
   font-family: 'Roboto', sans-serif;
   background-color: rgba(0, 0, 0, 0.971);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/public/images/bg-gradient.jpg") no-repeat center center/cover;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.89)), url("/public/images/bg-gradient.jpg") no-repeat center center/cover;
 }
 
 body .container {
@@ -2301,15 +2309,9 @@ body .container footer {
   text-align: center;
   background: #020024;
   background: linear-gradient(90deg, rgba(2, 0, 36, 0.338) 0%, rgba(4, 4, 44, 0.659) 50%, rgba(8, 8, 65, 0.53) 50%, rgba(0, 0, 0, 0.505) 100%);
-  font-size: .9rem;
+  font-size: .8rem;
   line-height: 1.5;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-@media screen and (max-width: 569px) {
-  body .container footer {
-    font-size: .9rem;
-  }
 }
 
 body .container footer a {
