@@ -1,7 +1,7 @@
 import Movies from "../components/Movies";
 import Pages from "../components/Pages";
 
-const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
+const AiringToday = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
   return (
     <>
         <Movies
@@ -30,4 +30,4 @@ const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit,
   )
 }
 
-export default MostPopular;
+export default AiringToday;

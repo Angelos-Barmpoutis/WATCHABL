@@ -1,4 +1,6 @@
-const Widget = ({results, header, getGenre, genres}) => {
+import { Link } from "react-router-dom";
+
+const Widget = ({href, results, header, getGenre, genres}) => {
 
     // Return rating's color based on the rating
     const ratingColor = (rating) => {
@@ -34,7 +36,7 @@ const Widget = ({results, header, getGenre, genres}) => {
     <div className="widget">
       <h2 className="widget__title">{header}</h2>
       {results && resultsMap}
-      <button className="widget__view-more btn">View More</button>
+      <Link className="widget__view-more btn" to={href} onClick={() => window.scrollTo(0,  0)}>View More</Link>
     </div>
   )
 }

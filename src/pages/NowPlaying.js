@@ -1,10 +1,12 @@
 import Movies from "../components/Movies";
 import Pages from "../components/Pages";
 
-const NowPlaying = ({state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
+const NowPlaying = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
   return (
     <>
         <Movies
+          searchInputValue = {searchInputValue}
+          search = {search}
           state = {state}
           states = {states}
           getMovies = {getMovies}

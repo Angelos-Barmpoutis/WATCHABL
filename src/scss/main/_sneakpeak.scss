@@ -65,7 +65,7 @@
             align-items: start;
             border-radius: 10px;
             position: relative;
-            transition: transform .4s ease-in-out;
+            transition: transform .2s ease-in-out;
 
             &:hover {
                 transform: scale(1.03);
@@ -87,7 +87,7 @@
             }
 
             &__title {
-                @include media-mobile {
+                @include media-tablet {
                     font-size: .9rem;
                 }
 
@@ -95,6 +95,7 @@
                 line-height: 1.1;
                 font-size: 1rem;
                 font-weight: 500;
+                letter-spacing: .3px;
                 padding-bottom: 0.2rem;
                 text-overflow: ellipsis;
                 white-space: nowrap;

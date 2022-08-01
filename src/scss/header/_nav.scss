@@ -3,16 +3,17 @@
 nav { 
 
     position: fixed;
-    top: .1rem;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    backdrop-filter: blur(7px);
-    background-color: rgba(0, 0, 0, 0.692); 
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.563); 
     border-radius: 10px;
-    width: 96%;
+    width: 98%;
     margin-inline: auto;
     border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
     
     .nav {
         padding: .8rem 1.5rem;
@@ -27,7 +28,6 @@ nav {
             a {
                 color: $primary-text-color;
                 text-decoration: none;
-
             }
         }
     }

@@ -1,7 +1,7 @@
 import Movies from "../components/Movies";
 import Pages from "../components/Pages";
 
-const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
+const Search = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
   return (
     <>
         <Movies
@@ -16,7 +16,10 @@ const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit,
           searchFormSubmit = {searchFormSubmit}
           searchInputChange = {searchInputChange}
         />
-        <Pages
+
+        {state.results.length === 0 && <p className="no-results">There are no results matching <em>"{search.query}".</em></p>}
+
+        {state.results.length !== 0 && <Pages
           state = {state}
           setState = {states[0]}
           page = {state.page} 
@@ -25,9 +28,9 @@ const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit,
           twoPagesBack = {twoPagesBack}
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
-        /> 
+        />} 
     </>
   )
 }
 
-export default MostPopular;
+export default Search;

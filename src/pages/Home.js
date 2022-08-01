@@ -2,7 +2,7 @@ import Sneakpeak from '../components/Sneakpeak';
 import Hero from '../components/Hero';
 import Categories from '../components/Categories';
 
-const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, setAiringToday, trending, setTrending, nowPlaying, setNowPlaying, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
+const Home = ({heroTrending, searchInputValue, search, getMovies, getTvShows, mostPopular, setMostPopular, trending, setTrending, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
   return (
     <>
     <div className="categories-search-container wrapper">
@@ -14,10 +14,12 @@ const Home = ({getMovies, getTvShows, mostPopular, setMostPopular, airingToday, 
       />
       <form className="search-form" onSubmit={searchFormSubmit}>
         <i className="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="search-input" name="searchInput" placeholder='Search...' autoComplete="off" onChange={searchInputChange}/>
+        <input type="text" id="search-input" name="searchInput" placeholder='Search...' value={searchInputValue} autoComplete="off" onChange={searchInputChange}/>
       </form>
     </div>  
-      <Hero/>
+      {heroTrending && <Hero
+        heroTrending = {heroTrending}
+      />}
       <Sneakpeak
           getMovies = {getMovies}
             getTvShows = {getTvShows}

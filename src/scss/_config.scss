@@ -76,20 +76,36 @@ $secondary-text-color: #dcdde1;
         color: rgb(95, 95, 95);
         border: none;
         background-color: transparent;
+        transition: transform 0.2s ease-in-out;
         cursor: pointer;
 
         &:nth-child(1) {
-            border-right: 2px solid $secondary-text-color;
             padding-right: 1rem;
+
+            &.active {
+                border-right: 2px solid $secondary-text-color;
+            }
         }
 
         &:nth-child(2) {
             padding-left: 1rem;
+
+            &.active {
+                border-left: 2px solid $secondary-text-color;
+            }
         }
 
         &.active {
             color: $primary-text-color;
             font-style: italic;
+
+            &:hover {
+                transform: scale(1);
+            }
+        }
+
+        &:hover {
+            transform: scale(.95);
         }
     }
 }
@@ -101,18 +117,21 @@ $secondary-text-color: #dcdde1;
     border-radius: 10px;
     border: none;
     font-size: .95rem;
-    color: #f5f6fa;
+    color: rgb(45, 148, 245);
     text-decoration: none;
     font-weight: 500;
     letter-spacing: .5px;
-    background-color: transparent;
-    cursor: pointer;
+    background-color:transparent;
     border: 1px solid $secondary-color;
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
 
     &.active {
         color: $primary-text-color;
         background-color: $secondary-color;
+    }
+
+    &:hover {
+        background-color:rgba(45, 88, 245, 0.141);
     }
 }
 

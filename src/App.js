@@ -8,9 +8,11 @@ import MostPopular from './pages/MostPopular';
 import Trending from './pages/Trending';
 import TopRated from './pages/TopRated';
 import NowPlaying from './pages/NowPlaying'
+import AiringToday from './pages/AiringToday';
+import Search from './pages/Search';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const App = () => {
 
@@ -18,7 +20,8 @@ const App = () => {
   const NOW_PLAYING_URL = 'http://localhost:3000/nowPlaying';
   const AIRING_TODAY_URL = 'http://localhost:3000/airingToday';
 
-  const [searchInput, setSearchInput] = useState('');
+  const navigate = useNavigate();
+
   const [genres, setGenres] = useState({
     movie : [],
     tv : []
@@ -37,6 +40,21 @@ const App = () => {
     totalPages: 1
     }
   );
+  
+  const [heroTrending, setHeroTrending] = useState([]);
+
+  const [searchInputValue, setSearchInputValue] = useState('');
+
+  const [search, setSearch] = useState(
+    {
+      title: 'Search',
+      query: '',
+      category: 'movie',
+      page: 1,
+      totalPages: 1,
+      results: []
+    }
+  );
 
   const [mostPopular, setMostPopular] = useState(
     {
@@ -46,7 +64,7 @@ const App = () => {
       totalPages: 1,
       results: []
     }
-  )
+  );
 
   const [trending, setTrending] = useState(
     { 
@@ -56,7 +74,7 @@ const App = () => {
       totalPages: 1,
       results: []
     }
-  )
+  );
 
   const [topRated, setTopRated] = useState(
     {
@@ -66,7 +84,7 @@ const App = () => {
       totalPages: 1,
       results: []
     }
-  )
+  );
 
   const [airingToday, setAiringToday] = useState(
     {
@@ -76,7 +94,7 @@ const App = () => {
       totalPages: 1,
       results: []
     }
-  )
+  );
   
   const [nowPlaying, setNowPlaying] = useState(
     {
@@ -86,9 +104,9 @@ const App = () => {
       totalPages: 1,
       results: []
     }
-  )
+  );
 
-  // Send request to get TV genres' list
+  // Fetch TV genres' list
   useEffect(() => {
       let requestUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
   
@@ -103,7 +121,7 @@ const App = () => {
       .catch(error => console.log(error))
   }, [])
 
-  // Send request to get Movie genres' list
+  // Fetch Movie genres' list
   useEffect(() => {
       let requestUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
   
@@ -117,6 +135,17 @@ const App = () => {
       )))
       .catch(error => console.log(error))
   }, [])
+
+  // Fetch Hero Trending
+  useEffect(() => {
+    const requestUrl = 'https://api.themoviedb.org/3/trending/movie/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=1';
+
+      fetch(requestUrl)
+      .then(response => response.json())
+      .then(responseData => {
+        setHeroTrending(responseData.results)
+      })
+}, [])
 
   // Fetch Most Popular
   useEffect(() => {
@@ -206,26 +235,45 @@ const App = () => {
       })
   }, [nowPlaying.page])
 
-  // Set searchInput to whatever is being typed in searchInput
+  // Fetch Search Results
+  useEffect(() => {
+
+    if(search.query !== '') {
+      fetch(`https://api.themoviedb.org/3/search/${search.category}?api_key=6de482bc8c5768aa3648618b9c3cc98a&query=${search.query}&page=${search.page}`)
+      .then(response => response.json())
+      .then(responseData => {
+        setSearch(prevSearch => (
+          {
+            ...prevSearch,
+            results: responseData.results,
+            totalPages: responseData.total_pages
+          }
+        ))
+      })
+      
+    }
+  }, [search.category, search.page, search.query])
+
+  // Set search to whatever is being typed in searchInput
   function searchInputChange(e) {
-    setSearchInput(e.target.value);
+    setSearchInputValue(e.target.value);
   }
 
   // Search for a query when searchForm gets submitted
   function searchFormSubmit(e) {
     e.preventDefault();
 
-    if (searchInput && searchInput !== '') {
-      setRequest(prevRequest => (
+    if (searchInputValue && searchInputValue !== ' ') {
+      setSearch(prevSearch => (
         {
-          ...prevRequest,
-          page: 1,
-          method: 'search',
-          searchInput: [true, searchInput]
+          ...prevSearch,
+          query: searchInputValue
         }
-      ))
-      document.getElementById('searchInput').value = '';
-      // scrollToMovies()
+      ));
+
+      navigate('./search')
+
+      setSearchInputValue('');
     }
   }
 
@@ -280,7 +328,12 @@ const App = () => {
   // Convert Release Date to Release Year
   const getReleaseYear = (date) => {
     const year = new Date(date);
-    return `(${year.getFullYear()})`;
+
+    if (isNaN(year.getFullYear())) {
+      return null
+    } else {
+      return `(${year.getFullYear()})`;
+    }
   }
 
   // Go up 1 page
@@ -313,7 +366,7 @@ const App = () => {
         page: prevState.page -1
       }
       ));
-      // scrollToMovies()
+      scrollToTop()
     }
   }
 
@@ -324,7 +377,7 @@ const App = () => {
       page: prevState.page - 2
     }
     ));
-    // scrollToMovies()
+    scrollToTop()
   }
 
   // Scroll to top
@@ -377,9 +430,7 @@ const App = () => {
     const movieItem = state.results.map((item, index) => {
 
       const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = item;
-
-      if (poster_path !== null && overview) {
-        return (
+      return (
           <Movie
             key = {id}
             id = {id}
@@ -394,11 +445,9 @@ const App = () => {
             setModal = {setModal}
             openModal = {openModal}
           />
-        )
-      } else {
-        return null;
-      }
+      )
     })
+    
     return movieItem;
   }
 
@@ -421,6 +470,9 @@ const App = () => {
         <Routes>
           <Route exact path='/' element={
               <Home
+                heroTrending = {heroTrending}
+                searchInputValue = {searchInputValue}
+                search = {search}
                 getMovies={getMovies}
                 getTvShows={getTvShows}
                 mostPopular={mostPopular}
@@ -442,6 +494,8 @@ const App = () => {
           </Route>
           <Route path='/mostPopular' element={
               <MostPopular
+                searchInputValue = {searchInputValue}
+                search = {search}
                 movies = {createMovieItem(mostPopular)}
                 state = {mostPopular}
                 states = {[setMostPopular]}
@@ -458,6 +512,8 @@ const App = () => {
           </Route>
           <Route path='/trending' element={
               <Trending
+                searchInputValue = {searchInputValue}
+                search = {search}
                 movies = {createMovieItem(trending)}
                 state = {trending}
                 states = {[setTrending]}
@@ -474,6 +530,8 @@ const App = () => {
           </Route>
           <Route path='/topRated' element={
               <TopRated
+                searchInputValue = {searchInputValue}
+                search = {search}
                 movies = {createMovieItem(topRated)}
                 state = {topRated}
                 states = {[setTopRated]}
@@ -490,6 +548,8 @@ const App = () => {
           </Route>
           <Route path='/nowPlaying' element={
               <NowPlaying
+                searchInputValue = {searchInputValue}
+                search = {search}
                 movies = {createMovieItem(nowPlaying)}
                 state = {nowPlaying}
                 states = {[setNowPlaying]}
@@ -504,30 +564,60 @@ const App = () => {
               />
             }>
           </Route>
+          <Route path='/airingToday' element={
+              <AiringToday
+                searchInputValue = {searchInputValue}
+                search = {search}
+                movies = {createMovieItem(airingToday)}
+                state = {airingToday}
+                states = {[setAiringToday]}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+                getMovies = {getMovies}
+                getTvShows = {getTvShows}
+                onePageBack = {onePageBack}
+                twoPagesBack = {twoPagesBack}
+                onePageUp = {onePageUp}
+                twoPagesUp = {twoPagesUp}
+              />
+            }>
+          </Route>
+          <Route path='/search' element={
+              <Search
+                searchInputValue = {searchInputValue}
+                search = {search}
+                movies = {createMovieItem(search)}
+                state = {search}
+                states = {[setSearch]}
+                searchFormSubmit = {searchFormSubmit}
+                searchInputChange = {searchInputChange}
+                getMovies = {getMovies}
+                getTvShows = {getTvShows}
+                onePageBack = {onePageBack}
+                twoPagesBack = {twoPagesBack}
+                onePageUp = {onePageUp}
+                twoPagesUp = {twoPagesUp}
+              />
+            }></Route>
         </Routes>
         </main>
           <aside>
             <div className="wrapper">
-
-              {window.location.href !== NOW_PLAYING_URL && <Widget
-              results = {nowPlaying.results}
-              header = {nowPlaying.title}
-              genres = {genres}
-              getGenre = {getMovieGenre}
-            />}
 
             {window.location.href !== AIRING_TODAY_URL && <Widget
               results = {airingToday.results}
               header = {airingToday.title}
               genres = {genres}
               getGenre = {getTvGenre}
+              href = '/airingToday'
             />}
 
-            {(window.location.href === NOW_PLAYING_URL || window.location.href === AIRING_TODAY_URL) && <Widget
-              results = {trending.results}
-              header = {trending.title}
+            {window.location.href !== NOW_PLAYING_URL && <Widget
+              results = {nowPlaying.results}
+              header = {nowPlaying.title}
               genres = {genres}
               getGenre = {getMovieGenre}
+              href = '/nowPlaying'
             />}
 
             </div>
