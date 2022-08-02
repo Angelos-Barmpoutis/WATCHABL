@@ -2,7 +2,7 @@ import Sneakpeak from '../components/Sneakpeak';
 import Hero from '../components/Hero';
 import Categories from '../components/Categories';
 
-const Home = ({heroTrending, searchInputValue, search, getMovies, getTvShows, mostPopular, setMostPopular, trending, setTrending, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
+const Home = ({openModal, heroTrending, searchInputValue, search, getMovies, getTvShows, mostPopular, setMostPopular, trending, setTrending, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
   return (
     <>
     <div className="categories-search-container wrapper">
@@ -21,32 +21,23 @@ const Home = ({heroTrending, searchInputValue, search, getMovies, getTvShows, mo
         heroTrending = {heroTrending}
       />}
       <Sneakpeak
-          getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {mostPopular}
-            setState = {setMostPopular}
-            header = 'Most Popular'
-            results = {mostPopular.results}
-            href = '/mostPopular'
-        />
-        <Sneakpeak
-          getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {trending}
-            setState = {setTrending}
-            header = "Trending Today"
-            results = {trending.results}
-            href = '/trending'
-        />
-        <Sneakpeak
-          getMovies = {getMovies}
-            getTvShows = {getTvShows}
-            state = {topRated}
-            setState = {setTopRated}
-            header = "Top Rated"
-            results = {topRated.results}
-            href = '/topRated'
-        />
+        openModal = {openModal}
+        state = {mostPopular}
+        header = 'Most Popular'
+        href = '/mostPopular'
+      />
+      <Sneakpeak
+        openModal = {openModal}
+        state = {trending}
+        header = "Trending Today"
+        href = '/trending'
+      />
+      <Sneakpeak
+        openModal = {openModal} 
+        state = {topRated}
+        header = "Top Rated"
+        href = '/topRated'
+      />
     </>
   )
 }

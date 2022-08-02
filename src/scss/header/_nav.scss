@@ -6,7 +6,7 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 11;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.365); 
     width: 100%;
@@ -14,7 +14,7 @@ nav {
     border-radius: 10px;
     
     .nav {
-        padding: .8rem 1.5rem;
+        padding: .6rem 1.5rem;
         text-align: center;
 
         h3 {

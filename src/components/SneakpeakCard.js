@@ -1,4 +1,4 @@
-const SneakpeakCard = ({id, title, image, releaseDate, rating}) => {
+const SneakpeakCard = ({openModal, state, id, title, image, releaseDate, rating}) => {
     const releaseYear = (releaseDate) => {
         const date = new Date(releaseDate)
         return date.getFullYear()
@@ -16,7 +16,7 @@ const SneakpeakCard = ({id, title, image, releaseDate, rating}) => {
     }
 
     return (
-        <div className="sneakpeak__results__card">
+        <div className="sneakpeak__results__card" onClick={() => openModal(id, state.category)}>
             <img loading="lazy" src={`https://image.tmdb.org/t/p/w200${image}`} alt={title }className="sneakpeak__results__card__image" />
             <h4 className={`rating ${ratingColor(rating)}`}>{rating !== 0 && rating !== 10 ? rating.toFixed(1) : rating}</h4>
             <h3 className="sneakpeak__results__card__title">{title}</h3>

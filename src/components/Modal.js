@@ -1,23 +1,23 @@
 import { motion } from "framer-motion";
 
-const Modal = (props) => {
+const Modal = ({modal, closeModal}) => {
     // Map through genres' list and return a list of genres' names
-    const genres = props.modal.response.genres.map(genre => {
+    const genres = modal.results.genres.map(genre => {
         return genre.name
     })
 
     // Map through genres' names list from above anf for every name return an h3 
     const genresNames = genres.map((name) => {
-        return <h3 className="modal__details__genres__genre" key={name.toString()}>{name}</h3>
+        return <p className="modal__details__genres__genre" key={name.toString()}>{name}</p>
     })
 
-    const backgroundImage = props.modal.response.backdrop_path ? props.modal.response.backdrop_path : props.modal.response.poster_path
+    const backgroundImage = modal.results.backdrop_path ? modal.results.backdrop_path : modal.results.poster_path
 
     return (
         <div className="modal-container">
                 <motion.div
                     className="modal-backdrop"
-                    onClick={props.closeModal}
+                    onClick={closeModal}
                     initial = {{opacity: 0}}
                     animate = {{opacity: 1}}
                     transition= {{ type: 'spring'}}
@@ -31,7 +31,7 @@ const Modal = (props) => {
                     transition = {{type: 'spring', stiffness: 70}}
                     exit = {{opacity: 0, scale: 0}}
                 >
-                     <div className="modal__x-button" onClick={props.closeModal}>
+                     <div className="modal__x-button" onClick={closeModal}>
                             <i className="fa-solid fa-x"></i>
                     </div>
                     
@@ -42,113 +42,89 @@ const Modal = (props) => {
                     </section>
                     <section className="modal__details">
                         <div className="modal__details__profile">
-                            {props.modal.response.poster_path !== null &&<img
+                            {modal.results.poster_path !== null &&<img
                                 loading="lazy"  
-                                src={`https://image.tmdb.org/t/p/w342${props.modal.response.poster_path}`}
-                                alt={props.modal.response.title}
+                                src={`https://image.tmdb.org/t/p/w342${modal.results.poster_path}`}
+                                alt={modal.results.title}
                                 className='modal__details__profile__image'
                             />}
-                            {props.modal.response.name
-                            && <h2 className="modal__details__profile__title">
-                                {props.modal.response.name}
-                            </h2>}
+                            <div className="modal__details__profile__title">
+                                {modal.results.name && <h2>{modal.results.name}</h2>}
+                                {modal.results.title && <h2>{modal.results.title}</h2>}
 
-                            {props.modal.response.title
-                            && <h2 className="modal__details__profile__title">
-                                {props.modal.response.title}
-                            </h2>}
+                                {modal.results.first_air_date && <p>{modal.results.first_air_date}</p>}
+
+                                {modal.results.last_air_date && <p>{modal.results.last_air_date}</p>}
+
+                                {modal.results.release_date && <p>{modal.results.release_date}</p>}
+
+                                {modal.results.episode_run_time && modal.results.episode_run_time !== null && <p>{modal.results.episode_run_time[0]} minutes</p>}
+
+                                {(modal.results.runtime && modal.results.runtime !== null) && <p>{modal.results.runtime} minutes</p>}
+                            </div>
                         </div>
 
-                        {props.modal.response.tagline
+                        {modal.results.tagline
                         && <p className="modal__details__tagline">
-                                <i>{props.modal.response.tagline}</i>
+                                <i>{modal.results.tagline}</i>
                             </p>}
 
+                        {modal.results.overview
+                                && <div className="modal__details__overview">
+                                <p>
+                                    {modal.results.overview}
+                                </p>
+                        </div>}
+
                         <div className="modal__details__genres">
-                            {props.modal.response.genres && genresNames}
+                            {modal.results.genres && genresNames}
                         </div>
                         
                         <div className="modal__details__stats">
-                            {props.modal.response.status
+                            {modal.results.type
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-regular fa-circle"></i>Status:</h3>
-                                        <p>{props.modal.response.status}</p>
+                                        <h3>Type:</h3>
+                                        <p>{modal.results.type}</p>
                             </div>}
 
-                            {props.modal.response.release_date
-                            && <div className="modal__details__stats__item">
-                                    <h3><i className="fa-regular fa-calendar"></i>Release Date:</h3>
-                                    <p>{props.modal.response.release_date}</p>
-                            </div>}
-
-                            {props.modal.response.first_air_date && <div className="modal__details__stats__item">
-                                
-                                    <h3><i className="fa-regular fa-calendar"></i>First Air Date:</h3>
-                                    <p>{props.modal.response.first_air_date}</p>
-                            </div>}
-                            
-                            {props.modal.response.first_air_date && <div className="modal__details__stats__item">
-                                    <h3><i className="fa-regular fa-calendar"></i>Last Air Date:</h3>
-                                    <p>{props.modal.response.last_air_date}</p>
-                            </div>}
-
-                            {props.modal.response.episode_run_time
+                            {modal.results.status
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-regular fa-clock"></i>Episode Runtime:</h3>
-                                        <p>{props.modal.response.episode_run_time[0]} minutes</p>
+                                        <h3>Status:</h3>
+                                        <p>{modal.results.status}</p>
                             </div>}
 
-                            {(props.modal.response.runtime && props.modal.response.runtime !== null)
+
+                            {modal.results.original_language
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-regular fa-clock"></i>Runtime:</h3>
-                                        <p>{props.modal.response.runtime} minutes</p>
+                                        <h3>Original Language:</h3>
+                                        <p>{modal.results.original_language}</p>
                             </div>}
 
-                            {props.modal.response.number_of_seasons
+                            {modal.results.number_of_seasons
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-solid fa-clapperboard"></i>Seasons:</h3>
-                                        <p>{props.modal.response.number_of_seasons}</p>
+                                        <h3>Seasons:</h3>
+                                        <p>{modal.results.number_of_seasons}</p>
                             </div>}
                         
-                            {props.modal.response.number_of_episodes
+                            {modal.results.number_of_episodes
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-solid fa-film"></i>Episodes:</h3>
-                                        <p>{props.modal.response.number_of_episodes}</p>
+                                        <h3>Episodes:</h3>
+                                        <p>{modal.results.number_of_episodes}</p>
                             </div>}
 
-                            {props.modal.response.original_language
+                            {modal.results.vote_average !== 0
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-solid fa-language"></i>Original Language:</h3>
-                                        <p>{props.modal.response.original_language}</p>
+                                        <h3>Average Rating:</h3>
+                                        <p>{modal.results.vote_average !== 0 && modal.results.vote_average !== 10 ? modal.results.vote_average.toFixed(1) : modal.results.vote_average}</p>
                             </div>}
 
-                            {props.modal.response.type
+                            {modal.results.vote_count !== 0
                                 && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-solid fa-tape"></i>Type:</h3>
-                                        <p>{props.modal.response.type}</p>
-                            </div>}
-
-                            {props.modal.response.vote_average !== 0
-                                && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-regular fa-star"></i>Average Rating:</h3>
-                                        <p>{props.modal.response.vote_average}</p>
-                            </div>}
-
-
-                            {props.modal.response.vote_count !== 0
-                                && <div className="modal__details__stats__item">
-                                        <h3><i className="fa-solid fa-person"></i>Rate Count:</h3>
-                                        <p>{props.modal.response.vote_count}</p>
+                                        <h3>Votes:</h3>
+                                        <p>{modal.results.vote_count}</p>
                             </div>}
                         </div>
 
-                        {props.modal.response.overview
-                                && <div className="modal__details__overview">
-                                <h3><i className="fa-solid fa-info"></i>Overview:</h3>
-                                <p>
-                                    {props.modal.response.overview}
-                                </p>
-                        </div>}
                     </section>
                 </motion.div>
         </div>

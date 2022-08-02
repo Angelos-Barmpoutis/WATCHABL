@@ -29,18 +29,9 @@ const App = () => {
   const [modal, setModal] = useState({
     isOpen: false,
     queryId: null,
-    response: null
+    results: null
   })
-  const [request, setRequest] = useState(
-    {
-    method: 'discover',
-    category: 'movie',
-    page: 1,
-    searchInput: [false, ''],
-    totalPages: 1
-    }
-  );
-  
+
   const [heroTrending, setHeroTrending] = useState([]);
 
   const [searchInputValue, setSearchInputValue] = useState('');
@@ -385,35 +376,20 @@ const App = () => {
     window.scrollTo(0,  0);
   }
 
-  function openModal(category, id, title) {
+  function openModal(id, category) {
     fetch(`https://api.themoviedb.org/3/${category}/${id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
     .then(response => response.json())
     .then(responseData => {
-      // Check if it's a movie or tv show
-      // IF its a movie =>
-      if (responseData.title === title) {
-        setModal(prevModal => ({
+      setModal (prevModal => (
+        {
           ...prevModal,
           isOpen: true,
           queryId: id,
-          response: responseData
-        }))
-      } else {
-        // If it's a tv show =>
-        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`)
-        .then(response => response.json())
-        .then(responseData => {
-          setModal(prevModal => ({
-            ...prevModal,
-            isOpen: true,
-            queryId: id,
-            response: responseData
-          }))
-        })
-      }
-
+          results: responseData
+        }
+      ))
     })
-}
+  }
 
   // Close modal and reset its state
   function closeModal() {
@@ -421,7 +397,7 @@ const App = () => {
       ...prevModal,
       isOpen: false,
       queryId: null,
-      response: null
+      results: null
     }));
   }
   
@@ -461,7 +437,6 @@ const App = () => {
           {modal.isOpen && <Modal
               closeModal = {closeModal}
               modal = {modal}
-              category = {request.category}
               setModal = {setModal}
           />}
         </AnimatePresence>
@@ -485,10 +460,9 @@ const App = () => {
                 setNowPlaying={setNowPlaying}
                 topRated={topRated}
                 setTopRated={setTopRated}
-                request = {request}
-                setRequest = {setRequest}
                 searchFormSubmit = {searchFormSubmit}
                 searchInputChange = {searchInputChange}
+                openModal = {openModal}
               />
             }>
           </Route>

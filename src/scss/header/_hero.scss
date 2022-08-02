@@ -23,7 +23,10 @@
         position: relative;
 
         &__image {
-            width: 100%;
+            @include media-tablet {
+                width: 100%;
+            }
+            width: 87%;
             margin: 0 auto;
             z-index: 10;
             position: relative;
@@ -37,22 +40,28 @@
 
         &__title {
             @include media-tablet {
-                font-size: 1.15rem;
+                font-size: 1rem;
+                width: 100%;
             }
-            color: $secondary-text-color;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+            color: $primary-text-color;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
             width: 100%;
             position: absolute;
             text-align: center;
             bottom: 0;
             left: 0;
             right: 0;
+            width: 87%;
             z-index: 10;
-            padding-block: 4rem 1rem;
-            font-size: 1.3rem;
+            padding-block: 1rem;
+            padding-inline: 1.5rem;
+            font-size: 1.2rem;
             margin-inline: auto;
             font-weight: 500;
+            line-height: 1.15;
             display: none;
+            backdrop-filter: blur(2px);
+            filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
 
             &.active {
                 display: initial;
@@ -77,6 +86,10 @@
         color: #f5f6fa;
         border: none;
         cursor: pointer;
+
+        &:active {
+            transform: scale(.9);
+        }
     }
 
     &__navigation-circles {
@@ -87,13 +100,15 @@
         justify-content: center;
 
         &__circle {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background-color: rgb(95, 95, 95);
             border-radius: 50%;
 
             &.active {
                 background-color: $primary-text-color;
+                width: 10px;
+                height: 10px;
             }
         }
     }

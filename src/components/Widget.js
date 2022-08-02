@@ -14,7 +14,7 @@ const Widget = ({href, results, header, getGenre, genres}) => {
     }
 
   const resultsFilter = results.filter((result, index) => result.vote_average !== 0)
-  const resultsMap = resultsFilter.filter((filteredResult, index) => index < 5).map((result) => {
+  const resultsMap = resultsFilter.filter((filteredResult, index) => index < 3).map((result) => {
     return (
     <div className="movie" key={result.id} // onClick = {() => props.openModal(props.category, props.id, title)}
     >

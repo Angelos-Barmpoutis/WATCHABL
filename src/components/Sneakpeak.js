@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import SneakpeakCard from "./SneakpeakCard"
 
-const Sneakpeak = ({getMovies, getTvShows, state, setState, header, results, href}) => {
+const Sneakpeak = ({openModal, state, header, href}) => {
     // Render the first 12 results
-    const resultsFilter = results.filter((result, index) => index < 12)
+    const resultsFilter = state.results.filter((result, index) => index < 12)
     const resultsMap = resultsFilter.map(result => {
         return (
         <SneakpeakCard
+            openModal = {openModal}
+            state = {state}
             key = {result.id}
             id = {result.id}
             title = {result.title ? result.title : result.name}

@@ -2,9 +2,9 @@
 
 .movie {
     @include media-mobile{
-        margin-bottom: 1.3rem;
+        margin-bottom: 1.5rem;
         gap: .6rem;
-        height: 130px;
+        height: 110px;
     }
     
     display: flex;
@@ -14,7 +14,7 @@
     margin-bottom: 1.7rem;
     max-width: 1024px;
     margin-inline: auto;
-    height: 180px;
+    height: 160px;
     gap: .6rem;
     background-color: transparent;
     cursor: pointer;
@@ -57,12 +57,7 @@
             color: $primary-text-color;
             line-height: 1.2;
             max-width: 70%;
-        }
-
-        &__release {
-            color: $secondary-text-color;
-            font-size: .95rem;
-            font-weight: 500;
+            
         }
 
         &__genre {

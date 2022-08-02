@@ -4,7 +4,7 @@
     @include media-tablet {
         padding-bottom: 2rem;
     }
-    padding-bottom: 4rem;
+    padding-bottom: 3rem;
 
     &:nth-last-child() {
         padding-bottom: 0;
@@ -28,10 +28,10 @@
         }
 
         @include media-mobile {
-            height: 130px;
+            height: 110px;
         }
         display: flex;
-        height: 120px;
+        height: 110px;
         margin-bottom: 1.3rem;
         background-color: transparent;
         gap: .6rem;

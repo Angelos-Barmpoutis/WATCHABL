@@ -16,7 +16,7 @@
 $primary-color: #09123a;
 $secondary-color: rgba(45, 88, 245, 0.692);
 $primary-text-color: #f5f6fa;
-$secondary-text-color: #dcdde1;
+$secondary-text-color: rgba(255, 255, 255, 0.461);
 
 // ANIMATIONS
 @keyframes fadeIn {
@@ -51,12 +51,9 @@ $secondary-text-color: #dcdde1;
 
 // UTILITY CLASSES
 .wrapper {
-    @include media-tablet {
-        padding: 1rem 1.5rem;
-    }
     max-width: 1920px;
     margin-inline: auto;
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
 }
 
 .categories {

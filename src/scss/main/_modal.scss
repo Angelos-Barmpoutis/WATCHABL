@@ -25,6 +25,7 @@ h5 {
     justify-content: center;
     align-items: center;
     z-index: 11;
+    // backdrop-filter: blur(12px);
 
         .modal {
             @include media-tablet {
@@ -44,7 +45,7 @@ h5 {
             height: 90%;
             border: 1px solid #718093a2;
             color: white;
-            z-index: 11;
+            z-index: 10;
             overflow-y: auto;
             overflow-x: hidden; 
             font-weight: 400;
@@ -53,14 +54,19 @@ h5 {
             position: relative;
 
             h3 {
+                @include media-mobile {
+                    font-size: 1.05rem;
+                }
                 display: block;
-                line-height: 1.4;
+                line-height: 1.2;
                 color: $primary-text-color;
                 font-weight: 500;
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
             
             &__x-button {
+                filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
+                backdrop-filter: blur(20px);
                 position: absolute;
                 right: 2rem;
                 top: 2rem;
@@ -85,16 +91,17 @@ h5 {
                 }
                 position: absolute;
                 top: 23%;
+                left: 0;
+                right: 0;
                 padding-inline: 1.5rem;
-                padding-bottom: 1.5rem;
-                font-size: .95rem;
+                font-size: 1rem;
+                color: rgb(174, 174, 174);
 
                 &__profile {
                     display: flex;
                     align-items: flex-end;
                     gap: 1rem;
-                    color: $secondary-text-color;
-                    margin-bottom: 3rem;
+                    margin-bottom: 2rem;
 
                     &__image {
                         width: 120px;
@@ -102,12 +109,33 @@ h5 {
                     }
 
                     &__title {
-                        @include media-mobile {
-                            max-width: 80%;
+
+                        h2 {
+                            @include media-mobile {
+                                font-size: 1.2rem;
+                            }
+                            color: $primary-text-color;
+                            font-size: 1.3rem;
+                            font-weight: 500;
+                            line-height: 1.2;
                         }
-                        font-size: 1.3rem;
-                        font-weight: 500;
-                        line-height: 1.1;
+
+                        p {
+                            @include media-mobile {
+                               font-size: .9rem;
+                            }
+                            display: inline-block;
+                            font-size: 1rem;
+                            font-weight: 500;
+                            color: rgba(255, 255, 255, 0.461);
+
+                            &::after {
+                                content: ' | ';
+                                padding-inline: 0.5rem;
+                                color: $secondary-color;
+                                font-weight: 500;
+                            }
+                        }
                     }
                 }
 
@@ -118,14 +146,15 @@ h5 {
                     gap: .8rem;
 
                     &__genre {
-                        padding: .4rem .9rem ;
-                        border: 1px solid #718093;
-                        background-color: #21252b;
-                        border-radius: 5px;
+                        color: rgb(45, 148, 245);
+                        padding: .6rem .9rem ;
+                        background-color: rgba(68, 107, 249, 0.092);
+                        // border: 1px solid $secondary-color;
+                        border-radius: 10px;
                         font-size: .9rem;
                         display: flex;
                         align-items: center;
-                        font-weight: 500;
+                        font-weight: 400;
                         letter-spacing: .5px;
                     }
                 }
@@ -139,7 +168,7 @@ h5 {
                         max-width: 100%;
                     }
                     max-width: 90%;
-                    margin-top: 2rem;
+                    margin-block: .5rem 2rem;
                 }
 
                 &__stats {
@@ -153,6 +182,7 @@ h5 {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     row-gap: 2rem;
+                    column-gap: 2rem;
                 }
 
                 .fa-regular,
@@ -169,7 +199,8 @@ h5 {
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.4);
             z-index: 10;
+            backdrop-filter: blur(5px);
         }
     }
