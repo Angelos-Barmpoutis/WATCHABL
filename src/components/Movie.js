@@ -56,7 +56,7 @@ const Movie = ({state, id, openModal, index, image, title, releaseDate, genre, r
                 <h2 className="movie__details__title">{title} {releaseDate}</h2>
                 <h3 className="movie__details__genre">{getGenre(genre.filter((genre, index) => index < 3))}</h3>
                 
-                <h4 className={`movie__details__rating rating ${ratingColor(rating)}`}>{rating !== 0 && rating !== 10 ? rating.toFixed(1) : rating}</h4>
+                <p className={`movie__details__rating rating ${ratingColor(rating)}`}>{rating !== 0 && rating !== 10 ? rating.toFixed(1) : rating}</p>
                 <p className="movie__details__overview">{overview}</p>
             </div>
         </motion.div>

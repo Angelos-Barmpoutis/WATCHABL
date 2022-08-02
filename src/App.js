@@ -11,7 +11,7 @@ import NowPlaying from './pages/NowPlaying'
 import AiringToday from './pages/AiringToday';
 import Search from './pages/Search';
 import { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const App = () => {
@@ -430,7 +430,12 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <motion.div
+    className="container"
+    initial = {{opacity: 0}}
+    animate = {{opacity: 1}}
+    transition= {{ type: 'spring'}}
+    >
         <Header 
         searchFormSubmit = {searchFormSubmit}
         searchInputChange = {searchInputChange}
@@ -439,7 +444,6 @@ const App = () => {
           {modal.isOpen && <Modal
               closeModal = {closeModal}
               modal = {modal}
-              setModal = {setModal}
           />}
         </AnimatePresence>
         <div className="main-aside">
@@ -600,7 +604,7 @@ const App = () => {
           </aside>
         </div>
         <Footer />
-    </div>
+    </motion.div>
   )
 }
 

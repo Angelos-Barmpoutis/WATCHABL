@@ -2122,6 +2122,7 @@ h5 {
 @font-face {
   font-family: anuratiRegular;
   src: url(../Anurati-Regular.otf);
+  font-display: swap;
 }
 
 * {

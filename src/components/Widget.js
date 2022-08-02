@@ -21,7 +21,7 @@ const Widget = ({state, openModal, href, getGenre, genres}) => {
         <img
         loading="lazy"  
         src={`https://image.tmdb.org/t/p/w200${result.poster_path}`}
-        alt={result.title}
+        alt={result.title ? result.title : result.name}
         className="movie__image"
         />
         <div className="movie__details">
