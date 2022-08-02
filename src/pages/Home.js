@@ -19,6 +19,7 @@ const Home = ({openModal, heroTrending, searchInputValue, search, getMovies, get
     </div>  
       {heroTrending && <Hero
         heroTrending = {heroTrending}
+        openModal = {openModal}
       />}
       <Sneakpeak
         openModal = {openModal}

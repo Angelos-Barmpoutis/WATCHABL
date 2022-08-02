@@ -564,6 +564,7 @@ nav .nav h3 a {
 
 .hero__images__image {
   width: 87%;
+  cursor: pointer;
   margin: 0 auto;
   z-index: 10;
   position: relative;
@@ -582,6 +583,7 @@ nav .nav h3 a {
 }
 
 .hero__images__title {
+  cursor: pointer;
   color: #f5f6fa;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
   width: 100%;
@@ -1184,7 +1186,7 @@ h5 {
   line-height: 1.2;
   color: #f5f6fa;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 @media screen and (max-width: 569px) {
@@ -1195,10 +1197,9 @@ h5 {
 
 .modal-container .modal__x-button {
   filter: drop-shadow(0 0 5px black);
-  backdrop-filter: blur(20px);
   position: absolute;
-  right: 2rem;
-  top: 2rem;
+  right: 1.5rem;
+  top: 1.5rem;
   cursor: pointer;
 }
 
@@ -1219,6 +1220,7 @@ h5 {
   left: 0;
   right: 0;
   padding-inline: 1.5rem;
+  padding-bottom: 2rem;
   font-size: 1rem;
   color: #aeaeae;
 }
@@ -1273,9 +1275,9 @@ h5 {
   }
 }
 
-.modal-container .modal__details__profile__title p::after {
+.modal-container .modal__details__profile__title p:not(:last-child)::after {
   content: ' | ';
-  padding-inline: 0.5rem;
+  padding-inline: 0.3rem;
   color: rgba(45, 88, 245, 0.692);
   font-weight: 500;
 }
@@ -1288,9 +1290,9 @@ h5 {
 }
 
 .modal-container .modal__details__genres__genre {
-  color: #2d94f5;
+  color: #1289f9;
   padding: .6rem .9rem;
-  background-color: rgba(68, 107, 249, 0.092);
+  background-color: rgba(68, 107, 249, 0.119);
   border-radius: 10px;
   font-size: .9rem;
   display: flex;
@@ -1300,7 +1302,7 @@ h5 {
 }
 
 .modal-container .modal__details__tagline {
-  color: #95c7f7;
+  color: #77bbfb;
 }
 
 .modal-container .modal__details__overview {
@@ -1331,12 +1333,6 @@ h5 {
   .modal-container .modal__details__stats {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-
-.modal-container .modal__details .fa-regular,
-.modal-container .modal__details .fa-solid {
-  margin-right: .5rem;
-  color: rgba(45, 88, 245, 0.692);
 }
 
 .modal-container .modal-backdrop {
@@ -2163,7 +2159,7 @@ body {
   padding-top: 3rem;
   font-family: 'Roboto', sans-serif;
   background-color: rgba(0, 0, 0, 0.971);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url("/public/images/bg-gradient.jpg") no-repeat center center/cover;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url("/public/images/bg-gradient.webp") no-repeat center center/cover;
 }
 
 body .container {

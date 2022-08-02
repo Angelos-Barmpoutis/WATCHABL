@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Widget = ({href, results, header, getGenre, genres}) => {
+const Widget = ({state, openModal, href, getGenre, genres}) => {
 
     // Return rating's color based on the rating
     const ratingColor = (rating) => {
@@ -13,10 +13,10 @@ const Widget = ({href, results, header, getGenre, genres}) => {
       }
     }
 
-  const resultsFilter = results.filter((result, index) => result.vote_average !== 0)
+  const resultsFilter = state.results.filter((result, index) => result.vote_average !== 0)
   const resultsMap = resultsFilter.filter((filteredResult, index) => index < 3).map((result) => {
     return (
-    <div className="movie" key={result.id} // onClick = {() => props.openModal(props.category, props.id, title)}
+    <div className="movie" key={result.id} onClick={() => {openModal(result.id, state.category)}}
     >
         <img
         loading="lazy"  
@@ -34,8 +34,8 @@ const Widget = ({href, results, header, getGenre, genres}) => {
 
   return (
     <div className="widget">
-      <h2 className="widget__title">{header}</h2>
-      {results && resultsMap}
+      <h2 className="widget__title">{state.title}</h2>
+      {state.results && resultsMap}
       <Link className="widget__view-more btn" to={href} onClick={() => window.scrollTo(0,  0)}>View More</Link>
     </div>
   )

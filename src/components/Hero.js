@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Hero = ({heroTrending}) => {
+const Hero = ({heroTrending, openModal}) => {
 
     const [circles, setCircles ] = useState(0);
     const [touchStart, setTouchStart] = useState(null);
@@ -50,17 +50,17 @@ const Hero = ({heroTrending}) => {
         <div className="hero wrapper">
             <button className="hero__navigation-arrow left-arrow" onClick={previousImage}><i className="fa-solid fa-chevron-left fa-2x"></i></button>
             <div className="hero__images">
-                {heroTrending.length > 0 && <img className={circles === 0 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[0].backdrop_path}`} alt={heroTrending[0].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}/>}
-                {heroTrending.length > 0 && <img className={circles === 1 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[1].backdrop_path}`} alt={heroTrending[1].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}/>}
-                {heroTrending.length > 0 && <img className={circles === 2 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[2].backdrop_path}`} alt={heroTrending[2].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}/>}
-                {heroTrending.length > 0 && <img className={circles === 3 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[3].backdrop_path}`} alt={heroTrending[3].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}/>}
-                {heroTrending.length > 0 && <img className={circles === 4 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[4].backdrop_path}`} alt={heroTrending[4].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}/>}
+                {heroTrending.length > 0 && <img className={circles === 0 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[0].backdrop_path}`} alt={heroTrending[0].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[0].id, 'movie')}/>}
+                {heroTrending.length > 0 && <img className={circles === 1 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[1].backdrop_path}`} alt={heroTrending[1].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[1].id, 'movie')}/>}
+                {heroTrending.length > 0 && <img className={circles === 2 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[2].backdrop_path}`} alt={heroTrending[2].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[2].id, 'movie')}/>}
+                {heroTrending.length > 0 && <img className={circles === 3 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[3].backdrop_path}`} alt={heroTrending[3].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[3].id, 'movie')}/>}
+                {heroTrending.length > 0 && <img className={circles === 4 ? "hero__images__image active" : "hero__images__image"} src={`https://image.tmdb.org/t/p/w780${heroTrending[4].backdrop_path}`} alt={heroTrending[4].title} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[4].id, 'movie')}/>}
 
-                {heroTrending.length > 0 && <h3 className={circles === 0 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>{heroTrending[0].title}</h3>}
-                {heroTrending.length > 0 && <h3 className={circles === 1 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>{heroTrending[1].title}</h3>}
-                {heroTrending.length > 0 && <h3 className={circles === 3 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>{heroTrending[3].title}</h3>}
-                {heroTrending.length > 0 && <h3 className={circles === 2 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>{heroTrending[2].title}</h3>}
-                {heroTrending.length > 0 && <h3 className={circles === 4 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>{heroTrending[4].title}</h3>}
+                {heroTrending.length > 0 && <h3 className={circles === 0 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}  onClick={() => openModal(heroTrending[0].id, 'movie')}>{heroTrending[0].title}</h3>}
+                {heroTrending.length > 0 && <h3 className={circles === 1 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[1].id, 'movie')}>{heroTrending[1].title}</h3>}
+                {heroTrending.length > 0 && <h3 className={circles === 3 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[2].id, 'movie')}>{heroTrending[2].title}</h3>}
+                {heroTrending.length > 0 && <h3 className={circles === 2 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[3].id, 'movie')}>{heroTrending[3].title}</h3>}
+                {heroTrending.length > 0 && <h3 className={circles === 4 ? "hero__images__title active" : 'hero__images__title'} onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[4].id, 'movie')}>{heroTrending[4].title}</h3>}
             </div>
             <button className="hero__navigation-arrow right-arrow" onClick={nextImage}><i className="fa-solid fa-chevron-right fa-2x"></i></button>
 

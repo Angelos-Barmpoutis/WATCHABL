@@ -22,7 +22,7 @@ const movieVariants = {
     }
 
 
-const Movie = ({index, image, title, releaseDate, genre, rating, overview, getGenre}) => {
+const Movie = ({state, id, openModal, index, image, title, releaseDate, genre, rating, overview, getGenre}) => {
 
     const i = index;
 
@@ -40,7 +40,7 @@ const Movie = ({index, image, title, releaseDate, genre, rating, overview, getGe
     return (
         <motion.div
         className="movie"
-        // onClick = {() => props.openModal(props.category, props.id, title)}
+        onClick = {() => openModal(id, state.category)}
         variants= {movieVariants}
         initial = 'hidden'
         animate = 'visible'

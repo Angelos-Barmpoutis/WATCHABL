@@ -26,6 +26,7 @@ const App = () => {
     movie : [],
     tv : []
   })
+
   const [modal, setModal] = useState({
     isOpen: false,
     queryId: null,
@@ -408,6 +409,7 @@ const App = () => {
       const {title, overview, id, poster_path, vote_average, genre_ids, release_date, name, first_air_date} = item;
       return (
           <Movie
+            state = {state}
             key = {id}
             id = {id}
             index = {index}
@@ -579,16 +581,16 @@ const App = () => {
             <div className="wrapper">
 
             {window.location.href !== AIRING_TODAY_URL && <Widget
-              results = {airingToday.results}
-              header = {airingToday.title}
+              openModal = {openModal}
+              state = {airingToday}
               genres = {genres}
               getGenre = {getTvGenre}
               href = '/airingToday'
             />}
 
             {window.location.href !== NOW_PLAYING_URL && <Widget
-              results = {nowPlaying.results}
-              header = {nowPlaying.title}
+              openModal = {openModal}
+              state = {nowPlaying}
               genres = {genres}
               getGenre = {getMovieGenre}
               href = '/nowPlaying'
