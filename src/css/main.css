@@ -601,7 +601,6 @@ nav .nav h3 a {
   font-weight: 500;
   line-height: 1.15;
   display: none;
-  backdrop-filter: blur(2px);
   filter: drop-shadow(0 0 2px black);
 }
 
