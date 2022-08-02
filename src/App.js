@@ -98,6 +98,14 @@ const App = () => {
     }
   );
 
+  useEffect(() => {
+    if (modal.isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+ }, [modal.isOpen]);
+
   // Fetch TV genres' list
   useEffect(() => {
       let requestUrl = `https://api.themoviedb.org/3/genre/tv/list?api_key=6de482bc8c5768aa3648618b9c3cc98a&language=en-US`;
