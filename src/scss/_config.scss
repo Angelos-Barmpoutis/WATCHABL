@@ -69,7 +69,7 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
         }
         font-family: inherit;
         font-size: 1.2rem;
-        font-weight: 400;
+        font-weight: 500;
         color: rgb(95, 95, 95);
         border: none;
         background-color: transparent;
@@ -94,7 +94,6 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
 
         &.active {
             color: $primary-text-color;
-            font-style: italic;
 
             &:hover {
                 transform: scale(1);

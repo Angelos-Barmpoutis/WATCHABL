@@ -1,8 +1,8 @@
-# WatchDB
+# WATCHABL
 
-[Live Demo](https://watchdb.netlify.app/)
+[Live Demo](https://watchabl.netlify.app/)
 
-`WatchDb` is a Web App which enables users to get details for their favorite Movies and TV Shows from their PC, Laptop, Tablet or their Smartphone.
+`WATCHABL` is a Web App which enables users to get details for their favorite Movies and TV Shows from their PC, Laptop, Tablet or their Smartphone.
 
 ## Features
 
@@ -58,4 +58,10 @@
 
 -Smooth animations using [Framer Motion](https://www.framer.com/motion/)
 
-WatchDb is fully Designed, Coded and Created by Angelos Barmpoutis.
+-100% SEO Score
+
+-100% Accessibility Score
+
+-100% Best Practices Score
+
+WATCHABL is designed, coded and created by Angelos Barmpoutis.

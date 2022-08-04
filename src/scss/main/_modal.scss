@@ -68,6 +68,7 @@ h5 {
                 position: absolute;
                 right: 1.5rem;
                 top: 1.5rem;
+                font-size: 1.4rem;
                 cursor: pointer;
             }
 
@@ -111,7 +112,7 @@ h5 {
 
                         h2 {
                             @include media-mobile {
-                                font-size: 1.2rem;
+                                font-size: 1.3rem;
                             }
                             color: $primary-text-color;
                             font-size: 1.3rem;
@@ -145,14 +146,15 @@ h5 {
                     gap: .8rem;
 
                     &__genre {
-                        color: rgb(18, 137, 249);
+                        color: rgb(58, 160, 255);
                         padding: .6rem .9rem ;
                         background-color: rgba(68, 107, 249, 0.119);
+                        border: 1px solid rgba(58, 160, 255, 0.336);
                         border-radius: 10px;
                         font-size: .9rem;
                         display: flex;
                         align-items: center;
-                        font-weight: 400;
+                        font-weight: 500;
                         letter-spacing: .5px;
                     }
                 }
@@ -164,8 +166,10 @@ h5 {
                 &__overview {
                     @include media-mobile {
                         max-width: 100%;
+                        font-size: 1rem;
                     }
                     max-width: 90%;
+                    font-size: 1.1rem;
                     margin-block: .5rem 2rem;
                 }
 
@@ -191,8 +195,8 @@ h5 {
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.459);
             z-index: 10;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(19px);
         }
     }

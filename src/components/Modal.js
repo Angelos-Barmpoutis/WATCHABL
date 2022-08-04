@@ -13,6 +13,8 @@ const Modal = ({modal, closeModal}) => {
 
     const backgroundImage = modal.results.backdrop_path ? modal.results.backdrop_path : modal.results.poster_path
 
+    console.log(modal.results)
+
     return (
         <div className="modal-container">
                 <motion.div
@@ -58,7 +60,7 @@ const Modal = ({modal, closeModal}) => {
 
                                 {modal.results.release_date && <p>{modal.results.release_date}</p>}
 
-                                {modal.results.episode_run_time && modal.results.episode_run_time !== null && <p>{modal.results.episode_run_time[0]} minutes</p>}
+                                {modal.results.episode_run_time && modal.results.episode_run_time !== null && modal.results.episode_run_time.length !== 0 && <p>{modal.results.episode_run_time[0]} minutes</p>}
 
                                 {(modal.results.runtime && modal.results.runtime !== null) && <p>{modal.results.runtime} minutes</p>}
                             </div>
@@ -106,7 +108,7 @@ const Modal = ({modal, closeModal}) => {
                                         <p>{modal.results.number_of_seasons}</p>
                             </div>}
                         
-                            {modal.results.number_of_episodes
+                            {modal.results.number_of_episodes !== 0
                                 && <div className="modal__details__stats__item">
                                         <h3>Episodes:</h3>
                                         <p>{modal.results.number_of_episodes}</p>
