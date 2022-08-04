@@ -1,5 +1,7 @@
 # WATCHABL
 
+![](public/images/project-preview.png)
+
 [Live Demo](https://watchabl.netlify.app/)
 
 `WATCHABL` is a Web App which enables users to get details for their favorite Movies and TV Shows from their PC, Laptop, Tablet or their Smartphone.
