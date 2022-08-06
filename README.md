@@ -2,68 +2,74 @@
 
 ![](public/images/project-preview.png)
 
-[Live Demo](https://watchabl.netlify.app/)
+[Live Preview](https://watchabl.netlify.app/)
 
-`WATCHABL` is a Web App which enables users to get details for their favorite Movies and TV Shows from their PC, Laptop, Tablet or their Smartphone.
+`WATCHABL` is a Web Application which enables users to get details for their favorite Movies and TV Shows from their PC, Laptop, Tablet or their Smartphone.
 
 ## Features
 
--Discover the 5 Most Trending Movies & TV Shows of the week.
+- 5 Most Trending Movies & TV Shows of the week
 
--Explore the Most Popular Movies
+- Most Popular
 
--Explore the Most Popular TV Shows
+- Trending Today
 
--Search for your favorite Movie or TV Show
+- Top Rated
+
+- Airing Today
+
+- Now Playing
+
+- Search for Movie or TV Show
 
 ### Get Movie Informations about:
 
---Original language
+- Original language
 
---Release Date
+- Release Date
 
---Runtime
+- Runtime
 
---Genres
+- Genres
 
---Overview
+- Overview
 
 ### Get Tv Show Informations about:
 
---Original language
+- Original language
 
---First Episode Date
+- First Episode Date
 
---Last Episode Date
+- Last Episode Date
 
---Number of Episodes
+- Number of Episodes
 
---Number of Seasons
+- Number of Seasons
 
---Runtime
+- Runtime
 
---Genres
+- Genres
 
---Overview
+- Overview
 
 ## Technical Features
 
--Markup & styling with HTML5 & SCSS
+- Markup & styling with HTML5 & SCSS
 
--Interactivity with JavaScript & React
+- Interactivity with JavaScript & React
 
--Dynamic
+- Dynamic
 
--Fully responsive
+- Fully responsive
 
--Real time fetching data from [TMDB API](https://developers.themoviedb.org/3)
+- Real time fetching data from [TMDB API](https://developers.themoviedb.org/3)
 
--Smooth animations using [Framer Motion](https://www.framer.com/motion/)
+- Smooth animations using [Framer Motion](https://www.framer.com/motion/)
 
--100% SEO Score
+- 100% SEO Score
 
--100% Accessibility Score
+- 100% Accessibility Score
 
--100% Best Practices Score
+- 100% Best Practices Score
 
 WATCHABL is designed, coded and created by Angelos Barmpoutis.

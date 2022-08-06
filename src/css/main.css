@@ -1146,7 +1146,7 @@ h5 {
 .modal-container .modal {
   font-family: inherit;
   width: clamp(30%, 1024px, 80%);
-  background-color: #03050c;
+  background: linear-gradient(to bottom, #03050c, rgba(3, 5, 12, 0.9));
   border-radius: 15px;
   height: 90%;
   border: 1px solid #718093a2;
@@ -1246,7 +1246,7 @@ h5 {
 
 .modal-container .modal__details__profile__title h2 {
   color: #f5f6fa;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -1285,10 +1285,9 @@ h5 {
 }
 
 .modal-container .modal__details__genres__genre {
-  color: #3aa0ff;
+  color: #4fa8fa;
   padding: .6rem .9rem;
-  background-color: rgba(68, 107, 249, 0.119);
-  border: 1px solid rgba(58, 160, 255, 0.336);
+  background-color: #101731;
   border-radius: 10px;
   font-size: .9rem;
   display: flex;

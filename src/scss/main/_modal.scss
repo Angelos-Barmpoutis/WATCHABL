@@ -39,7 +39,7 @@ h5 {
             }
             font-family: inherit;
             width: clamp(30%, 1024px, 80%);
-            background-color: rgb(3, 5, 12);
+            background: linear-gradient(to bottom, rgb(3, 5, 12), rgba(3, 5, 12, 0.9));
             border-radius: 15px;
             height: 90%;
             border: 1px solid #718093a2;
@@ -115,7 +115,7 @@ h5 {
                                 font-size: 1.3rem;
                             }
                             color: $primary-text-color;
-                            font-size: 1.3rem;
+                            font-size: 1.4rem;
                             font-weight: 500;
                             line-height: 1.2;
                         }
@@ -146,10 +146,9 @@ h5 {
                     gap: .8rem;
 
                     &__genre {
-                        color: rgb(58, 160, 255);
+                        color: rgb(79, 168, 250);
                         padding: .6rem .9rem ;
-                        background-color: rgba(68, 107, 249, 0.119);
-                        border: 1px solid rgba(58, 160, 255, 0.336);
+                        background-color: rgb(16, 23, 49);
                         border-radius: 10px;
                         font-size: .9rem;
                         display: flex;
