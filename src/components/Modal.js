@@ -13,6 +13,8 @@ const Modal = ({modal, closeModal}) => {
 
     const backgroundImage = modal.results.backdrop_path ? modal.results.backdrop_path : modal.results.poster_path
 
+    console.log(modal.results)
+
     return (
         <div className="modal-container">
                 <motion.div
@@ -106,7 +108,7 @@ const Modal = ({modal, closeModal}) => {
                                         <p>{modal.results.number_of_seasons}</p>
                             </div>}
                         
-                            {modal.results.number_of_episodes !== 0
+                            {modal.results.number_of_episodes !== 0 && modal.results.number_of_episodes
                                 && <div className="modal__details__stats__item">
                                         <h3>Episodes:</h3>
                                         <p>{modal.results.number_of_episodes}</p>

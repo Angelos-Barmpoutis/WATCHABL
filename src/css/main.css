@@ -2137,6 +2137,7 @@ h5 {
 @media screen and (max-width: 569px) {
   * ::-webkit-scrollbar {
     height: 0;
+    width: 3px;
   }
 }
 
@@ -2146,7 +2147,7 @@ h5 {
 }
 
 * ::-webkit-scrollbar-thumb {
-  background: rgba(45, 88, 245, 0.692);
+  background: rgba(35, 73, 243, 0.692);
   border-radius: 10px;
 }
 

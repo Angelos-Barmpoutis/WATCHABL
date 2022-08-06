@@ -24,6 +24,7 @@
     ::-webkit-scrollbar {
         @include media-mobile {
             height: 0;
+            width: 3px;
         }
         width: 6px;
         height: 6px;
@@ -37,7 +38,7 @@
     
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        background: $secondary-color;
+        background: rgba(35, 73, 243, 0.692);
         border-radius: 10px;
     }
 }
