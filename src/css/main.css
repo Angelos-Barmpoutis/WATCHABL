@@ -1614,11 +1614,13 @@ h5 {
   border-radius: 10px;
   margin-bottom: .5rem;
   max-width: 145px;
+  height: 217.5px;
 }
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card__image {
     max-width: 105px;
+    height: 157.5px;
   }
 }
 

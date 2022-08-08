@@ -75,11 +75,13 @@
             &__image {
                 @include media-mobile {
                     max-width: 105px;
+                    height: 157.5px;
                 }
 
                 border-radius: 10px;
                 margin-bottom: .5rem;
                 max-width: 145px;
+                height: 217.5px;
             }
 
             &__title {

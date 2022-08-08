@@ -3,7 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 const SneakpeakCard = ({openModal, state, id, title, image, releaseDate, rating}) => {
     const releaseYear = (releaseDate) => {
         const date = new Date(releaseDate)
-        return date.getFullYear()
+        if (isNaN(date.getFullYear())) {
+            return null
+          } else {
+            return date.getFullYear();
+          }
     }
 
     // Return rating's color based on the rating
@@ -27,7 +31,7 @@ const SneakpeakCard = ({openModal, state, id, title, image, releaseDate, rating}
                 className="sneakpeak__results__card"
                 onClick={() => openModal(id, state.category)}
             >
-                <img loading="lazy" src={`https://image.tmdb.org/t/p/w200${image}`} alt={title }className="sneakpeak__results__card__image" />
+                <img loading="lazy" src={image ? `https://image.tmdb.org/t/p/w200${image}` : 'https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png'} alt={title }className="sneakpeak__results__card__image" />
                 <p className={`rating ${ratingColor(rating)}`}>{rating !== 0 && rating !== 10 ? rating.toFixed(1) : rating}</p>
                 <h3 className="sneakpeak__results__card__title">{title}</h3>
                 <p className="sneakpeak__results__card__release-date">{releaseYear(releaseDate)}</p>

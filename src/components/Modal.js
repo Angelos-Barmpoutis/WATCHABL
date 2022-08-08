@@ -58,9 +58,9 @@ const Modal = ({modal, closeModal}) => {
 
                                 {modal.results.release_date && <p>{modal.results.release_date}</p>}
 
-                                {modal.results.episode_run_time && modal.results.episode_run_time !== null && modal.results.episode_run_time.length !== 0 && <p>{modal.results.episode_run_time[0]} minutes</p>}
+                                {modal.results.episode_run_time && modal.results.episode_run_time !== null && modal.results.episode_run_time.length !== 0 && <p>{modal.results.episode_run_time[0]} {modal.results.episode_run_time[0] >1 ? 'minutes' : 'minute'}</p>}
 
-                                {(modal.results.runtime && modal.results.runtime !== null) && <p>{modal.results.runtime} minutes</p>}
+                                {(modal.results.runtime && modal.results.runtime !== null && modal.results.runtime !== 0) && <p>{modal.results.runtime} {modal.results.runtime > 1 ? 'minutes' : 'minute'}</p>}
                             </div>
                         </div>
 
