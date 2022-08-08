@@ -51,7 +51,7 @@
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -70,7 +70,7 @@
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -78,7 +78,7 @@
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -102,7 +102,7 @@
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -220,7 +220,7 @@
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -239,7 +239,7 @@
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -247,7 +247,7 @@
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -271,7 +271,7 @@
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -418,7 +418,7 @@ nav .nav h3 a {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -437,7 +437,7 @@ nav .nav h3 a {
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -445,7 +445,7 @@ nav .nav h3 a {
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -469,7 +469,7 @@ nav .nav h3 a {
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -594,7 +594,7 @@ nav .nav h3 a {
   padding-inline: 1.5rem;
   font-size: 1.6rem;
   margin-inline: auto;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   display: none;
   filter: drop-shadow(0 0 2px black);
@@ -610,7 +610,7 @@ nav .nav h3 a {
 }
 
 .hero__images__title span {
-  color: rgba(255, 255, 255, 0.461);
+  color: #929090;
   display: block;
   font-size: 1.2rem;
 }
@@ -724,7 +724,7 @@ nav .nav h3 a {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -743,7 +743,7 @@ nav .nav h3 a {
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -751,7 +751,7 @@ nav .nav h3 a {
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -775,7 +775,7 @@ nav .nav h3 a {
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -1007,7 +1007,7 @@ nav .nav h3 a {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1026,7 +1026,7 @@ nav .nav h3 a {
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -1034,7 +1034,7 @@ nav .nav h3 a {
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -1058,7 +1058,7 @@ nav .nav h3 a {
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -1192,7 +1192,7 @@ h5 {
   display: block;
   line-height: 1.2;
   color: #f5f6fa;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.1rem;
 }
 
@@ -1260,7 +1260,7 @@ h5 {
 .modal-container .modal__details__profile__title h2 {
   color: #f5f6fa;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -1409,7 +1409,7 @@ h5 {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1428,7 +1428,7 @@ h5 {
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -1436,7 +1436,7 @@ h5 {
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -1460,7 +1460,7 @@ h5 {
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -1554,6 +1554,7 @@ h5 {
   font-family: inherit;
   transition: border .3s ease-in-out;
   font-size: .95rem;
+  font-weight: 500;
 }
 
 .sneakpeak-header__view-all:hover {
@@ -1629,7 +1630,7 @@ h5 {
   color: #f5f6fa;
   line-height: 1.1;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .3px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1713,7 +1714,7 @@ h5 {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1732,7 +1733,7 @@ h5 {
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -1740,7 +1741,7 @@ h5 {
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -1764,7 +1765,7 @@ h5 {
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -1913,7 +1914,7 @@ h5 {
 .categories__category {
   font-family: inherit;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #5f5f5f;
   border: none;
   background-color: transparent;
@@ -1932,7 +1933,7 @@ h5 {
 }
 
 .categories__category:nth-child(1).active {
-  border-right: 2px solid rgba(255, 255, 255, 0.461);
+  border-right: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category:nth-child(2) {
@@ -1940,7 +1941,7 @@ h5 {
 }
 
 .categories__category:nth-child(2).active {
-  border-left: 2px solid rgba(255, 255, 255, 0.461);
+  border-left: 2px solid rgba(45, 88, 245, 0.692);
 }
 
 .categories__category.active {
@@ -1964,7 +1965,7 @@ h5 {
   font-size: .95rem;
   color: #2d94f5;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: .5px;
   background-color: rgba(68, 107, 249, 0.092);
   border: 1px solid rgba(45, 88, 245, 0.692);
@@ -2102,7 +2103,7 @@ h5 {
   font-size: .9rem;
   letter-spacing: .3px;
   max-width: 75%;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;

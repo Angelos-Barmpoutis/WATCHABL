@@ -69,7 +69,7 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
         }
         font-family: inherit;
         font-size: 1.2rem;
-        font-weight: 500;
+        font-weight: 600;
         color: rgb(95, 95, 95);
         border: none;
         background-color: transparent;
@@ -80,7 +80,7 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
             padding-right: 1rem;
 
             &.active {
-                border-right: 2px solid $secondary-text-color;
+                border-right: 2px solid $secondary-color;
             }
         }
 
@@ -88,7 +88,7 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
             padding-left: 1rem;
 
             &.active {
-                border-left: 2px solid $secondary-text-color;
+                border-left: 2px solid $secondary-color;
             }
         }
 
@@ -115,7 +115,7 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
     font-size: .95rem;
     color: rgb(45, 148, 245);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: .5px;
     background-color: rgba(68, 107, 249, 0.092);
     border: 1px solid $secondary-color;
