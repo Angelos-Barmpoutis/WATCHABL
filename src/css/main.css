@@ -1584,8 +1584,8 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results {
-    grid-template-columns: repeat(auto-fill, 100px);
-    column-gap: 1.3rem;
+    column-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, 130px);
   }
 }
 
@@ -1601,7 +1601,7 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card {
-    max-width: 105px;
+    max-width: 130px;
   }
 }
 
@@ -1619,8 +1619,9 @@ h5 {
 
 @media screen and (max-width: 569px) {
   .sneakpeak__results__card__image {
-    max-width: 105px;
-    height: 157.5px;
+    max-width: 130px;
+    height: auto;
+    height: 195px;
   }
 }
 
