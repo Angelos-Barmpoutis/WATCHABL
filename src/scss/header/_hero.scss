@@ -41,12 +41,14 @@
 
         &__title {
             @include media-tablet {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 width: 100%;
+                padding-inline: .8rem;
+                padding-block: .8rem;
             }
             cursor: pointer;
             color: $primary-text-color;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.33));
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.275), rgba(0, 0, 0, 0.456));
             width: 100%;
             position: absolute;
             bottom: 0;
@@ -56,7 +58,7 @@
             z-index: 10;
             padding-block: 1.5rem;
             padding-inline: 1.5rem;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-inline: auto;
             font-weight: 500;
             line-height: 1.15;
@@ -65,7 +67,7 @@
 
             span {
                 @include media-tablet {
-                    font-size: 1.1rem;
+                    font-size: 1rem;
                 }
                 color: $secondary-text-color;
                 display: block;
