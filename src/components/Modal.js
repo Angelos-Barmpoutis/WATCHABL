@@ -13,8 +13,6 @@ const Modal = ({modal, closeModal}) => {
 
     const backgroundImage = modal.results.backdrop_path ? modal.results.backdrop_path : modal.results.poster_path
 
-    console.log(modal.results)
-
     return (
         <div className="modal-container">
                 <motion.div
