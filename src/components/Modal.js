@@ -26,10 +26,10 @@ const Modal = ({modal, closeModal}) => {
                 </motion.div>
                 <motion.div
                     className = "modal"
-                    initial = {{opacity: 0, scale: 0}}
-                    animate = {{opacity: 1, scale: 1}}
-                    transition = {{type: 'spring', stiffness: 70}}
-                    exit = {{opacity: 0, scale: 0}}
+                    initial = {{opacity: 0, y: '200%'}}
+                    animate = {{opacity: 1, y: 0}}
+                    transition = {{duration: .4}}
+                    exit = {{opacity: 0, y: '200%'}}
                 >
                      <div className="modal__x-button" onClick={closeModal}>
                             <i className="fa-solid fa-x"></i>

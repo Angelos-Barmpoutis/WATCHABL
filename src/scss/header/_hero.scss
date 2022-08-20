@@ -109,14 +109,24 @@
         display: flex;
         gap: 1rem;
         justify-content: center;
+        align-items: center;
 
         &__circle {
-            width: 8px;
-            height: 8px;
+            @include media-mobile {
+                width: 5px;
+                height: 5px;      
+            }
+
+            width: 7px;
+            height: 7px;
             background-color: rgb(95, 95, 95);
             border-radius: 50%;
 
             &.active {
+                @include media-mobile {
+                    width: 8px;
+                    height: 8px;      
+                }
                 background-color: $primary-text-color;
                 width: 10px;
                 height: 10px;
