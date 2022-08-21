@@ -18,8 +18,12 @@
         color: #dcdde1;
         background-color: transparent;
         border: none;
-        transition: background-color .2s ease-in-out;
+        transition: all .2s ease-in-out;
         cursor: pointer;
+
+        &:active {
+            transform: scale(.95);
+        }
 
         &.active {
             color: #f5f6fa;

@@ -25,6 +25,7 @@
             transition: border .3s ease-in-out;
             font-size: .95rem;
             font-weight: 500;
+            transition: transform .2s ease-in-out;
 
             &:hover {
                 text-decoration: underline;
@@ -32,6 +33,10 @@
 
             .fa-chevron-right {
                 padding-left: .2rem;
+            }
+
+            &:active {
+                transform: scale(.95);
             }
         }
     }
@@ -43,8 +48,8 @@
         }
         
         @include media-mobile {
-            column-gap: 0.5rem;
-            grid-template-columns: repeat(auto-fill, 130px);
+            column-gap: 1rem;
+            grid-template-columns: repeat(auto-fill, 115px);
         }
         display: grid;
         grid-template-columns: repeat(auto-fill, 145px);
@@ -57,7 +62,7 @@
 
         &__card {
             @include media-mobile {
-                max-width: 130px;
+                max-width: 115px;
             }
 
             font-family: inherit;
@@ -67,17 +72,23 @@
             border-radius: 10px;
             position: relative;
             cursor: pointer;
+            transition: transform .2s ease-in-out;
+
 
             .rating {
                 top: .3rem;
                 right: .3rem;
             }
 
+            &:active {
+                transform: scale(.95);
+            }
+
             &__image {
                 @include media-mobile {
-                    max-width: 130px;
+                    max-width: 115px;
                     height: auto;
-                    height: 195px;
+                    // height: 195px;
                 }
 
                 border-radius: 10px;

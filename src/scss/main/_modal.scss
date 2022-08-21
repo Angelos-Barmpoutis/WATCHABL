@@ -23,7 +23,7 @@ h5 {
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     z-index: 11;
 
         .modal {
@@ -64,12 +64,20 @@ h5 {
             }
             
             &__x-button {
+                @include media-mobile{
+                    right: 1rem;
+                    top: 1rem;
+                }
                 filter: drop-shadow(0 0 5px rgba(0, 0, 0, 1));
                 position: absolute;
                 right: 1.5rem;
                 top: 1.5rem;
                 font-size: 1.4rem;
                 cursor: pointer;
+
+                &:active {
+                    transform: scale(.9);
+                }
             }
 
             &__hero {
@@ -86,7 +94,8 @@ h5 {
                 }
 
                 @include media-mobile{
-                    top: 28%
+                    top: 28%;
+                    padding-inline: 1rem;
                 }
                 position: absolute;
                 top: 23%;
@@ -142,13 +151,14 @@ h5 {
                 &__genres {
                     margin-block: 2rem;
                     display: flex;
+                    align-items: center;
                     flex-wrap: wrap;
                     gap: .8rem;
 
                     &__genre {
                         color: rgb(79, 168, 250);
                         padding: .6rem .9rem ;
-                        background-color: rgb(16, 23, 49);
+                        background-color: rgba(45, 58, 107, 0.301);
                         border-radius: 10px;
                         font-size: .9rem;
                         display: flex;

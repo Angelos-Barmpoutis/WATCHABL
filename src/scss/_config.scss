@@ -51,6 +51,9 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
 
 // UTILITY CLASSES
 .wrapper {
+    @include media-mobile {
+        padding: 1.2rem 1rem;
+    }
     max-width: 1920px;
     margin-inline: auto;
     padding: 1.2rem 1.5rem;
@@ -77,6 +80,9 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
         cursor: pointer;
 
         &:nth-child(1) {
+            @include media-mobile{
+                padding-right: .5rem;
+            }
             padding-right: 1rem;
 
             &.active {
@@ -85,6 +91,9 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
         }
 
         &:nth-child(2) {
+            @include media-mobile{
+                padding-left: .5rem;
+            }
             padding-left: 1rem;
 
             &.active {
@@ -95,13 +104,10 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
         &.active {
             color: $primary-text-color;
 
-            &:hover {
-                transform: scale(1);
-            }
         }
 
-        &:hover {
-            transform: scale(.95);
+        &:active {
+            transform: scale(.9);
         }
     }
 }
@@ -124,6 +130,10 @@ $secondary-text-color: rgba(255, 255, 255, 0.461);
     &:hover {
         border: 1px solid rgba(62, 104, 255, 0.886);
         background-color: rgba(68, 107, 249, 0.182);
+    }
+
+    &:active {
+        transform: scale(.95);
     }
 }
 

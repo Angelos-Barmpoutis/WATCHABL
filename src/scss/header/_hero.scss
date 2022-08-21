@@ -97,6 +97,7 @@
         color: #f5f6fa;
         border: none;
         cursor: pointer;
+        transition: all .2s ease-in-out;
 
         &:active {
             transform: scale(.9);
