@@ -1,9 +1,15 @@
 import Movies from "../components/Movies";
 import Pages from "../components/Pages";
+import { motion } from "framer-motion";
 
 const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
   return (
-    <>
+    <motion.div
+    initial = {{opacity: 0}}
+    animate = {{opacity: 1}}
+    transition = {{duration: .8, ease: 'easeInOut'}}
+    exit = {{opacity: 0, transition : {ease: 'easeInOut'}}}
+    >
         <Movies
           searchInputValue = {searchInputValue}
           search = {search}
@@ -26,7 +32,7 @@ const MostPopular = ({searchInputValue, search, state, states, searchFormSubmit,
           onePageUp = {onePageUp}
           twoPagesUp = {twoPagesUp}
         /> 
-    </>
+    </motion.div>
   )
 }
 

@@ -36,7 +36,7 @@ const Widget = ({state, openModal, href, getGenre, genres}) => {
     <div className="widget">
       <h2 className="widget__title">{state.title}</h2>
       {state.results && resultsMap}
-      <Link className="widget__view-more btn" to={href} onClick={() => window.scrollTo(0,  0)}>View More</Link>
+      <Link className="widget__view-more btn" to={href}>View More</Link>
     </div>
   )
 }

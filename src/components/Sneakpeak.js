@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import SneakpeakCard from "./SneakpeakCard"
+import { motion, AnimatePresence } from "framer-motion";
 
 const Sneakpeak = ({openModal, state, header, href}) => {
     // Render the first 12 results
@@ -24,12 +25,19 @@ const Sneakpeak = ({openModal, state, header, href}) => {
             <div className="wrapper">
                 <div className="sneakpeak-header">
                     <h2 className="sneakpeak-header__title">{header}</h2>
-                    <Link to={href} className='sneakpeak-header__view-all' onClick={() => window.scrollTo(0,  0)}>View All <i className="fa-solid fa-chevron-right"></i></Link>
+                    <Link to={href} className='sneakpeak-header__view-all'>View All <i className="fa-solid fa-chevron-right"></i></Link>
                 </div>
-
-                <div className='sneakpeak__results'>
-                    {resultsMap}
-                </div>
+                <AnimatePresence>
+                    <motion.div
+                        className='sneakpeak__results'
+                        initial = {{opacity: 0}}
+                        animate = {{opacity: 1}}
+                        transition= {{ duration: 1, type: 'spring'}}
+                        exit = {{opacity: 0, scale: 0}}
+                    >
+                        {resultsMap}
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </section>
     )

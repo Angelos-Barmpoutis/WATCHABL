@@ -12,7 +12,7 @@ import AiringToday from './pages/AiringToday';
 import Search from './pages/Search';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
 const App = () => {
 
@@ -21,6 +21,12 @@ const App = () => {
   const AIRING_TODAY_URL = 'http://localhost:3000/airingToday';
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const [genres, setGenres] = useState({
     movie : [],
@@ -456,138 +462,140 @@ const App = () => {
         </AnimatePresence>
         <div className="main-aside">
         <main>
-        <Routes>
-          <Route exact path='/' element={
-              <Home
-                heroTrending = {heroTrending}
-                searchInputValue = {searchInputValue}
-                search = {search}
-                getMovies={getMovies}
-                getTvShows={getTvShows}
-                mostPopular={mostPopular}
-                setMostPopular={setMostPopular}
-                airingToday={airingToday}
-                setAiringToday={setAiringToday}
-                trending={trending}
-                setTrending={setTrending}
-                nowPlaying={nowPlaying}
-                setNowPlaying={setNowPlaying}
-                topRated={topRated}
-                setTopRated={setTopRated}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                openModal = {openModal}
-              />
-            }>
-          </Route>
-          <Route path='/mostPopular' element={
-              <MostPopular
-                searchInputValue = {searchInputValue}
-                search = {search}
-                movies = {createMovieItem(mostPopular)}
-                state = {mostPopular}
-                states = {[setMostPopular]}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                getMovies = {getMovies}
-                getTvShows = {getTvShows}
-                onePageBack = {onePageBack}
-                twoPagesBack = {twoPagesBack}
-                onePageUp = {onePageUp}
-                twoPagesUp = {twoPagesUp}
-              />
-            }>
-          </Route>
-          <Route path='/trending' element={
-              <Trending
-                searchInputValue = {searchInputValue}
-                search = {search}
-                movies = {createMovieItem(trending)}
-                state = {trending}
-                states = {[setTrending]}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                getMovies = {getMovies}
-                getTvShows = {getTvShows}
-                onePageBack = {onePageBack}
-                twoPagesBack = {twoPagesBack}
-                onePageUp = {onePageUp}
-                twoPagesUp = {twoPagesUp}
-              />
-            }>
-          </Route>
-          <Route path='/topRated' element={
-              <TopRated
-                searchInputValue = {searchInputValue}
-                search = {search}
-                movies = {createMovieItem(topRated)}
-                state = {topRated}
-                states = {[setTopRated]}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                getMovies = {getMovies}
-                getTvShows = {getTvShows}
-                onePageBack = {onePageBack}
-                twoPagesBack = {twoPagesBack}
-                onePageUp = {onePageUp}
-                twoPagesUp = {twoPagesUp}
-              />
-            }>
-          </Route>
-          <Route path='/nowPlaying' element={
-              <NowPlaying
-                searchInputValue = {searchInputValue}
-                search = {search}
-                movies = {createMovieItem(nowPlaying)}
-                state = {nowPlaying}
-                states = {[setNowPlaying]}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                getMovies = {getMovies}
-                getTvShows = {getTvShows}
-                onePageBack = {onePageBack}
-                twoPagesBack = {twoPagesBack}
-                onePageUp = {onePageUp}
-                twoPagesUp = {twoPagesUp}
-              />
-            }>
-          </Route>
-          <Route path='/airingToday' element={
-              <AiringToday
-                searchInputValue = {searchInputValue}
-                search = {search}
-                movies = {createMovieItem(airingToday)}
-                state = {airingToday}
-                states = {[setAiringToday]}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                getMovies = {getMovies}
-                getTvShows = {getTvShows}
-                onePageBack = {onePageBack}
-                twoPagesBack = {twoPagesBack}
-                onePageUp = {onePageUp}
-                twoPagesUp = {twoPagesUp}
-              />
-            }>
-          </Route>
-          <Route path='/search' element={
-              <Search
-                searchInputValue = {searchInputValue}
-                search = {search}
-                movies = {createMovieItem(search)}
-                state = {search}
-                states = {[setSearch]}
-                searchFormSubmit = {searchFormSubmit}
-                searchInputChange = {searchInputChange}
-                getMovies = {getMovies}
-                getTvShows = {getTvShows}
-                onePageBack = {onePageBack}
-                twoPagesBack = {twoPagesBack}
-                onePageUp = {onePageUp}
-                twoPagesUp = {twoPagesUp}
-              />
-            }></Route>
-        </Routes>
+        <AnimatePresence>
+          <Routes location={location} key={location.key}>
+            <Route exact path='/' element={
+                <Home
+                  heroTrending = {heroTrending}
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  getMovies={getMovies}
+                  getTvShows={getTvShows}
+                  mostPopular={mostPopular}
+                  setMostPopular={setMostPopular}
+                  airingToday={airingToday}
+                  setAiringToday={setAiringToday}
+                  trending={trending}
+                  setTrending={setTrending}
+                  nowPlaying={nowPlaying}
+                  setNowPlaying={setNowPlaying}
+                  topRated={topRated}
+                  setTopRated={setTopRated}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  openModal = {openModal}
+                />
+              }>
+            </Route>
+            <Route path='/mostPopular' element={
+                <MostPopular
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  movies = {createMovieItem(mostPopular)}
+                  state = {mostPopular}
+                  states = {[setMostPopular]}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  getMovies = {getMovies}
+                  getTvShows = {getTvShows}
+                  onePageBack = {onePageBack}
+                  twoPagesBack = {twoPagesBack}
+                  onePageUp = {onePageUp}
+                  twoPagesUp = {twoPagesUp}
+                />
+              }>
+            </Route>
+            <Route path='/trending' element={
+                <Trending
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  movies = {createMovieItem(trending)}
+                  state = {trending}
+                  states = {[setTrending]}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  getMovies = {getMovies}
+                  getTvShows = {getTvShows}
+                  onePageBack = {onePageBack}
+                  twoPagesBack = {twoPagesBack}
+                  onePageUp = {onePageUp}
+                  twoPagesUp = {twoPagesUp}
+                />
+              }>
+            </Route>
+            <Route path='/topRated' element={
+                <TopRated
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  movies = {createMovieItem(topRated)}
+                  state = {topRated}
+                  states = {[setTopRated]}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  getMovies = {getMovies}
+                  getTvShows = {getTvShows}
+                  onePageBack = {onePageBack}
+                  twoPagesBack = {twoPagesBack}
+                  onePageUp = {onePageUp}
+                  twoPagesUp = {twoPagesUp}
+                />
+              }>
+            </Route>
+            <Route path='/nowPlaying' element={
+                <NowPlaying
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  movies = {createMovieItem(nowPlaying)}
+                  state = {nowPlaying}
+                  states = {[setNowPlaying]}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  getMovies = {getMovies}
+                  getTvShows = {getTvShows}
+                  onePageBack = {onePageBack}
+                  twoPagesBack = {twoPagesBack}
+                  onePageUp = {onePageUp}
+                  twoPagesUp = {twoPagesUp}
+                />
+              }>
+            </Route>
+            <Route path='/airingToday' element={
+                <AiringToday
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  movies = {createMovieItem(airingToday)}
+                  state = {airingToday}
+                  states = {[setAiringToday]}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  getMovies = {getMovies}
+                  getTvShows = {getTvShows}
+                  onePageBack = {onePageBack}
+                  twoPagesBack = {twoPagesBack}
+                  onePageUp = {onePageUp}
+                  twoPagesUp = {twoPagesUp}
+                />
+              }>
+            </Route>
+            <Route path='/search' element={
+                <Search
+                  searchInputValue = {searchInputValue}
+                  search = {search}
+                  movies = {createMovieItem(search)}
+                  state = {search}
+                  states = {[setSearch]}
+                  searchFormSubmit = {searchFormSubmit}
+                  searchInputChange = {searchInputChange}
+                  getMovies = {getMovies}
+                  getTvShows = {getTvShows}
+                  onePageBack = {onePageBack}
+                  twoPagesBack = {twoPagesBack}
+                  onePageUp = {onePageUp}
+                  twoPagesUp = {twoPagesUp}
+                />
+              }></Route>
+          </Routes>
+        </AnimatePresence>
         </main>
           <aside>
             <div className="wrapper">

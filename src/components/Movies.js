@@ -1,6 +1,6 @@
 import Categories from "./Categories";
 
-const Movies = ({searchInputValue, search, state, states, getMovies, getTvShows, searchFormSubmit, searchInputChange, title, movies}) => {
+const Movies = ({searchInputValue, state, states, getMovies, getTvShows, searchFormSubmit, searchInputChange, title, movies}) => {
     return (
         <section className="wrapper" id='movies'>
             <h1 className='title movies-title'>{title}</h1>

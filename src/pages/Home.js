@@ -1,10 +1,16 @@
 import Sneakpeak from '../components/Sneakpeak';
 import Hero from '../components/Hero';
 import Categories from '../components/Categories';
+import { motion } from 'framer-motion';
 
 const Home = ({openModal, heroTrending, searchInputValue, search, getMovies, getTvShows, mostPopular, setMostPopular, trending, setTrending, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
   return (
-    <>
+    <motion.div
+    initial = {{opacity: 0}}
+    animate = {{opacity: 1}}
+    transition = {{duration: .8, ease: 'easeInOut'}}
+    exit = {{opacity: 0, transition : {ease: 'easeInOut'}}}
+    >
     <div className="categories-search-container wrapper">
       <Categories
         state = {mostPopular}
@@ -39,7 +45,7 @@ const Home = ({openModal, heroTrending, searchInputValue, search, getMovies, get
         header = "Top Rated"
         href = '/topRated'
       />
-    </>
+    </motion.div>
   )
 }
 
