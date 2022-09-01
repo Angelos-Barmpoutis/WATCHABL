@@ -14,6 +14,7 @@
     align-items: center;
     row-gap: 1.5rem;
     column-gap: .5rem;
+    transition: all .2s ease-in-out;
 
     &__images {
         grid-area: images;
@@ -134,4 +135,8 @@
             }
         }
     }
+}
+
+.hero:active {
+    transform: scale(.95);
 }

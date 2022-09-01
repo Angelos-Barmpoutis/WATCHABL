@@ -598,6 +598,7 @@ nav .nav h3 a {
   align-items: center;
   row-gap: 1.5rem;
   column-gap: .5rem;
+  transition: all .2s ease-in-out;
 }
 
 @media screen and (max-width: 769px) {
@@ -740,6 +741,10 @@ nav .nav h3 a {
     width: 8px;
     height: 8px;
   }
+}
+
+.hero:active {
+  transform: scale(0.95);
 }
 
 @keyframes fadeIn {
@@ -2336,6 +2341,7 @@ h5 {
   scroll-behavior: smooth;
   -webkit-touch-callout: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
   /* width */
   /* Track */
   /* Handle */
