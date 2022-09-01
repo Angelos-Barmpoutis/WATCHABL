@@ -2334,6 +2334,8 @@ h5 {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  -webkit-touch-callout: none;
+  user-select: none;
   /* width */
   /* Track */
   /* Handle */
