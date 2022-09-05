@@ -182,16 +182,18 @@ body {
             color: $secondary-text-color;
             text-align: center;
             background-color: rgba(68, 107, 249, 0.102);
-            font-size: .8rem;
+            font-size: .9rem;
             line-height: 1.5;
             border-top: 1px solid rgba(255, 255, 255, 0.07);
 
             a {
                 color: rgb(0, 128, 255);
+                text-decoration: none;
+                font-weight: 700;
             }
 
             .wrapper {
-                padding-block: .6rem;
+                padding-block: 1rem;
             }
         }
     }   

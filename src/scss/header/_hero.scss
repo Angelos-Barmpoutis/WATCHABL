@@ -34,9 +34,14 @@
             position: relative;
             border-radius: 10px;
             display: none;
+            transition: transform .2s ease-in-out;
 
             &.active {
                 display: block;
+            }
+
+            &:active {
+                transform: scale(.95);
             }
         }
 
@@ -135,8 +140,4 @@
             }
         }
     }
-}
-
-.hero:active {
-    transform: scale(.95);
 }
