@@ -14,61 +14,57 @@
     align-items: center;
     row-gap: 1.5rem;
     column-gap: .5rem;
+    overflow: hidden;
     transition: all .2s ease-in-out;
 
     &__images {
         grid-area: images;
-        margin-inline: auto;
         display: flex;
+        justify-content: flex-start;
         overflow: hidden;
         position: relative;
+
+        &__image-container {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            transition: transform .5s ease;
+            text-align: center;
+        }
 
         &__image {
             @include media-tablet {
                 width: 100%;
             }
-            width: 87%;
-            cursor: pointer;
-            margin: 0 auto;
-            z-index: 10;
-            position: relative;
+
+            width: 85%;
             border-radius: 10px;
-            display: none;
-            transition: transform .2s ease-in-out;
-
-            &.active {
-                display: block;
-            }
-
-            &:active {
-                transform: scale(.95);
-            }
         }
 
         &__title {
             @include media-tablet {
                 font-size: 1.2rem;
-                width: 100%;
                 padding-inline: .8rem;
                 padding-block: .8rem;
+                width: 100%;
             }
-            cursor: pointer;
+
+            text-align: left;
             color: $primary-text-color;
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.275), rgba(0, 0, 0, 0.456));
-            width: 100%;
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            width: 87%;
-            z-index: 10;
+            width: 85%;
             padding-block: 1.5rem;
             padding-inline: 1.5rem;
             font-size: 1.6rem;
             margin-inline: auto;
             font-weight: 600;
             line-height: 1.15;
-            display: none;
             filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
 
             span {
@@ -78,10 +74,6 @@
                 color: rgb(146, 144, 144);
                 display: block;
                 font-size: 1.2rem;
-            }
-
-            &.active {
-                display: initial;
             }
         }
     }
@@ -128,6 +120,7 @@
             height: 7px;
             background-color: rgb(95, 95, 95);
             border-radius: 50%;
+            transition: transform .5s ease-in-out;
 
             &.active {
                 @include media-mobile {
