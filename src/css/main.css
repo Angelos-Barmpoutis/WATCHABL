@@ -541,8 +541,13 @@ nav .nav h3 a {
   cursor: pointer;
   position: relative;
   flex-shrink: 0;
-  transition: transform 0.4s ease-out;
+  transition: transform 0.7s ease-out;
   text-align: center;
+}
+@media screen and (max-width: 569px) {
+  .hero__images__image-container {
+    transition: transform 0.2s ease-out;
+  }
 }
 .hero__images__image {
   width: 85%;
@@ -2065,23 +2070,6 @@ body {
 body .container {
   width: 100%;
   min-height: 100vh;
-}
-body .container .page-title {
-  font-size: 2.5rem;
-  color: #dcdde1;
-  max-width: 80%;
-  text-align: center;
-  margin-inline: auto;
-  padding-block: 1rem;
-  animation: fadeIn 3s ease-in-out;
-}
-@media screen and (max-width: 850px) {
-  body .container .page-title {
-    font-size: 1.85rem;
-  }
-}
-body .container .page-title span {
-  color: rgb(236, 197, 22);
 }
 body .container .main-aside {
   display: grid;

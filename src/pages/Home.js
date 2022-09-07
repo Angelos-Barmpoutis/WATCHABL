@@ -23,9 +23,6 @@ const Home = ({openModal, heroTrending, searchInputValue, search, getMovies, get
         <input type="text" id="search-input" name="searchInput" placeholder='Search...' value={searchInputValue} autoComplete="off" onChange={searchInputChange}/>
       </form>
     </div>  
-      <h1 className="page-title">
-        Explore the <span>Most Trending</span> Movies
-      </h1>
       {heroTrending && <Hero
         heroTrending = {heroTrending}
         openModal = {openModal}
