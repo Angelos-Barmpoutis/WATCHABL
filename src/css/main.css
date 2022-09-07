@@ -2,9 +2,6 @@
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0;
-  }
   100% {
     opacity: 1;
   }
@@ -165,9 +162,6 @@
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
-  }
-  50% {
     opacity: 0;
   }
   100% {
@@ -357,9 +351,6 @@ nav .nav h3 a {
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
-  }
-  50% {
     opacity: 0;
   }
   100% {
@@ -655,9 +646,6 @@ nav .nav h3 a {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0;
-  }
   100% {
     opacity: 1;
   }
@@ -922,9 +910,6 @@ nav .nav h3 a {
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
-  }
-  50% {
     opacity: 0;
   }
   100% {
@@ -1305,9 +1290,6 @@ h5 {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0;
-  }
   100% {
     opacity: 1;
   }
@@ -1595,9 +1577,6 @@ h5 {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0;
-  }
   100% {
     opacity: 1;
   }
@@ -1790,9 +1769,6 @@ h5 {
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
-  }
-  50% {
     opacity: 0;
   }
   100% {
@@ -2089,6 +2065,23 @@ body {
 body .container {
   width: 100%;
   min-height: 100vh;
+}
+body .container .page-title {
+  font-size: 2.5rem;
+  color: #dcdde1;
+  max-width: 80%;
+  text-align: center;
+  margin-inline: auto;
+  padding-block: 1rem;
+  animation: fadeIn 3s ease-in-out;
+}
+@media screen and (max-width: 850px) {
+  body .container .page-title {
+    font-size: 1.85rem;
+  }
+}
+body .container .page-title span {
+  color: rgb(236, 197, 22);
 }
 body .container .main-aside {
   display: grid;

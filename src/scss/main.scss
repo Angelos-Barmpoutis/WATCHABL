@@ -61,6 +61,24 @@ body {
         width: 100%;
         min-height: 100vh;
 
+        .page-title {
+            @include media-tablet {
+                font-size: 1.85rem;
+            }
+            
+            font-size: 2.5rem;
+            color: #dcdde1;
+            max-width: 80%;
+            text-align: center;
+            margin-inline: auto;
+            padding-block: 1rem;
+            animation: fadeIn 3s ease-in-out;
+
+            span {
+                color: rgb(236, 197, 22);
+            }
+        }
+
         .main-aside {
             @include media-tablet {
                 grid-template-columns: 1fr;
