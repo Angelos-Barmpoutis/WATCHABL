@@ -104,6 +104,7 @@ const App = () => {
     }
   );
 
+  // Check if modal is open. If so, set body's overflow --> hidden
   useEffect(() => {
     if (modal.isOpen) {
       document.body.style.overflow = 'hidden';

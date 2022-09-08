@@ -523,7 +523,7 @@ nav .nav h3 a {
   overflow: hidden;
   transition: all 0.2s ease-in-out;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 569px) {
   .hero {
     grid-template-areas: "images" "circles";
   }
@@ -534,6 +534,7 @@ nav .nav h3 a {
   justify-content: flex-start;
   overflow: hidden;
   position: relative;
+  border-radius: 10px;
 }
 .hero__images__image-container {
   width: 100%;
@@ -543,6 +544,7 @@ nav .nav h3 a {
   flex-shrink: 0;
   transition: transform 0.7s ease-out;
   text-align: center;
+  border-radius: 10px;
 }
 @media screen and (max-width: 569px) {
   .hero__images__image-container {
@@ -550,7 +552,7 @@ nav .nav h3 a {
   }
 }
 .hero__images__image {
-  width: 85%;
+  width: 95%;
   border-radius: 10px;
 }
 @media screen and (max-width: 850px) {
@@ -566,13 +568,15 @@ nav .nav h3 a {
   bottom: 0;
   left: 0;
   right: 0;
-  width: 85%;
+  width: 95%;
   padding-block: 1.5rem;
   padding-inline: 1.5rem;
   font-size: 1.6rem;
   margin-inline: auto;
   font-weight: 600;
   line-height: 1.15;
+  border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
   filter: drop-shadow(0 0 2px rgb(0, 0, 0));
 }
 @media screen and (max-width: 850px) {
@@ -600,7 +604,7 @@ nav .nav h3 a {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 569px) {
   .hero__navigation-arrow {
     display: none;
   }
@@ -816,7 +820,6 @@ nav .nav h3 a {
   border-radius: 10px;
   margin-bottom: 1.7rem;
   max-width: 1024px;
-  margin-inline: auto;
   height: 160px;
   gap: 0.6rem;
   background-color: transparent;
@@ -2043,8 +2046,8 @@ h5 {
   /* Handle */
 }
 * ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 @media screen and (max-width: 569px) {
   * ::-webkit-scrollbar {
@@ -2081,6 +2084,23 @@ body .container .main-aside {
   body .container .main-aside {
     grid-template-columns: 1fr;
   }
+}
+body .container main .page-title {
+  text-align: center;
+  color: #f5f6fa;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-inline: 1rem;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.6px;
+}
+@media screen and (max-width: 569px) {
+  body .container main .page-title {
+    font-size: 1.4rem;
+  }
+}
+body .container main .page-title span {
+  color: rgb(0, 128, 255);
 }
 body .container main .categories-search-container {
   display: flex;
@@ -2173,11 +2193,13 @@ body .container main .no-results {
 body .container aside {
   border-left: 1px solid rgba(255, 255, 255, 0.07);
   color: #dcdde1;
+  max-width: 330px;
 }
 @media screen and (max-width: 850px) {
   body .container aside {
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
+    max-width: 100%;
   }
 }
 body .container footer {

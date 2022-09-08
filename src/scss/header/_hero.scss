@@ -1,7 +1,7 @@
 @import '../config';
 
 .hero {
-    @include media-tablet {
+    @include media-mobile {
         grid-template-areas: 'images'
         'circles';
     }
@@ -23,6 +23,7 @@
         justify-content: flex-start;
         overflow: hidden;
         position: relative;
+        border-radius: 10px;
 
         &__image-container {
             @include media-mobile {
@@ -36,6 +37,7 @@
             flex-shrink: 0;
             transition: transform .7s ease-out;
             text-align: center;
+            border-radius: 10px;
         }
 
         &__image {
@@ -43,7 +45,7 @@
                 width: 100%;
             }
 
-            width: 85%;
+            width: 95%;
             border-radius: 10px;
         }
 
@@ -62,13 +64,16 @@
             bottom: 0;
             left: 0;
             right: 0;
-            width: 85%;
+            width: 95%;
             padding-block: 1.5rem;
             padding-inline: 1.5rem;
             font-size: 1.6rem;
             margin-inline: auto;
             font-weight: 600;
             line-height: 1.15;
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+
             filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
 
             span {
@@ -83,7 +88,7 @@
     }
 
     &__navigation-arrow {
-        @include media-tablet {
+        @include media-mobile {
             display: none;
         }
 

@@ -3,6 +3,9 @@ import Pages from "../components/Pages";
 import { motion } from "framer-motion";
 
 const Trending = ({searchInputValue, search, state, states, searchFormSubmit, searchInputChange, onePageBack, onePageUp, twoPagesBack, twoPagesUp, getMovies, movies, getTvShows}) => {
+
+  document.title = `WATCHABL | ${state.title}`;
+
   return (
     <motion.div
     initial = {{opacity: 0}}
