@@ -542,7 +542,7 @@ nav .nav h3 a {
   cursor: pointer;
   position: relative;
   flex-shrink: 0;
-  transition: transform 0.7s ease-out;
+  transition: transform 0.5s ease-out;
   text-align: center;
   border-radius: 10px;
 }
@@ -561,6 +561,7 @@ nav .nav h3 a {
   }
 }
 .hero__images__title {
+  border-radius: 10px;
   text-align: left;
   color: #f5f6fa;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.275), rgba(0, 0, 0, 0.456));
@@ -569,11 +570,10 @@ nav .nav h3 a {
   left: 0;
   right: 0;
   width: 95%;
-  padding-block: 1.5rem;
-  padding-inline: 1.5rem;
+  padding: 1.5rem;
   font-size: 1.6rem;
   margin-inline: auto;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.15;
   border-radius: 10px;
   animation: fadeIn 1s ease-in-out;
@@ -2091,7 +2091,6 @@ body .container main .page-title {
   font-size: 1.8rem;
   font-weight: 600;
   padding-inline: 1rem;
-  padding-bottom: 0.5rem;
   letter-spacing: 0.6px;
 }
 @media screen and (max-width: 569px) {

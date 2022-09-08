@@ -9,7 +9,7 @@ const Hero = ({heroTrending, openModal}) => {
     const carouselShift = useRef(0);
     
     // the required distance between touchStart and touchEnd to be detected as a swipe
-    const minSwipeDistance = 25;
+    const minSwipeDistance = 15;
 
     const nextImage = () => {
 
