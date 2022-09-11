@@ -33,6 +33,22 @@
             transition: transform .3s ease-out;
             text-align: center;
             border-radius: 10px;
+
+            &::before {
+                @include media-mobile-only {
+                    display: block;
+                }
+                content: '';
+                background-color: rgba(255, 255, 255, 0.712);
+                height: 3px;
+                position: absolute;
+                top: 7px;
+                left: 2%;
+                border-radius: 10px;
+                z-index: 100000;
+                animation: loading100 2.5s linear infinite .25s;
+                display: none;
+            }
         }
 
         &__image {
@@ -70,9 +86,7 @@
             border-radius: 10px;
             cursor: pointer;
             animation: fadeIn 1s ease-in-out;
-            filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));
-            // backdrop-filter: blur(3px);
-            
+            filter: drop-shadow(0 0 2px rgba(0, 0, 0, 1));    
 
             span {
                 @include media-tablet {
