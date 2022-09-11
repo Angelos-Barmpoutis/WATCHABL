@@ -344,6 +344,11 @@ nav .nav h3 {
   letter-spacing: 5px;
   font-size: 1.1rem;
 }
+@media screen and (max-width: 569px) {
+  nav .nav h3 {
+    font-size: 1rem;
+  }
+}
 nav .nav h3 a {
   color: #f5f6fa;
   text-decoration: none;
