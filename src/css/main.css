@@ -598,23 +598,6 @@ nav .nav h3 a {
   text-align: center;
   border-radius: 10px;
 }
-.hero__images__image-container::before {
-  content: "";
-  background-color: rgba(255, 255, 255, 0.712);
-  height: 3px;
-  position: absolute;
-  top: 7px;
-  left: 2%;
-  border-radius: 10px;
-  z-index: 100000;
-  animation: loading100 2.5s linear infinite 0.25s;
-  display: none;
-}
-@media only screen and (max-width: 569px) and (-webkit-min-device-pixel-ratio: 3) {
-  .hero__images__image-container::before {
-    display: block;
-  }
-}
 .hero__images__image {
   width: 80%;
   border-radius: 10px;
