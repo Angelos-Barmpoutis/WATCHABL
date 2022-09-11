@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Hero = ({heroTrending, openModal}) => {
 
@@ -12,7 +12,6 @@ const Hero = ({heroTrending, openModal}) => {
     const minSwipeDistance = 15;
 
     const nextImage = () => {
-
       if (circles === 4 && carouselShift.current === -400) {
         setCircles(0)
         carouselShift.current = 0
@@ -20,15 +19,12 @@ const Hero = ({heroTrending, openModal}) => {
         setCircles(circles + 1)
         carouselShift.current = carouselShift.current - 100
       }
-
       document.querySelectorAll('.hero__images__image-container').forEach(image => {
         image.style.transform = `translateX(${carouselShift.current}%)`;
       })
-
     }
 
     const previousImage = () => {
-
       if (carouselShift.current === 0 && circles === 0) {
         setCircles(4)
         carouselShift.current = -400
@@ -36,11 +32,17 @@ const Hero = ({heroTrending, openModal}) => {
         setCircles(circles - 1)
         carouselShift.current = carouselShift.current + 100
       }
-
       document.querySelectorAll('.hero__images__image-container').forEach(image => {
         image.style.transform = `translateX(${carouselShift.current}%)`;
       })
     }
+
+    // Set carousel to change slides automatically every 2.5 seconds
+    useEffect(() => {
+      const intervalId = setInterval(() => nextImage(), 2500);
+
+      return () => clearInterval(intervalId)
+    })
     
     const onTouchStart = (e) => {
       setTouchEnd(null) // otherwise the swipe is fired even with usual touch events

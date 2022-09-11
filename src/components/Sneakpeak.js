@@ -3,8 +3,8 @@ import SneakpeakCard from "./SneakpeakCard"
 import { motion, AnimatePresence } from "framer-motion";
 
 const Sneakpeak = ({openModal, state, header, href}) => {
-    // Render the first 12 results
-    const resultsFilter = state.results.filter((result, index) => index < 12)
+    // Render the first 15 results
+    const resultsFilter = state.results.filter((result, index) => index < 15)
     const resultsMap = resultsFilter.map(result => {
         return (
         <SneakpeakCard
