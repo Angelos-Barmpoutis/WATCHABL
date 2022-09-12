@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import Categories from '../components/Categories';
 import { motion } from 'framer-motion';
 
-const Home = ({openModal, heroTrending, setHeroTrending, searchInputValue, search, getMovies, getTvShows, mostPopular, setMostPopular, trending, setTrending, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
+const HomeTv = ({openModal, heroTrending, searchInputValue, search, getMovies, getTvShows, mostPopular, setMostPopular, trending, setTrending, topRated, setTopRated, searchFormSubmit, searchInputChange}) => {
   return (
     <motion.div
     initial = {{opacity: 0}}
@@ -14,7 +14,7 @@ const Home = ({openModal, heroTrending, setHeroTrending, searchInputValue, searc
     <div className="categories-search-container wrapper">
       <Categories
         state = {mostPopular}
-        states = {[setHeroTrending, setMostPopular, setTopRated, setTrending]}
+        states = {[setMostPopular, setTopRated, setTrending]}
         getMovies = {getMovies}
         getTvShows = {getTvShows}
       />
@@ -52,4 +52,4 @@ const Home = ({openModal, heroTrending, setHeroTrending, searchInputValue, searc
   )
 }
 
-export default Home
+export default HomeTv;

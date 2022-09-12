@@ -39,7 +39,13 @@ const App = () => {
     results: null
   })
 
-  const [heroTrending, setHeroTrending] = useState([]);
+  const [heroTrending, setHeroTrending] = useState(
+    {
+      category: 'movie',
+      page: 1,
+      results: []
+    }
+  );
 
   const [searchInputValue, setSearchInputValue] = useState('');
 
@@ -145,14 +151,20 @@ const App = () => {
 
   // Fetch Hero Trending
   useEffect(() => {
-    const requestUrl = 'https://api.themoviedb.org/3/trending/movie/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=1';
+    const requestUrl = `https://api.themoviedb.org/3/trending/${heroTrending.category}/week?api_key=6de482bc8c5768aa3648618b9c3cc98a&page=1`;
 
       fetch(requestUrl)
       .then(response => response.json())
       .then(responseData => {
-        setHeroTrending(responseData.results)
+        setHeroTrending(previousState => (
+          {
+            ...previousState,
+            results: responseData.results,
+            page: responseData.page
+          }
+        ))
       })
-}, [])
+}, [heroTrending.category])
 
   // Fetch Most Popular
   useEffect(() => {
@@ -467,7 +479,6 @@ const App = () => {
           <Routes location={location} key={location.key}>
             <Route exact path='/' element={
                 <Home
-                  heroTrending = {heroTrending}
                   searchInputValue = {searchInputValue}
                   search = {search}
                   getMovies={getMovies}
@@ -482,6 +493,8 @@ const App = () => {
                   setNowPlaying={setNowPlaying}
                   topRated={topRated}
                   setTopRated={setTopRated}
+                  heroTrending = {heroTrending}
+                  setHeroTrending = {setHeroTrending}
                   searchFormSubmit = {searchFormSubmit}
                   searchInputChange = {searchInputChange}
                   openModal = {openModal}

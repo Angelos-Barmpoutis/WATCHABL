@@ -598,51 +598,58 @@ nav .nav h3 a {
   text-align: center;
   border-radius: 10px;
 }
-.hero__images__image {
+.hero__images__image-container__image {
   width: 80%;
   border-radius: 10px;
   cursor: pointer;
 }
 @media screen and (max-width: 850px) {
-  .hero__images__image {
+  .hero__images__image-container__image {
     width: 100%;
   }
 }
-.hero__images__title {
-  border-radius: 10px;
-  text-align: left;
-  color: #f5f6fa;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.275), rgba(0, 0, 0, 0.456));
+.hero__images__image-container__details {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.456));
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   width: 80%;
-  padding: 1.5rem;
-  font-size: 1.6rem;
   margin-inline: auto;
-  font-weight: 500;
-  line-height: 1.15;
+  text-align: left;
   border-radius: 10px;
   cursor: pointer;
   animation: fadeIn 1s ease-in-out;
   filter: drop-shadow(0 0 2px rgb(0, 0, 0));
 }
 @media screen and (max-width: 850px) {
-  .hero__images__title {
-    font-size: 1.2rem;
-    padding-inline: 0.8rem;
-    padding-block: 0.8rem;
+  .hero__images__image-container__details {
     width: 100%;
   }
 }
-.hero__images__title span {
+.hero__images__image-container__details__title {
+  color: #f5f6fa;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 1.5rem;
+}
+@media screen and (max-width: 850px) {
+  .hero__images__image-container__details__title {
+    font-size: 1rem;
+    max-width: 25ch;
+    padding-inline: 0.8rem;
+    padding-block: 0.8rem;
+  }
+}
+.hero__images__image-container__details__title span {
   color: rgb(146, 144, 144);
   display: block;
   font-size: 1.2rem;
+  line-height: 1.5;
 }
 @media screen and (max-width: 850px) {
-  .hero__images__title span {
+  .hero__images__image-container__details__title span {
     font-size: 1rem;
   }
 }
@@ -1274,7 +1281,7 @@ h5 {
 }
 @media only screen and (max-width: 569px) {
   .modal-container .modal__details {
-    top: 28%;
+    top: 28vh;
     padding-inline: 1rem;
   }
 }
@@ -2339,7 +2346,7 @@ body .container footer {
   color: rgba(255, 255, 255, 0.461);
   text-align: center;
   background-color: rgba(0, 0, 0, 0.089);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.5;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(10px);

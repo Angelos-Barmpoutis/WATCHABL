@@ -4,17 +4,14 @@ const Categories = ({state, states, getMovies, getTvShows}) => {
         <div className="categories">
             <button type='button' className={state.category === 'movie' ? 'categories__category active' : 'categories__category'}
             onClick={() => {
-                for (let i=0; i<states.length; i++) {
-                    getMovies(states[i])
-                }
+                states.forEach(state => getMovies(state))
             }}
             >Movies
             </button>
             <button type='button' className={state.category === 'tv' ? 'categories__category active' : 'categories__category'}
             onClick={() => {
-                for (let i=0; i<states.length; i++) {
-                    getTvShows(states[i])
-                }
+                states.forEach(state => getTvShows(state))
+
             }}
             >TV Shows
             </button>

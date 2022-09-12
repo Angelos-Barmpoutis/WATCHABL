@@ -5,12 +5,12 @@ const Hero = ({heroTrending, openModal}) => {
     const [circles, setCircles ] = useState(0);
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
-
     const carouselShift = useRef(0);
     
-    // the required distance between touchStart and touchEnd to be detected as a swipe
+    // The required distance between touchStart and touchEnd to be detected as a swipe
     const minSwipeDistance = 15;
 
+    // Move to the next image
     const nextImage = () => {
       if (circles === 4 && carouselShift.current === -400) {
         setCircles(0)
@@ -24,6 +24,7 @@ const Hero = ({heroTrending, openModal}) => {
       })
     }
 
+    // Move to the previous image
     const previousImage = () => {
       if (carouselShift.current === 0 && circles === 0) {
         setCircles(4)
@@ -37,6 +38,15 @@ const Hero = ({heroTrending, openModal}) => {
       })
     }
 
+    // Reset carousel every time its category changes
+    useEffect(() => {
+      setCircles(0);
+      carouselShift.current = 0;
+      document.querySelectorAll('.hero__images__image-container').forEach(image => {
+        image.style.transform = `translateX(${carouselShift.current}%)`;
+      })
+    }, [heroTrending.category])
+
     // Set carousel to change slides automatically every 2.5 seconds
     useEffect(() => {
       const intervalId = setInterval(() => nextImage(), 2500);
@@ -44,13 +54,16 @@ const Hero = ({heroTrending, openModal}) => {
       return () => clearInterval(intervalId)
     })
     
+    // Keep track of touch's start
     const onTouchStart = (e) => {
       setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
       setTouchStart(e.targetTouches[0].clientX)
     }
     
+    // Keep track of touch's movement
     const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX)
     
+    // Keep track of touch's end
     const onTouchEnd = () => {
       if (!touchStart || !touchEnd) {
         return
@@ -67,34 +80,71 @@ const Hero = ({heroTrending, openModal}) => {
       }
     }
 
+    // Return item's title based on its category
+    const filterTitle = item => item.title ? item.title : item.name;
+
+    // Return item's release year based on its category
+    const filterYear = (item) => {
+      if (item.release_date) {
+        return item.release_date.split('-', 1);
+      } else {
+        return item.first_air_date.split('-', 1);
+      }
+    }
+
     return (
         <div className="hero wrapper">
             <button aria-label="left-navigation-arrow" className="hero__navigation-arrow left-arrow" onClick={previousImage}><i className="fa-solid fa-chevron-left fa-2x"></i></button>
             <div className="hero__images">
               {/* Image  1 */}
-              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[0].id, 'movie')}>
-                {heroTrending.length > 0 && <img className="hero__images__image" src={`https://image.tmdb.org/t/p/w780${heroTrending[0].backdrop_path}`} alt={heroTrending[0].title}/>}
-                {heroTrending.length > 0 && <h3 className='hero__images__title'>{heroTrending[0].title}<span>{heroTrending[0].release_date.split('-', 1)}</span></h3>}
+              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending.results[0].id, heroTrending.category)}>
+                {heroTrending.results.length > 0 && <img className='hero__images__image-container__image' src={`https://image.tmdb.org/t/p/w780${heroTrending.results[0].backdrop_path}`} alt={filterTitle(heroTrending.results[0])}/>}
+
+                {heroTrending.results.length > 0 && 
+                  <div className="hero__images__image-container__details">
+                    <h3 className='hero__images__image-container__details__title'>{filterTitle(heroTrending.results[0])}<span>{filterYear(heroTrending.results[0])}</span></h3>
+                  </div>
+                }
               </div>
               {/* Image 2 */}
-              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[1].id, 'movie')}>
-                {heroTrending.length > 0 && <img className="hero__images__image" src={`https://image.tmdb.org/t/p/w780${heroTrending[1].backdrop_path}`} alt={heroTrending[1].title}/>}
-                {heroTrending.length > 0 && <h3 className='hero__images__title'>{heroTrending[1].title}<span>{heroTrending[1].release_date.split('-', 1)}</span></h3>}
+              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending.results[1].id, heroTrending.category)}>
+                {heroTrending.results.length > 0 && <img className='hero__images__image-container__image' src={`https://image.tmdb.org/t/p/w780${heroTrending.results[1].backdrop_path}`} alt={filterTitle(heroTrending.results[1])}/>}
+
+                {heroTrending.results.length > 0 && 
+                  <div className="hero__images__image-container__details">
+                    <h3 className='hero__images__image-container__details__title'>{filterTitle(heroTrending.results[1])}<span>{filterYear(heroTrending.results[1])}</span></h3>
+                  </div>
+                }
               </div>
               {/* Image 3 */}
-              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[2].id, 'movie')}>
-                {heroTrending.length > 0 && <img className="hero__images__image" src={`https://image.tmdb.org/t/p/w780${heroTrending[2].backdrop_path}`} alt={heroTrending[2].title}/>}
-                {heroTrending.length > 0 && <h3 className='hero__images__title'>{heroTrending[2].title}<span>{heroTrending[2].release_date.split('-', 1)}</span></h3>}
+              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending.results[2].id, heroTrending.category)}>
+                {heroTrending.results.length > 0 && <img className='hero__images__image-container__image' src={`https://image.tmdb.org/t/p/w780${heroTrending.results[2].backdrop_path}`} alt={filterTitle(heroTrending.results[2])}/>}
+
+                {heroTrending.results.length > 0 && 
+                  <div className="hero__images__image-container__details">
+                    <h3 className='hero__images__image-container__details__title'>{filterTitle(heroTrending.results[2])}<span>{filterYear(heroTrending.results[2])}</span></h3>
+                  </div>
+                }
               </div>
               {/* Image 4 */}
-              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[3].id, 'movie')}>
-                {heroTrending.length > 0 && <img className="hero__images__image" src={`https://image.tmdb.org/t/p/w780${heroTrending[3].backdrop_path}`} alt={heroTrending[3].title}/>}
-                {heroTrending.length > 0 && <h3 className='hero__images__title'>{heroTrending[3].title}<span>{heroTrending[3].release_date.split('-', 1)}</span></h3>}
+              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending.results[3].id, heroTrending.category)}>
+                {heroTrending.results.length > 0 && <img className='hero__images__image-container__image' src={`https://image.tmdb.org/t/p/w780${heroTrending.results[3].backdrop_path}`} alt={filterTitle(heroTrending.results[3])}/>}
+
+                {heroTrending.results.length > 0 && 
+                  <div className="hero__images__image-container__details">
+                    <h3 className='hero__images__image-container__details__title'>{filterTitle(heroTrending.results[3])}<span>{filterYear(heroTrending.results[3])}</span></h3>
+                  </div>
+                }
               </div>
               {/* Image 5 */}
-              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending[4].id, 'movie')}>
-                {heroTrending.length > 0 && <img className="hero__images__image" src={`https://image.tmdb.org/t/p/w780${heroTrending[4].backdrop_path}`} alt={heroTrending[4].title}/>}
-                {heroTrending.length > 0 && <h3 className='hero__images__title'>{heroTrending[4].title}<span>{heroTrending[4].release_date.split('-', 1)}</span></h3>}
+              <div className="hero__images__image-container" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} onClick={() => openModal(heroTrending.results[4].id, heroTrending.category)}>
+                {heroTrending.results.length > 0 && <img className='hero__images__image-container__image' src={`https://image.tmdb.org/t/p/w780${heroTrending.results[4].backdrop_path}`} alt={filterTitle(heroTrending.results[4])}/>}
+
+                {heroTrending.results.length > 0 && 
+                  <div className="hero__images__image-container__details">
+                    <h3 className='hero__images__image-container__details__title'>{filterTitle(heroTrending.results[4])}<span>{filterYear(heroTrending.results[4])}</span></h3>
+                  </div>
+                }
               </div>    
             </div>
             <button aria-label="right-navigation-arrow" className="hero__navigation-arrow right-arrow" onClick={nextImage}><i className="fa-solid fa-chevron-right fa-2x"></i></button>
