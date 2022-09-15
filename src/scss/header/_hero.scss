@@ -39,7 +39,7 @@
                     width: 100%;
                 }
     
-                width: 80%;
+                width: 70%;
                 border-radius: 10px;
                 cursor: pointer;
             }
@@ -54,7 +54,7 @@
                 bottom: 0;
                 left: 0;
                 right: 0;
-                width: 80%;
+                width: 70%;
                 margin-inline: auto;
                 text-align: left;
                 border-radius: 10px;
@@ -128,8 +128,8 @@
                 height: 5px;      
             }
 
-            width: 7px;
-            height: 7px;
+            width: 6px;
+            height: 6px;
             background-color: rgb(95, 95, 95);
             border-radius: 50%;
             transition: transform .5s ease-in-out;
@@ -140,8 +140,8 @@
                     height: 8px;      
                 }
                 background-color: $primary-text-color;
-                width: 10px;
-                height: 10px;
+                width: 9px;
+                height: 9px;
             }
         }
     }

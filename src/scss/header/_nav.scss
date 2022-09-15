@@ -14,16 +14,13 @@ nav {
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.753);
     
     .nav {
-        padding: .6rem 1.5rem;
+        padding: .5rem 1.5rem;
         text-align: center;
 
         h3 {
-            @include media-mobile {
-                font-size: 1rem;
-            }
             font-family: 'MylodonRegular';
             letter-spacing: 5px;
-            font-size: 1.1rem;
+            font-size: .9rem;
 
             a {
                 color: $primary-text-color;
