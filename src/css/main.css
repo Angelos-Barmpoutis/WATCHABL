@@ -1640,13 +1640,13 @@ h5 {
 .sneakpeak__results__card__image {
   border-radius: 10px;
   margin-bottom: 0.5rem;
-  max-width: 135px;
-  height: 199.8px;
+  width: 135px;
+  height: 202.5px;
 }
 @media only screen and (max-width: 569px) {
   .sneakpeak__results__card__image {
-    max-width: 106px;
-    height: 145.22px;
+    width: 106px;
+    height: 159px;
   }
 }
 .sneakpeak__results__card__title {

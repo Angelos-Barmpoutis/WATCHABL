@@ -86,14 +86,14 @@
 
             &__image {
                 @include media-mobile {
-                    max-width: 106px;
-                    height: 145.22px;
+                    width: 106px;
+                    height: 159px;
                 }
 
                 border-radius: 10px;
                 margin-bottom: .5rem;
-                max-width: 135px;
-                height: 199.8px;
+                width: 135px;
+                height: 202.5px;
             }
 
             &__title {
