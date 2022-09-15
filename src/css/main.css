@@ -1595,13 +1595,14 @@ h5 {
 }
 .sneakpeak__results {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 145px);
+  grid-template-columns: repeat(auto-fill, 135px);
   justify-content: left;
   border-radius: 10px;
   padding: 1.5rem;
   row-gap: 1.7rem;
-  column-gap: 3rem;
+  column-gap: 2.7rem;
   justify-content: space-around;
+  align-items: start;
 }
 @media screen and (max-width: 850px) {
   .sneakpeak__results {
@@ -1617,9 +1618,8 @@ h5 {
 }
 .sneakpeak__results__card {
   font-family: inherit;
-  max-width: 145px;
+  max-width: 135px;
   margin: 0 auto;
-  align-items: start;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
@@ -1640,13 +1640,12 @@ h5 {
 .sneakpeak__results__card__image {
   border-radius: 10px;
   margin-bottom: 0.5rem;
-  max-width: 145px;
-  height: 217.5px;
+  max-width: 135px;
+  height: 199.8px;
 }
 @media only screen and (max-width: 569px) {
   .sneakpeak__results__card__image {
     max-width: 106px;
-    height: auto;
     height: 145.22px;
   }
 }
