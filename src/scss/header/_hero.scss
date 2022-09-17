@@ -70,6 +70,7 @@
                         padding-block: .8rem;
                     }
         
+                    font-family: 'Heebo', sans-serif;
                     color: $primary-text-color;
                     font-size: 1.3rem;
                     font-weight: 500;
@@ -80,7 +81,8 @@
                         @include media-tablet {
                             font-size: 1rem;
                         }
-                        color: rgb(146, 144, 144);
+
+                        color: $secondary-text-color;
                         display: block;
                         font-size: 1.2rem;
                         line-height: 1.5;
@@ -130,7 +132,7 @@
 
             width: 6px;
             height: 6px;
-            background-color: rgb(95, 95, 95);
+            background-color: $secondary-text-color;
             border-radius: 50%;
             transition: transform .5s ease-in-out;
 
