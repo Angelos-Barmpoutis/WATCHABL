@@ -64,6 +64,10 @@ const Modal = ({modal, closeModal}) => {
                             </div>
                         </div>
 
+                        <div className="modal__details__genres">
+                            {modal.results.genres && genresNames}
+                        </div>
+
                         {modal.results.tagline
                         && <p className="modal__details__tagline">
                                 <i>{modal.results.tagline}</i>
@@ -75,10 +79,6 @@ const Modal = ({modal, closeModal}) => {
                                     {modal.results.overview}
                                 </p>
                         </div>}
-
-                        <div className="modal__details__genres">
-                            {modal.results.genres && genresNames}
-                        </div>
                         
                         <div className="modal__details__stats">
                             {modal.results.type
