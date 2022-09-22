@@ -114,14 +114,8 @@ const Modal = ({modal, closeModal}) => {
 
                             {modal.results.vote_average !== 0
                                 && <div className="modal__details__stats__item">
-                                        <h3>Average Rating:</h3>
-                                        <p>{modal.results.vote_average !== 0 && modal.results.vote_average !== 10 ? modal.results.vote_average.toFixed(1) : modal.results.vote_average}</p>
-                            </div>}
-
-                            {modal.results.vote_count !== 0
-                                && <div className="modal__details__stats__item">
-                                        <h3>Votes:</h3>
-                                        <p>{modal.results.vote_count}</p>
+                                        <h3>Rating:</h3>
+                                        <p>{modal.results.vote_average !== 0 && modal.results.vote_average !== 10 ? modal.results.vote_average.toFixed(1) : modal.results.vote_average} ({modal.results.vote_count})</p>
                             </div>}
                         </div>
 

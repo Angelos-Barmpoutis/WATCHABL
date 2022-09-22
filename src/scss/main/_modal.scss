@@ -158,6 +158,7 @@ h5 {
                     align-items: center;
                     flex-wrap: wrap;
                     gap: .8rem;
+                    margin-block: 1.5rem;
 
                     &__genre {
                         color: rgb(79, 168, 250);
@@ -169,7 +170,6 @@ h5 {
                         align-items: center;
                         font-weight: 500;
                         letter-spacing: .5px;
-                        margin-block: 1.5rem;
                     }
                 }
 
@@ -185,8 +185,8 @@ h5 {
                     }
                     max-width: 90%;
                     font-size: 1.1rem;
-                    margin-bottom: 1rem;
-                    padding-block: 1rem;
+                    margin-top: 1rem;
+                    padding-bottom: 1rem;
                 }
 
                 &__stats {
