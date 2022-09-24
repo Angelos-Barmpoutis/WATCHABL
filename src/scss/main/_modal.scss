@@ -136,7 +136,8 @@ h5 {
                             color: $primary-text-color;
                             font-size: 1.4rem;
                             font-weight: 600;
-                            line-height: 1.4;
+                            line-height: 1.1;
+                            padding-bottom: .2rem;
                         }
 
                         p {
@@ -167,7 +168,7 @@ h5 {
                     margin-top: 1.5rem;
 
                     &__genre {
-                        color: rgb(79, 168, 250);
+                        color: rgb(72, 122, 216);
                         padding: .6rem .9rem ;
                         background-color: rgba(45, 58, 107, 0.301);
                         border-radius: 10px;
@@ -197,7 +198,7 @@ h5 {
                     margin-block: 1.5rem;
                     border-radius: 10px;
                     background-color: rgb(20, 22, 31);
-                    padding-inline: 1rem;
+                    padding-inline: .7rem;
 
                     &__item {
                         display: flex;
