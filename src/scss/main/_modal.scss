@@ -223,7 +223,7 @@ h5 {
                         }
 
                         &:not(:nth-last-child(1)) > div {
-                            border-bottom: 1px solid rgb(69, 68, 68);
+                            border-bottom: 1px solid rgba(69, 68, 68, 0.486);
                         }
                     }
                 }
