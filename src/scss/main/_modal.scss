@@ -26,6 +26,9 @@ h5 {
     z-index: 11;
 
         ::-webkit-scrollbar {
+            @include media-mobile {
+                width: 4px;
+            }
             width: 0;
             height: 4px;
         }

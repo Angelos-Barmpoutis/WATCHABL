@@ -1202,6 +1202,11 @@ h5 {
   width: 0;
   height: 4px;
 }
+@media only screen and (max-width: 569px) {
+  .modal-container ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
 .modal-container .modal {
   font-family: inherit;
   width: clamp(30%, 1024px, 80%);
