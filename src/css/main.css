@@ -1364,7 +1364,7 @@ h5 {
 .modal-container .modal__details__stats {
   margin-block: 1.5rem;
   border-radius: 10px;
-  background-color: rgb(11, 15, 29);
+  background-color: rgb(20, 22, 31);
   padding-inline: 0.7rem;
 }
 .modal-container .modal__details__stats__item {
@@ -1395,7 +1395,7 @@ h5 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.418);
+  background-color: rgba(0, 0, 0, 0.623);
   z-index: 10;
   backdrop-filter: blur(19px);
 }
