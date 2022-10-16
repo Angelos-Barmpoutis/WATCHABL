@@ -4,7 +4,7 @@
     @include media-mobile{
         margin-bottom: 1.5rem;
         gap: .6rem;
-        height: 110px;
+        height: 140px;
     }
     
     display: flex;
@@ -26,7 +26,7 @@
 
     &__image {
         @include media-mobile {
-            max-width: 87.83px;
+            max-width: 93.33px;
         }
         border-radius: 10px;
         display: inline-block;
@@ -58,7 +58,7 @@
 
             font-family: 'Heebo', sans-serif;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: .1px;
             color: $primary-text-color;
             line-height: 1.2;

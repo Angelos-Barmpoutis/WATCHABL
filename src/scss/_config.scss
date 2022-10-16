@@ -24,6 +24,12 @@ $secondary-text-color: #8b8da5;
     100% {opacity: 1;}
 }
 
+@keyframes spread {
+    0% {letter-spacing: 0;}
+
+    100% {letter-spacing: 15px;}
+}
+
 @keyframes slideInLeft {
     0% {
         width: 100%;
@@ -71,7 +77,7 @@ $secondary-text-color: #8b8da5;
 // UTILITY CLASSES
 .wrapper {
     @include media-mobile {
-        padding: 1.2rem 1rem;
+        padding: 2rem 1rem;
     }
     max-width: 1920px;
     margin-inline: auto;

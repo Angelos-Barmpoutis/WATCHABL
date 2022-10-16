@@ -68,7 +68,6 @@ const Modal = ({modal, closeModal}) => {
                     <section className="modal__details">
                         <div className="modal__details__profile">
                             {modal.results.poster_path !== null &&<img
-                                loading="lazy"  
                                 src={`https://image.tmdb.org/t/p/w342${modal.results.poster_path}`}
                                 alt={modal.results.title}
                                 className='modal__details__profile__image'

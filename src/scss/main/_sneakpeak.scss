@@ -2,6 +2,8 @@
 
 .sneakpeak {
     font-family: inherit;
+    // border: 1px solid red;
+    position: relative;
 
     &-header {
         display: flex;
@@ -15,7 +17,7 @@
 
             font-family: 'Poppins', sans-serif;
             color: $primary-text-color;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.4rem;
             text-decoration: none;
         }

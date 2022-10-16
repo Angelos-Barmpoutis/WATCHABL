@@ -8,8 +8,7 @@ nav {
     z-index: 11;
     backdrop-filter: blur(10px);
     background-color: rgba(0, 0, 0, 0.365); 
-    border: 1px solid rgba(255, 255, 255, 0.185);
-    border-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.096);
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.753);
     
     .nav {
@@ -18,12 +17,13 @@ nav {
 
         h3 {
             font-family: 'MylodonRegular';
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             font-size: .9rem;
 
             a {
                 color: $primary-text-color;
                 text-decoration: none;
+                animation: spread 1.2s ease forwards;
             }
         }
     }
