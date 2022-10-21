@@ -1,0 +1,188 @@
+<div className="hero wrapper">
+  <div className="hero__images">
+    {/* Image  1 */}
+
+    {heroTrending.results.length > 0 && (
+      <div
+        className="hero__images__image-container"
+        onClick={() =>
+          openModal(heroTrending.results[0].id, heroTrending.category)
+        }
+      >
+        <img
+          className="hero__images__image-container__image"
+          src={`https://image.tmdb.org/t/p/w780${heroTrending.results[0].backdrop_path}`}
+          alt={filterTitle(heroTrending.results[0])}
+        />
+        <div className="hero__images__image-container__details">
+          <h3 className="hero__images__image-container__details__title">
+            {filterTitle(heroTrending.results[0])}
+            <span>{filterYear(heroTrending.results[0])}</span>
+          </h3>
+        </div>
+      </div>
+    )}
+
+    {heroTrending.results.length > 0 && (
+      <img
+        className="hero__images__image-container__image"
+        src={`https://image.tmdb.org/t/p/w780${heroTrending.results[0].backdrop_path}`}
+        alt={filterTitle(heroTrending.results[0])}
+      />
+    )}
+
+    {/* Image 2 */}
+    <div
+      className="hero__images__image-container"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onClick={() =>
+        openModal(heroTrending.results[1].id, heroTrending.category)
+      }
+    >
+      {heroTrending.results.length > 0 && (
+        <img
+          className="hero__images__image-container__image"
+          src={`https://image.tmdb.org/t/p/w780${heroTrending.results[1].backdrop_path}`}
+          alt={filterTitle(heroTrending.results[1])}
+        />
+      )}
+
+      {heroTrending.results.length > 0 && (
+        <div className="hero__images__image-container__details">
+          <h3 className="hero__images__image-container__details__title">
+            {filterTitle(heroTrending.results[1])}
+            <span>{filterYear(heroTrending.results[1])}</span>
+          </h3>
+        </div>
+      )}
+    </div>
+    {/* Image 3 */}
+    <div
+      className="hero__images__image-container"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onClick={() =>
+        openModal(heroTrending.results[2].id, heroTrending.category)
+      }
+    >
+      {heroTrending.results.length > 0 && (
+        <img
+          className="hero__images__image-container__image"
+          src={`https://image.tmdb.org/t/p/w780${heroTrending.results[2].backdrop_path}`}
+          alt={filterTitle(heroTrending.results[2])}
+        />
+      )}
+
+      {heroTrending.results.length > 0 && (
+        <div className="hero__images__image-container__details">
+          <h3 className="hero__images__image-container__details__title">
+            {filterTitle(heroTrending.results[2])}
+            <span>{filterYear(heroTrending.results[2])}</span>
+          </h3>
+        </div>
+      )}
+    </div>
+    {/* Image 4 */}
+    <div
+      className="hero__images__image-container"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onClick={() =>
+        openModal(heroTrending.results[3].id, heroTrending.category)
+      }
+    >
+      {heroTrending.results.length > 0 && (
+        <img
+          className="hero__images__image-container__image"
+          src={`https://image.tmdb.org/t/p/w780${heroTrending.results[3].backdrop_path}`}
+          alt={filterTitle(heroTrending.results[3])}
+        />
+      )}
+
+      {heroTrending.results.length > 0 && (
+        <div className="hero__images__image-container__details">
+          <h3 className="hero__images__image-container__details__title">
+            {filterTitle(heroTrending.results[3])}
+            <span>{filterYear(heroTrending.results[3])}</span>
+          </h3>
+        </div>
+      )}
+    </div>
+    {/* Image 5 */}
+    <div
+      className="hero__images__image-container"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onClick={() =>
+        openModal(heroTrending.results[4].id, heroTrending.category)
+      }
+    >
+      {heroTrending.results.length > 0 && (
+        <img
+          className="hero__images__image-container__image"
+          src={`https://image.tmdb.org/t/p/w780${heroTrending.results[4].backdrop_path}`}
+          alt={filterTitle(heroTrending.results[4])}
+        />
+      )}
+
+      {heroTrending.results.length > 0 && (
+        <div className="hero__images__image-container__details">
+          <h3 className="hero__images__image-container__details__title">
+            {filterTitle(heroTrending.results[4])}
+            <span>{filterYear(heroTrending.results[4])}</span>
+          </h3>
+        </div>
+      )}
+    </div>
+  </div>
+  <button
+    aria-label="right-navigation-arrow"
+    className="hero__navigation-arrow right-arrow"
+    onClick={nextImage}
+  >
+    <i className="fa-solid fa-chevron-right fa-2x"></i>
+  </button>
+
+  <div className="hero__navigation-circles">
+    <div
+      className={
+        circles === 0
+          ? "hero__navigation-circles__circle active"
+          : "hero__navigation-circles__circle"
+      }
+    ></div>
+    <div
+      className={
+        circles === 1
+          ? "hero__navigation-circles__circle active"
+          : "hero__navigation-circles__circle"
+      }
+    ></div>
+    <div
+      className={
+        circles === 2
+          ? "hero__navigation-circles__circle active"
+          : "hero__navigation-circles__circle"
+      }
+    ></div>
+    <div
+      className={
+        circles === 3
+          ? "hero__navigation-circles__circle active"
+          : "hero__navigation-circles__circle"
+      }
+    ></div>
+    <div
+      className={
+        circles === 4
+          ? "hero__navigation-circles__circle active"
+          : "hero__navigation-circles__circle"
+      }
+    ></div>
+  </div>
+</div>;

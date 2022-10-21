@@ -64,37 +64,32 @@ body {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/public/images/bg-gradient.webp') no-repeat center center/cover;
 
     .container {
-        width: 100%;
+        @include media-tablet {
+            grid-template-columns: 1fr;
+            grid-template-areas: 'header'
+            'movies'
+            'aside'
+            'footer';
+        }
+
+        margin: 0 auto;
         min-height: 100vh;
+        display: grid;
+        grid-template-areas: 'header header'
+        'movies aside'
+        'footer footer';
+        grid-template-columns: 3fr 1fr;
+        max-width: 1440px;
         
-        .main-aside {
-            @include media-tablet {
-                grid-template-columns: 1fr;
-            }
-            display: grid;
-            grid-template-columns: 4fr 1fr;
-            max-width: 1440px;
-            margin: 0 auto;
+        header {
+            grid-area: header;
         }
 
         main {
-            .page-title {
-                @include media-mobile {
-                    font-size: 1.4rem;
-                }
-
-                text-align: center;
-                color: $primary-text-color;
-                font-size: 1.8rem;
-                font-weight: 600;
-                padding-inline: 1rem;
-                letter-spacing: .6px;
-
-                span {
-                    color: rgb(0, 128, 255);
-                }
-            }
-
+            grid-area: movies;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            
             .categories-search-container {
                 display: flex;
                 flex-wrap: nowrap;
@@ -106,6 +101,7 @@ body {
                 @include media-mobile {
                     width: 150px;
                 }
+                
                 background-color: transparent;
                 color: #dcdde1;
                 border: 1px solid $secondary-color;
@@ -202,12 +198,14 @@ body {
                 border-top: 1px solid rgba(255, 255, 255, 0.07);
                 max-width: 100%;
             }
+            grid-area: aside;
             border-left: 1px solid rgba(255, 255, 255, 0.07);
             color: #dcdde1;
             max-width: 330px;
         }
         
         footer {
+            grid-area: footer;
             color: $secondary-text-color;
             text-align: center;
             background-color: rgba(0, 0, 0, 0.089);

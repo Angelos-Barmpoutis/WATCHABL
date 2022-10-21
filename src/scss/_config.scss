@@ -77,8 +77,9 @@ $secondary-text-color: #8b8da5;
 // UTILITY CLASSES
 .wrapper {
     @include media-mobile {
-        padding: 2rem 1rem;
+        padding: 1.2rem 1rem;
     }
+
     max-width: 1920px;
     margin-inline: auto;
     padding: 1.2rem 1.5rem;
@@ -93,7 +94,7 @@ $secondary-text-color: #8b8da5;
 
     &__category {
         @include media-tablet {
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         font-family: 'Poppins', sans-serif;
@@ -144,7 +145,7 @@ $secondary-text-color: #8b8da5;
     text-align: center;
     border-radius: 10px;
     border: none;
-    font-size: .95rem;
+    font-size: 1rem;
     color: rgb(45, 148, 245);
     text-decoration: none;
     font-weight: 600;
@@ -164,10 +165,6 @@ $secondary-text-color: #8b8da5;
 }
 
 .title {
-    @include media-mobile {
-        font-size: 1.2rem;
-    }
-
     font-family: 'Poppins', sans-serif;
     color: $primary-text-color;
     font-weight: 600;

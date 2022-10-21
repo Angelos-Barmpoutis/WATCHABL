@@ -11,10 +11,6 @@
     }
 
     &__title {
-        @include media-mobile {
-            font-size: 1.2rem;
-        }
-
         font-family: 'Poppins', sans-serif;
         color: $primary-text-color;
         font-weight: 600;

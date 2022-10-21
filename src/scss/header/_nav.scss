@@ -16,6 +16,9 @@ nav {
         text-align: center;
 
         h3 {
+            @include media-tablet{
+                font-size: .8rem;
+            }
             font-family: 'MylodonRegular';
             letter-spacing: 3px;
             font-size: .9rem;
