@@ -23,7 +23,7 @@ const Hero = ({ heroTrending, openModal }) => {
     <div className="wrapper">
       <Swiper
         speed={600}
-        spaceBetween={0}
+        spaceBetween={50}
         slidesPerView={1}
         autoplay={{
           delay: 2000,

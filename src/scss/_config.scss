@@ -1,3 +1,6 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@500&family=Poppins:wght@600&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
 // MEDIA QUERIES
 @mixin media-tablet {
     @media screen and (max-width: 850px) {
@@ -94,7 +97,7 @@ $secondary-text-color: #8b8da5;
 
     &__category {
         @include media-tablet {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         font-family: 'Poppins', sans-serif;
